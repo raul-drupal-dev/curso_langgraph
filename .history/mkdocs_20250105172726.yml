@@ -1,0 +1,56 @@
+site_name: Curso Completo de LangGraph
+site_url: https://raul-drupal-dev.github.io/curso_langgraph/
+theme:
+  name: material  # Tema de MkDocs (Material para una experiencia moderna)
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - toc.follow
+    - content.tabs.link
+    - search.share
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotations
+nav:
+  - "Inicio": 
+      - "🙋‍♂️ Bienvenida": index.md
+      - "📚 Curso 1: Fundamentos de LangGraph": curso1/index.md
+      - "⚙️ Curso 2: Aplicaciones Avanzadas": curso2/index.md
+      - "🚀 Curso 3: Despliegue y Proyecto Final": curso3/index.md
+  - "📚 Curso 1: Fundamentos de LangGraph":
+      - "Introducción": curso1/index.md
+      - "Tema 1: Nodos": curso1/tema1_nodos.md
+      - "Tema 2: Edges (Conexiones)": curso1/tema2_edges.md
+      - "Tema 3: State Schema y Memoria": curso1/tema3_state_schema.md
+      - "Tema 4: Chains y Flujos de Trabajo": curso1/tema4_chains.md
+      - "Tema 5: Routers": curso1/tema5_routers.md
+      - "Tema 6: Reducers": curso1/tema6_reducers.md
+      - "Tema 7: Trim y Filtrado de Mensajes": curso1/tema7_trim_filter.md
+  - "⚙️ Curso 2: Aplicaciones Avanzadas":
+      - "Introducción": curso2/index.md
+      - "Tema 1: Chatbot Summarizing": curso2/tema1_chatbot.md
+      - "Tema 2: Human in the Loop": curso2/tema2_human_loop.md
+      - "Tema 3: Streaming y Breakpoints": curso2/tema3_streaming.md
+      - "Tema 4: Paralelismo": curso2/tema4_parallelism.md
+      - "Tema 5: Subgrafías (Sub-graphs)": curso2/tema5_sub_graphs.md
+      - "Tema 6: Mapas": curso2/tema6_maps.md
+      - "Tema 7: RAG (Retrieval-Augmented Generation)": curso2/tema7_rag.md
+      - "Tema 8: LangGraph Studio": curso2/tema8_langgraph_studio.md
+      - "Tema 9: LangSmith": curso2/tema9_langsmith.md
+  - "🚀 Curso 3: Despliegue y Proyecto Final":
+      - "Introducción": curso3/index.md
+      - "Tema 1: Long Memory": curso3/tema1_long_memory.md
+      - "Tema 2: LangGraph Store": curso3/tema2_langgraph_store.md
+      - "Tema 3: Memory Schema": curso3/tema3_memory_schema.md
+      - "Tema 4: Despliegue de LangGraph": curso3/tema4_deployments.md
+      - "Tema 5: LangGraph CLI": curso3/tema5_langgraph_cli.md
+      - "Tema 6: LangGraph Server": curso3/tema6_langgraph_server.md
+      - "Tema 7: API REST/GraphQL": curso3/tema7_api_rest.md
+  - "🛠️ Curso 4: Proyecto Final y Extensiones":
+      - "Introducción": curso4/index.md
+  - "📄 Recursos Adicionales":
+      - "Diapositivas": assets/slides.md
+      - "Referencias": assets/referencias.md

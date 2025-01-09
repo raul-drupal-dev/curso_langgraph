@@ -1,0 +1,31 @@
+site_name: Curso Completo de LangGraph
+site_url: https://raul-drupal-dev.github.io/curso_langgraph/
+theme:
+  name: material  # Tema de MkDocs (Material para una experiencia moderna)
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+nav:
+  - Inicio: index.md
+  - 📚 Curso 1: Fundamentos de LangGraph:
+      - Introducción: curso1/index.md
+      - "Tema 1: Nodos": curso1/tema1_nodos.md
+      - Tema 2: Edges (Conexiones): curso1/tema2_edges.md
+      - Tema 3: State Schema y Memoria: curso1/tema3_state_schema.md
+      - Tema 4: Chains y Flujos de Trabajo: curso1/tema4_chains.md
+  - ⚙️ Curso 2: Aplicaciones Avanzadas:
+      - Introducción: curso2/index.md
+      - Tema 1: Chatbot Summarizing: curso2/tema1_chatbot.md
+      - Tema 2: Human in the Loop: curso2/tema2_human_loop.md
+      - Tema 3: Streaming y Breakpoints: curso2/tema3_streaming.md
+      - Tema 4: Paralelismo y Subgrafías: curso2/tema4_parallelism.md
+  - 🚀 Curso 3: Despliegue y Proyecto Final:
+      - Introducción: curso3/index.md
+      - Tema 1: Long Memory: curso3/tema1_long_memory.md
+      - Tema 2: Despliegue de LangGraph: curso3/tema2_deployments.md
+      - Tema 3: API REST/GraphQL: curso3/tema3_api.md
+  - 📄 Recursos Adicionales:
+      - Diapositivas: assets/slides.md
+      - Referencias: assets/referencias.md

@@ -1,0 +1,4 @@
+site_name: Curso Langgraph
+site_url: https://raul-drupal-dev.github.io/curso_langgraph/
+theme:
+  name: material

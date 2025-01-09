@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Tema 5: Chains y Flujos de Trabajo - Curso Completo de LangGraph</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        <link rel="canonical" href="https://raul-drupal-dev.github.io/curso_langgraph/curso1/tema5_chains/">
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/atom-one-dark.min.css">
+        
+
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../assets/css/mkdocs.min.css">
+            <link href="../../assets/stylesheets/extra.css" rel="stylesheet">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../assets/img/theme/raul.png">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+            <img class="logo" src="../../assets/img/theme/raul.png" height="150px">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">Curso Completo de LangGraph</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#introducción-collapse" aria-expanded="false">
+                    Introducción
+                </a>
+                <div class="collapse" id="introducción-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../.."
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            🙋‍♂️ Bienvenida
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            📚 Curso 1: Fundamentos de LangGraph
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            ⚙️ Curso 2: Aplicaciones Avanzadas
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            🚀 Curso 3: Despliegue y Proyecto Final
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#📚-curso-1:-fundamentos-de-langgraph-collapse" aria-expanded="false">
+                    📚 Curso 1: Fundamentos de LangGraph
+                </a>
+                <div class="collapse" id="📚-curso-1:-fundamentos-de-langgraph-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            📚 Curso 1: Fundamentos de LangGraph
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema1_nodos/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 1: Nodos
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema2_edges/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 2: Edges (Conexiones)
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema3_state_schema/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 3: State Schema
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema4_memory/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 4: Memoria
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 5: Chains y Flujos de Trabajo
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema6_routers/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 6: Routers
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema7_reducers/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 7: Reducers
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema8_tools/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 8: Tools
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema9_trim_filter/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 9: Trim y Filtrado de Mensajes
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#⚙️-curso-2:-aplicaciones-avanzadas-collapse" aria-expanded="false">
+                    ⚙️ Curso 2: Aplicaciones Avanzadas
+                </a>
+                <div class="collapse" id="⚙️-curso-2:-aplicaciones-avanzadas-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            ⚙️ Curso 2: Aplicaciones Avanzadas
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema1_chatbot/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 1: Chatbot Summarizing
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema2_human_loop/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 2: Human in the Loop
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema3_streaming/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 3: Streaming y Breakpoints
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema4_parallelism/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 4: Paralelismo
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema5_sub_graphs/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 5: Subgrafías (Sub-graphs)
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema6_maps/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 6: Mapas
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema7_rag/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 7: RAG (Retrieval-Augmented Generation)
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema8_langgraph_studio/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 8: LangGraph Studio
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema9_langsmith/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 9: LangSmith
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🚀-curso-3:-despliegue-y-proyecto-final-collapse" aria-expanded="false">
+                    🚀 Curso 3: Despliegue y Proyecto Final
+                </a>
+                <div class="collapse" id="🚀-curso-3:-despliegue-y-proyecto-final-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            🚀 Curso 3: Despliegue y Proyecto Final
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema1_long_memory/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 1: Long Memory
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema2_langgraph_store/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 2: LangGraph Store
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema3_memory_schema/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 3: Memory Schema
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema4_deployments/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 4: Despliegue de LangGraph
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema5_langgraph_cli/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 5: LangGraph CLI
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema6_langgraph_server/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 6: LangGraph Server
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema7_api_rest/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 7: API REST/GraphQL
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🛠️-curso-4:-proyecto-final-y-extensiones-collapse" aria-expanded="false">
+                    🛠️ Curso 4: Proyecto Final y Extensiones
+                </a>
+                <div class="collapse" id="🛠️-curso-4:-proyecto-final-y-extensiones-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso4/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Introducción
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../tema4_memory/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../tema6_routers/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="tema-5-chains-construccion-de-flujos-de-trabajo">🔗 Tema 5: Chains – Construcción de Flujos de Trabajo</h1>
+<h2 id="que-son-las-chains-en-langgraph">🚀 ¿Qué son las Chains en LangGraph?</h2>
+<p>Las <strong>Chains (cadenas)</strong> son uno de los componentes más esenciales dentro de LangGraph.<br />
+Permiten <strong>encadenar múltiples nodos y funciones</strong> para crear flujos de trabajo complejos y estructurados.  </p>
+<p>Piensa en las chains como una <strong>línea de montaje</strong>, donde cada nodo realiza una tarea específica y pasa el resultado al siguiente.  </p>
+<p>Esto permite dividir procesos en <strong>pasos más manejables y reutilizables</strong>. </p>
+<p>Sin embargo, no todos los flujos siguen un camino lineal. A veces, es necesario <strong>bifurcar el flujo</strong> en función de ciertas condiciones.  </p>
+<hr />
+<h3 id="por-que-usar-chains">🧠 ¿Por qué usar Chains?</h3>
+<ul>
+<li><strong>Modularidad:</strong> Dividir grandes procesos en nodos pequeños facilita el mantenimiento y la depuración.  </li>
+<li><strong>Reutilización:</strong> Las chains pueden componerse de nodos reutilizables en diferentes flujos.  </li>
+<li><strong>Escalabilidad:</strong> Permiten construir flujos extensibles que pueden crecer fácilmente añadiendo más nodos.  </li>
+</ul>
+<hr />
+<h2 id="como-se-define-una-chain">⚙️ ¿Cómo se Define una Chain?</h2>
+<p>Crear una chain en LangGraph implica:<br />
+1. <strong>Definir nodos individuales.</strong><br />
+2. <strong>Encadenar esos nodos en una secuencia lógica.</strong><br />
+3. <strong>Permitir bifurcaciones condicionales si es necesario.</strong>  </p>
+<p>Además de encadenar nodos de forma secuencial, podemos agregar <strong>bifurcaciones condicionales</strong> para que el grafo tome diferentes rutas según el estado actual.  </p>
+<hr />
+<h3 id="ejemplo-practico-creacion-de-una-chain">📋 Ejemplo Práctico: Creación de una Chain</h3>
+<p>Vamos a construir un flujo simple que:<br />
+1. Reciba el nombre del usuario.<br />
+2. Salude al usuario.<br />
+3. <strong>Sugiera una actividad diferente según la hora del día (mañana o tarde).</strong>  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">class</span> <span class="nc">State</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">def</span> <span class="nf">user_input</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Nodo 1: Entrada del Usuario ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">state</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Raul&quot;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">return</span> <span class="n">state</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">def</span> <span class="nf">greet_user</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Nodo 2: Saludo ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">state</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hola </span><span class="si">{</span><span class="n">state</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, ¡bienvenido de nuevo!&quot;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="k">return</span> <span class="n">state</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="k">def</span> <span class="nf">suggest_morning</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Nodo 3: Mañana ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">state</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot; Te recomiendo empezar el día con un café ☕️&quot;</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="k">return</span> <span class="n">state</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">def</span> <span class="nf">suggest_afternoon</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Nodo 4: Tarde ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="n">state</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot; ¿Qué tal salir a dar un paseo por la tarde? 🚶‍♂️&quot;</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="k">return</span> <span class="n">state</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="k">def</span> <span class="nf">decide_path</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    <span class="n">hour</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">hour</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">12</span> <span class="k">else</span> <span class="kc">False</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Nodo 1 (user_input):</strong> Recoge el nombre del usuario.  </li>
+<li><strong>Nodo 2 (greet_user):</strong> Genera un saludo personalizado.  </li>
+<li><strong>Nodo 3 y Nodo 4 (suggest_morning/suggest_afternoon):</strong>  <ul>
+<li>Si es por la mañana, el flujo sugiere tomar un café.  </li>
+<li>Si es por la tarde, se recomienda dar un paseo.  </li>
+</ul>
+</li>
+<li><strong>Función <code>decide_path</code>:</strong> Evalúa la hora actual para bifurcar el flujo hacia el nodo adecuado.   </li>
+</ul>
+<hr />
+<h2 id="construccion-del-grafo-con-chains">🏗️ Construcción del Grafo con Chains</h2>
+<p>Encadenamos los nodos en secuencia para formar la chain completa.<br />
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">langgraph.graph</span> <span class="kn">import</span> <span class="n">StateGraph</span><span class="p">,</span> <span class="n">START</span><span class="p">,</span> <span class="n">END</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;user_input&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;greet_user&quot;</span><span class="p">,</span> <span class="n">greet_user</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;suggest_morning&quot;</span><span class="p">,</span> <span class="n">suggest_morning</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;suggest_afternoon&quot;</span><span class="p">,</span> <span class="n">suggest_afternoon</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;user_input&quot;</span><span class="p">)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;user_input&quot;</span><span class="p">,</span> <span class="s2">&quot;greet_user&quot;</span><span class="p">)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_conditional_edges</span><span class="p">(</span><span class="s2">&quot;greet_user&quot;</span><span class="p">,</span> <span class="n">decide_path</span><span class="p">,</span> <span class="p">{</span><span class="kc">True</span><span class="p">:</span> <span class="s2">&quot;suggest_morning&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="s2">&quot;suggest_afternoon&quot;</span><span class="p">})</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;suggest_morning&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;suggest_afternoon&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="visualizacion-del-grafo">📈 Visualización del Grafo</h2>
+<p>Para observar cómo se estructura nuestro grafo, generamos una visualización:<br />
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">get_graph</span><span class="p">()</span><span class="o">.</span><span class="n">draw_mermaid_png</span><span class="p">()))</span>
+</span></code></pre></div></p>
+<p><img alt="grafo chain" src="../../assets/img/curso1/tema5/image.png" /></p>
+<hr />
+<h3 id="invocando-el-grafo">🚀 Invocando el Grafo</h3>
+<p>Ahora ejecutamos el grafo con una entrada simple.<br />
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">graph</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">})</span>
+</span></code></pre></div></p>
+<p><div class="language-python highlight"><span class="filename">Resultado 1</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">---</span> <span class="n">Nodo</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Entrada</span> <span class="k">del</span> <span class="n">Usuario</span> <span class="o">---</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">---</span> <span class="n">Nodo</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Saludo</span> <span class="o">---</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="o">---</span> <span class="n">Nodo</span> <span class="mi">3</span><span class="p">:</span> <span class="n">Mañana</span> <span class="o">---</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Raul&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Hola Raul, ¡bienvenido de nuevo! Te recomiendo empezar el día con un café ☕️&#39;</span><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Resultado 2</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">---</span> <span class="n">Nodo</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Entrada</span> <span class="k">del</span> <span class="n">Usuario</span> <span class="o">---</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">---</span> <span class="n">Nodo</span> <span class="mi">2</span><span class="p">:</span> <span class="n">Saludo</span> <span class="o">---</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">---</span> <span class="n">Nodo</span> <span class="mi">4</span><span class="p">:</span> <span class="n">Tarde</span> <span class="o">---</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Raul&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Hola Raul, ¡bienvenido de nuevo! ¿Qué tal salir a dar un paseo por la tarde? 🚶‍♂️&#39;</span><span class="p">}</span>
+</span></code></pre></div></p>
+<p>El grafo procesa cada nodo secuencialmente, generando una respuesta estructurada para el usuario.  </p>
+<hr />
+<h2 id="recursos">🔎 Recursos:</h2>
+<ul>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.941 4.976a7.03 7.03 0 0 0-4.93 2.064 7.033 7.033 0 0 0-.124 9.807l2.395-2.395a3.646 3.646 0 0 1 5.15-5.148l2.397-2.399a7.03 7.03 0 0 0-4.888-1.93m-9.871.01a7.03 7.03 0 0 0-4.888 1.931l2.391 2.391a3.643 3.643 0 0 1 5.023.127l1.734-2.973-.1-.08a7.03 7.03 0 0 0-4.16-1.396m15.01 2.172-2.39 2.39a3.646 3.646 0 0 1-5.15 5.15l-2.406 2.407a7.036 7.036 0 0 0 9.945-9.947m-20.148.01a7.033 7.033 0 0 0-.002 9.681l2.397-2.397a3.643 3.643 0 0 1-.004-4.892zm7.664 7.423a3.635 3.635 0 0 1-5.017.113L2.182 17.1a7.03 7.03 0 0 0 9.007.546l.137-.112z"/></svg></span> Ver notebook en <a href="https://colab.research.google.com/drive/1NkmMKV3cYHUOVoytv0FCRvO9WpwBQV0Y?usp=sharing">Google Colab</a></li>
+<li><img alt="📚" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" title=":books:" /> Definición <a href="https://langchain-ai.github.io/langgraph/concepts/low_level/#conditional-edges">Condition Edge</a></li>
+<li><img alt="📚" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" title=":books:" /> Clase <a href="https://langchain-ai.github.io/langgraph/reference/graphs/#langgraph.graph.graph.Graph">Condition Edge</a></li>
+</ul>
+<hr />
+<h2 id="que-hemos-aprendido">🧑‍🏫 ¿Qué Hemos Aprendido?</h2>
+<ul>
+<li><strong>Chains:</strong> Permiten conectar nodos en secuencia, formando flujos de trabajo escalables y reutilizables.  </li>
+<li><strong>Modularidad:</strong> Los nodos pueden realizar tareas pequeñas que, al combinarse, crean flujos más complejos.  </li>
+<li><strong>Chains Condicionales:</strong> Permiten bifurcar el flujo en función de valores dinámicos (como la hora o entradas del usuario).  </li>
+<li><strong>Encadenamiento Secuencial y Dinámico:</strong> Los flujos no siempre son lineales, y LangGraph permite construir grafos que se adaptan a diferentes situaciones.  </li>
+</ul>
+<hr />
+<h2 id="que-es-lo-siguiente">🌐 ¿Qué es lo Siguiente?</h2>
+<p>En el siguiente tema, exploraremos el uso de <strong>Routers</strong>, donde aprenderemos cómo crear bifurcaciones y poder redirigir el flujo para que tome diferentes caminos.  </p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../..';</script>
+        <script src="../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/mkdocs.js"></script>
+			<script src="../../search/main.js" defer></script>
+
+</body>
+
+</html>

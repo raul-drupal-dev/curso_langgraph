@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Tema 4: Memoria - Curso Completo de LangGraph</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        <link rel="canonical" href="https://raul-drupal-dev.github.io/curso_langgraph/curso1/tema4_memory/">
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/atom-one-dark.min.css">
+        
+
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../assets/css/mkdocs.min.css">
+            <link href="../../assets/stylesheets/extra.css" rel="stylesheet">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../assets/img/theme/raul.png">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+            <img class="logo" src="../../assets/img/theme/raul.png" height="150px">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">Curso Completo de LangGraph</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#introducción-collapse" aria-expanded="false">
+                    Introducción
+                </a>
+                <div class="collapse" id="introducción-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../.."
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            🙋‍♂️ Bienvenida
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            📚 Curso 1: Fundamentos de LangGraph
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            ⚙️ Curso 2: Aplicaciones Avanzadas
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            🚀 Curso 3: Despliegue y Proyecto Final
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#📚-curso-1:-fundamentos-de-langgraph-collapse" aria-expanded="false">
+                    📚 Curso 1: Fundamentos de LangGraph
+                </a>
+                <div class="collapse" id="📚-curso-1:-fundamentos-de-langgraph-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            📚 Curso 1: Fundamentos de LangGraph
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema1_nodos/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 1: Nodos
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema2_edges/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 2: Edges (Conexiones)
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema3_state_schema/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 3: State Schema
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 4: Memoria
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema5_chains/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 5: Chains y Flujos de Trabajo
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema6_routers/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 6: Routers
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema7_reducers/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 7: Reducers
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema8_tools/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 8: Tools
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema9_trim_filter/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 9: Trim y Filtrado de Mensajes
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#⚙️-curso-2:-aplicaciones-avanzadas-collapse" aria-expanded="false">
+                    ⚙️ Curso 2: Aplicaciones Avanzadas
+                </a>
+                <div class="collapse" id="⚙️-curso-2:-aplicaciones-avanzadas-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            ⚙️ Curso 2: Aplicaciones Avanzadas
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema1_chatbot/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 1: Chatbot Summarizing
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema2_human_loop/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 2: Human in the Loop
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema3_streaming/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 3: Streaming y Breakpoints
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema4_parallelism/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 4: Paralelismo
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema5_sub_graphs/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 5: Subgrafías (Sub-graphs)
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema6_maps/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 6: Mapas
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema7_rag/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 7: RAG (Retrieval-Augmented Generation)
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema8_langgraph_studio/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 8: LangGraph Studio
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema9_langsmith/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 9: LangSmith
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🚀-curso-3:-despliegue-y-proyecto-final-collapse" aria-expanded="false">
+                    🚀 Curso 3: Despliegue y Proyecto Final
+                </a>
+                <div class="collapse" id="🚀-curso-3:-despliegue-y-proyecto-final-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            🚀 Curso 3: Despliegue y Proyecto Final
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema1_long_memory/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 1: Long Memory
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema2_langgraph_store/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 2: LangGraph Store
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema3_memory_schema/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 3: Memory Schema
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema4_deployments/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 4: Despliegue de LangGraph
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema5_langgraph_cli/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 5: LangGraph CLI
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema6_langgraph_server/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 6: LangGraph Server
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema7_api_rest/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 7: API REST/GraphQL
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🛠️-curso-4:-proyecto-final-y-extensiones-collapse" aria-expanded="false">
+                    🛠️ Curso 4: Proyecto Final y Extensiones
+                </a>
+                <div class="collapse" id="🛠️-curso-4:-proyecto-final-y-extensiones-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso4/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Introducción
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../tema3_state_schema/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../tema5_chains/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="tema-4-memoria">🧠 Tema 4: Memoria</h1>
+<h2 id="que-es-el-la-memoria">🕵 ¿Qué es el la Memoria?</h2>
+<p>La memoria es la capacidad que tiene el grafo para <strong>recordar información</strong> a lo largo de múltiples invocaciones. Es especialmente útil cuando creamos chatbots o flujos conversacionales donde el contexto es crucial.  </p>
+<ul>
+<li><strong>Sin memoria:</strong> Cada vez que invocamos el grafo, comienza desde cero.  </li>
+<li><strong>Con memoria:</strong> El grafo guarda un historial de mensajes o datos, permitiendo respuestas basadas en todo el contexto anterior.  </li>
+</ul>
+<p><strong>¿Por qué es importante?</strong><br />
+- <strong>Persistencia de datos.</strong><br />
+- <strong>Toma de decisiones basadas en el contexto actual.</strong><br />
+- <strong>Mayor precisión en interacciones prolongadas.</strong>  </p>
+<hr />
+<h2 id="como-funciona">🛠️ ¿Cómo Funciona?</h2>
+<p>LangGraph ofrece varios tipos de memoria:  </p>
+<ol>
+<li>
+<p><strong>Memoria de Estado (State Memory):</strong>  </p>
+<ul>
+<li>El estado se transfiere de nodo a nodo, reteniendo información solo durante una invocación.  </li>
+</ul>
+</li>
+<li>
+<p><strong>Memoria de Corto Alcance (MemorySaver):</strong>  </p>
+<ul>
+<li>Guarda datos durante múltiples invocaciones, pero <strong>no persiste después de cerrar el programa.</strong>  </li>
+<li>Almacena la información en memoria volátil (RAM).  </li>
+<li>Ideal para flujos temporales que necesitan recordar el contexto durante la sesión actual.<br />
+   👉 <a href="https://langchain-ai.github.io/langgraph/reference/checkpoints/#langgraph.checkpoint.memory.MemorySaver">Documentación de MemorySaver</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Memoria Persistente (Postgres u otros):</strong>  </p>
+<ul>
+<li>Permite almacenar el historial en bases de datos externas (ej: PostgreSQL).  </li>
+<li><strong>Se verá en temas más avanzados.</strong>  </li>
+</ul>
+</li>
+<li>
+<p><strong>Memoria Transversal (Cross-Session Memory):</strong>  </p>
+<ul>
+<li>Conserva datos a lo largo de múltiples sesiones y usuarios.  </li>
+<li><strong>Se estudiará en profundidad en futuros módulos.</strong>  </li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="implementacion-de-memorysaver">🧩 Implementación de MemorySaver</h2>
+<p>Usando el ejemplo que vimos anteriormente en artículos pasados, vamos a definir un grafo sencillo para poder ver como actula el <strong>MemorySaver</strong>:  </p>
+<ol>
+<li><strong>CustomState:</strong> Definimos un custom state para almacenar los mensajes.</li>
+<li><strong>Nodo de entrada del usuario:</strong> Agrega el mensaje del usuario al estado.  </li>
+<li><strong>Nodo de respuesta de IA:</strong> El modelo de OpenAI (<code>gpt-4o-mini</code>) genera una respuesta basada en el historial.  </li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">AIMessage</span><span class="p">,</span> <span class="n">SystemMessage</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">class</span> <span class="nc">CustomState</span><span class="p">(</span><span class="n">MessagesState</span><span class="p">):</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">messages</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AIMessage</span> <span class="o">|</span> <span class="n">HumanMessage</span> <span class="o">|</span> <span class="n">SystemMessage</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Nodo de entrada del usuario</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">def</span> <span class="nf">user_input_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">CustomState</span><span class="p">):</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Usuario dice ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s1">&#39;messages&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;messages&#39;</span><span class="p">]}</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Nodo de IA (respuesta)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="k">def</span> <span class="nf">ai_response_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">CustomState</span><span class="p">):</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- IA responde ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s1">&#39;messages&#39;</span><span class="p">])</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;messages&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)]}</span>
+</span></code></pre></div>
+<ul>
+<li><strong><code>user_input_node:</code></strong> Toma el mensaje del usuario y lo guarda en el estado.  </li>
+<li><strong><code>ai_response_node:</code></strong> Usa el estado actual (historial) para generar una respuesta de IA.  </li>
+</ul>
+<hr />
+<h2 id="anadiendo-memoria-al-grafo">🏗️ Añadiendo Memoria al Grafo</h2>
+<p>Ahora implementaremos el <code>MemorySaver</code> para agregar memoria de corto alcance a nuestro grafo.  </p>
+<h3 id="grafo-sin-memoria">📋 Grafo sin Memoria</h3>
+<p>En el siguiente ejemplo, vamos a ver un grafo básico, como ya hemos visto hasta ahora, solamente para poder ver la diferencia para cuando le apliquemos nuestra memoria.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">langgraph.graph</span> <span class="kn">import</span> <span class="n">StateGraph</span><span class="p">,</span> <span class="n">START</span><span class="p">,</span> <span class="n">END</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;user_input&quot;</span><span class="p">,</span> <span class="n">user_input_node</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;ai_response&quot;</span><span class="p">,</span> <span class="n">ai_response_node</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;user_input&quot;</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;user_input&quot;</span><span class="p">,</span> <span class="s2">&quot;ai_response&quot;</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;ai_response&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">graph_no_memory</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="grafo-con-memoria">📋 Grafo con Memoria</h3>
+<p>Ahora, agregaremos una memoria temporal y comprobaremos si nuestro grafo es capaz de retener información para poderla usar mas adelante.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">langgraph.graph</span> <span class="kn">import</span> <span class="n">StateGraph</span><span class="p">,</span> <span class="n">START</span><span class="p">,</span> <span class="n">END</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">langgraph.checkpoint.memory</span> <span class="kn">import</span> <span class="n">MemorySaver</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="hll"><span class="n">memory</span> <span class="o">=</span> <span class="n">MemorySaver</span><span class="p">()</span>
+</span></span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">builder_mem</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">State</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">builder_mem</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;user_input&quot;</span><span class="p">,</span> <span class="n">user_input_node</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">builder_mem</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;ai_response&quot;</span><span class="p">,</span> <span class="n">ai_response_node</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">builder_mem</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;user_input&quot;</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">builder_mem</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;user_input&quot;</span><span class="p">,</span> <span class="s2">&quot;ai_response&quot;</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">builder_mem</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;ai_response&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="hll"><span class="n">graph_memory</span> <span class="o">=</span> <span class="n">builder_mem</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">checkpointer</span><span class="o">=</span><span class="n">memory</span><span class="p">)</span>
+</span></span></code></pre></div>
+<hr />
+<h2 id="visualizacion-del-grafo">📈 Visualización del Grafo</h2>
+<p>Para observar cómo se estructura nuestro grafo, generamos una visualización:<br />
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">graph_no_memory</span><span class="o">.</span><span class="n">get_graph</span><span class="p">()</span><span class="o">.</span><span class="n">draw_mermaid_png</span><span class="p">()))</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">graph_memory</span><span class="o">.</span><span class="n">get_graph</span><span class="p">()</span><span class="o">.</span><span class="n">draw_mermaid_png</span><span class="p">()))</span>
+</span></code></pre></div></p>
+<p><img alt="grafo memoria" src="../../assets/img/curso1/tema4/image.png" /></p>
+<hr />
+<h2 id="invocando-el-grafo-y-comparando-resultados">🚀 Invocando el Grafo y Comparando Resultados</h2>
+<h3 id="sin-memoria">📋 Sin Memoria</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">graph_no_memory</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;Hola, me llamo Raul.&quot;</span><span class="p">)]})</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">graph_no_memory</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;¿Cómo me llamo?&quot;</span><span class="p">)]})</span>
+</span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Respuesta</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">---</span> <span class="n">Usuario</span> <span class="n">dice</span> <span class="o">---</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">Hola</span><span class="p">,</span> <span class="n">me</span> <span class="n">llamo</span> <span class="n">Raul</span><span class="o">.</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">---</span> <span class="n">IA</span> <span class="n">responde</span> <span class="o">---</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="err">¡</span><span class="n">Hola</span><span class="p">,</span> <span class="n">Raúl</span><span class="err">!</span> <span class="err">¿</span><span class="n">Cómo</span> <span class="n">estás</span><span class="err">?</span> <span class="err">¿</span><span class="n">En</span> <span class="n">qué</span> <span class="n">puedo</span> <span class="n">ayudarte</span> <span class="n">hoy</span><span class="err">?</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="o">---</span> <span class="n">Usuario</span> <span class="n">dice</span> <span class="o">---</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="err">¿</span><span class="n">Cómo</span> <span class="n">me</span> <span class="n">llamo</span><span class="err">?</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="o">---</span> <span class="n">IA</span> <span class="n">responde</span> <span class="o">---</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">No</span> <span class="n">tengo</span> <span class="n">acceso</span> <span class="n">a</span> <span class="n">información</span> <span class="n">personal</span> <span class="n">sobre</span> <span class="n">los</span> <span class="n">usuarios</span><span class="p">,</span> <span class="n">así</span> <span class="n">que</span> <span class="n">no</span> <span class="n">sé</span> <span class="n">cómo</span> <span class="n">te</span> <span class="n">llamas</span><span class="o">.</span> <span class="n">Pero</span> <span class="n">si</span> <span class="n">quieres</span><span class="p">,</span> <span class="n">puedes</span> <span class="n">decirme</span> <span class="n">tu</span> <span class="n">nombre</span><span class="o">.</span> <span class="err">¡</span><span class="n">Estoy</span> <span class="n">aquí</span> <span class="n">para</span> <span class="n">ayudarte</span><span class="err">!</span>
+</span></code></pre></div>
+<p>Como vemos el grafo no guarda el histórico del chat, haciendo que el LLM no pueda tener acceso a información previa, por eso no es capaz de recordar mi nombre.</p>
+<hr />
+<h3 id="con-memoria">📋 Con Memoria</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="hll"><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;configurable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;thread_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">}}</span>
+</span></span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Agregamos el config a nuestros invokes</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">graph_memory</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;Hola, me llamo Raul.&quot;</span><span class="p">)]},</span><span class="n">config</span><span class="p">)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">graph_memory</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;¿Cómo me llamo?&quot;</span><span class="p">)]},</span><span class="n">config</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Respuesta</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">---</span> <span class="n">Usuario</span> <span class="n">dice</span> <span class="o">---</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">Hola</span><span class="p">,</span> <span class="n">me</span> <span class="n">llamo</span> <span class="n">Raul</span><span class="o">.</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="o">---</span> <span class="n">IA</span> <span class="n">responde</span> <span class="o">---</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="err">¡</span><span class="n">Hola</span><span class="p">,</span> <span class="n">Raúl</span><span class="err">!</span> <span class="err">¿</span><span class="n">Cómo</span> <span class="n">estás</span><span class="err">?</span> <span class="err">¿</span><span class="n">En</span> <span class="n">qué</span> <span class="n">puedo</span> <span class="n">ayudarte</span> <span class="n">hoy</span><span class="err">?</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="o">---</span> <span class="n">Usuario</span> <span class="n">dice</span> <span class="o">---</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="err">¿</span><span class="n">Cómo</span> <span class="n">me</span> <span class="n">llamo</span><span class="err">?</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="o">---</span> <span class="n">IA</span> <span class="n">responde</span> <span class="o">---</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">Te</span> <span class="n">llamas</span> <span class="n">Raúl</span><span class="o">.</span> <span class="err">¿</span><span class="n">Hay</span> <span class="n">algo</span> <span class="n">más</span> <span class="n">en</span> <span class="n">lo</span> <span class="n">que</span> <span class="n">te</span> <span class="n">pueda</span> <span class="n">ayudar</span><span class="err">?</span>
+</span></code></pre></div>
+<p>El parámetro <code>config</code> es fundamental para habilitar el <strong>seguimiento de sesiones individuales</strong> cuando utilizamos memoria con <code>MemorySaver</code>.<br />
+- <strong><code>thread_id</code></strong> actúa como un identificador único para cada sesión o conversación.<br />
+- Esto permite que LangGraph <strong>recuerde información específica de una sesión</strong> y la distinga de otras conversaciones paralelas.  </p>
+<hr />
+<h3 id="que-sucede-sin-thread_id">🧩 ¿Qué sucede sin <code>thread_id</code>?</h3>
+<p>Si no agregamos <code>thread_id</code>:<br />
+- Cada invocación del grafo <strong>se trata como una nueva sesión</strong>, incluso si estamos usando <code>MemorySaver</code>.<br />
+- El grafo <strong>no podrá recordar mensajes previos</strong> porque no tendrá forma de asociarlos a una misma sesión.  </p>
+<hr />
+<h3 id="cuando-usar-thread_id">🚀 ¿Cuándo usar <code>thread_id</code>?</h3>
+<ul>
+<li><strong>Chats personalizados</strong>: Cuando manejamos múltiples usuarios o conversaciones.  </li>
+<li><strong>Bots conversacionales</strong>: Para mantener el contexto de usuarios durante largas interacciones.  </li>
+<li><strong>Flujos multi-sesión</strong>: Si queremos permitir que un usuario retome una conversación anterior.  </li>
+</ul>
+<hr />
+<h2 id="alternativa-a-memorysaver">🧩 Alternativa a MemorySaver</h2>
+<p>La forma más efectiva de aplicar <strong>memoria de corto alcance</strong> en LangGraph es utilizando <code>MemorySaver</code>. Sin embargo, existen otras alternativas que pueden resultar útiles en ciertos casos.  </p>
+<p>Una de las opciones más simples es almacenar el historial de la conversación en una <strong>variable</strong> y pasarla continuamente durante cada invocación. De esta manera, el modelo de lenguaje (LLM) mantiene el contexto de la conversación sin depender de sistemas de memoria externos.  </p>
+<p>A continuación, veremos un ejemplo sencillo para entender cómo implementar esta técnica:  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Almacenamos las preguntas y respuestas en una variable.</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="hll"><span class="n">messages</span> <span class="o">=</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;Hola, me llamo Raul.&quot;</span><span class="p">)]</span>
+</span></span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">response</span> <span class="o">=</span> <span class="n">graph_no_memory</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">})</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="hll"><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="hll"><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;¿Cómo me llamo?&quot;</span><span class="p">))</span>
+</span></span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">response</span> <span class="o">=</span> <span class="n">graph_no_memory</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">messages</span><span class="p">})</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="hll"><span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Respuesta</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">---</span> <span class="n">Usuario</span> <span class="n">dice</span> <span class="o">---</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">Hola</span><span class="p">,</span> <span class="n">me</span> <span class="n">llamo</span> <span class="n">Raul</span><span class="o">.</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="o">---</span> <span class="n">IA</span> <span class="n">responde</span> <span class="o">---</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="err">¡</span><span class="n">Hola</span><span class="p">,</span> <span class="n">Raúl</span><span class="err">!</span> <span class="err">¿</span><span class="n">Cómo</span> <span class="n">estás</span><span class="err">?</span> <span class="err">¿</span><span class="n">En</span> <span class="n">qué</span> <span class="n">puedo</span> <span class="n">ayudarte</span> <span class="n">hoy</span><span class="err">?</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="o">---</span> <span class="n">Usuario</span> <span class="n">dice</span> <span class="o">---</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="err">¿</span><span class="n">Cómo</span> <span class="n">me</span> <span class="n">llamo</span><span class="err">?</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="o">---</span> <span class="n">IA</span> <span class="n">responde</span> <span class="o">---</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">Te</span> <span class="n">llamas</span> <span class="n">Raúl</span><span class="o">.</span> <span class="err">¿</span><span class="n">Hay</span> <span class="n">algo</span> <span class="n">más</span> <span class="n">con</span> <span class="n">lo</span> <span class="n">que</span> <span class="n">te</span> <span class="n">pueda</span> <span class="n">ayudar</span><span class="err">?</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Guardamos los mensajes</strong> en una lista (<code>messages</code>) que actúa como historial de conversación.  </li>
+<li>Tras cada invocación al grafo, <strong>agregamos la respuesta generada por la IA</strong> al historial.  </li>
+<li>Cuando el usuario realiza una nueva pregunta, enviamos el historial completo al grafo para que el modelo <strong>mantenga el contexto</strong>.  </li>
+</ul>
+<h3 id="observaciones-importantes">🧑‍🏫 Observaciones Importantes</h3>
+<ul>
+<li><strong>Esta técnica proporciona memoria temporal</strong>, pero requiere <strong>gestión manual</strong> del historial de mensajes.  </li>
+<li>El historial puede almacenarse:  <ul>
+<li><strong>En una variable.</strong>  </li>
+<li><strong>En una base de datos.</strong>  </li>
+<li><strong>En un archivo externo.</strong>  </li>
+</ul>
+</li>
+</ul>
+<p>Aunque más adelante exploraremos métodos más avanzados y optimizados (como memoria persistente con bases de datos), esta solución puede ser una forma sencilla y efectiva para proyectos que no requieren una arquitectura compleja.  </p>
+<hr />
+<h2 id="recursos">🔎 Recursos:</h2>
+<ul>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.941 4.976a7.03 7.03 0 0 0-4.93 2.064 7.033 7.033 0 0 0-.124 9.807l2.395-2.395a3.646 3.646 0 0 1 5.15-5.148l2.397-2.399a7.03 7.03 0 0 0-4.888-1.93m-9.871.01a7.03 7.03 0 0 0-4.888 1.931l2.391 2.391a3.643 3.643 0 0 1 5.023.127l1.734-2.973-.1-.08a7.03 7.03 0 0 0-4.16-1.396m15.01 2.172-2.39 2.39a3.646 3.646 0 0 1-5.15 5.15l-2.406 2.407a7.036 7.036 0 0 0 9.945-9.947m-20.148.01a7.033 7.033 0 0 0-.002 9.681l2.397-2.397a3.643 3.643 0 0 1-.004-4.892zm7.664 7.423a3.635 3.635 0 0 1-5.017.113L2.182 17.1a7.03 7.03 0 0 0 9.007.546l.137-.112z"/></svg></span> Ver notebook en <a href="https://colab.research.google.com/drive/1AeQb1okNY3PrQ2PcMm4z4zaKjM2dirt2?usp=sharing">Google Colab</a></li>
+<li><img alt="📚" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" title=":books:" /> How-to-guide: <a href="https://langchain-ai.github.io/langgraph/reference/checkpoints/#langgraph.checkpoint.memory.MemorySaver">MemorySaver</a></li>
+</ul>
+<h2 id="que-hemos-aprendido">🧑‍🏫 ¿Qué Hemos Aprendido?</h2>
+<ul>
+<li><strong>Memoria de Estado (State):</strong> Solo persiste durante la ejecución de una invocación.  </li>
+<li><strong>MemorySaver:</strong> Proporciona memoria de corto alcance para retener datos durante múltiples invocaciones.  </li>
+<li><strong>Diferencias Clave:</strong> Sin memoria, cada invocación es independiente. Con memoria, el grafo recuerda datos anteriores.  </li>
+</ul>
+<hr />
+<h2 id="que-es-lo-siguiente">🌐 ¿Qué es lo Siguiente?</h2>
+<p>En el siguiente tema exploraremos <strong>Chains y Flujos de Trabajo</strong>, donde aprenderemos a encadenar nodos y construir pipelines complejos.<br />
+También abordaremos el tema de <strong>Tools (Herramientas)</strong>, pero lo veremos <strong>después de Chains</strong>, ya que comprender primero el flujo de trabajo hará que la integración de herramientas sea más sencilla y práctica.  </p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../..';</script>
+        <script src="../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/mkdocs.js"></script>
+			<script src="../../search/main.js" defer></script>
+
+</body>
+
+</html>

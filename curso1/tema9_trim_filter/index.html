@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Tema 9: Trim y Filtrado de Mensajes - Curso Completo de LangGraph</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        <link rel="canonical" href="https://raul-drupal-dev.github.io/curso_langgraph/curso1/tema9_trim_filter/">
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/atom-one-dark.min.css">
+        
+
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../assets/css/mkdocs.min.css">
+            <link href="../../assets/stylesheets/extra.css" rel="stylesheet">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../assets/img/theme/raul.png">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+            <img class="logo" src="../../assets/img/theme/raul.png" height="150px">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">Curso Completo de LangGraph</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#introducción-collapse" aria-expanded="false">
+                    Introducción
+                </a>
+                <div class="collapse" id="introducción-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../.."
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            🙋‍♂️ Bienvenida
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            📚 Curso 1: Fundamentos de LangGraph
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            ⚙️ Curso 2: Aplicaciones Avanzadas
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            🚀 Curso 3: Despliegue y Proyecto Final
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#📚-curso-1:-fundamentos-de-langgraph-collapse" aria-expanded="false">
+                    📚 Curso 1: Fundamentos de LangGraph
+                </a>
+                <div class="collapse" id="📚-curso-1:-fundamentos-de-langgraph-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            📚 Curso 1: Fundamentos de LangGraph
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema1_nodos/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 1: Nodos
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema2_edges/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 2: Edges (Conexiones)
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema3_state_schema/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 3: State Schema
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema4_memory/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 4: Memoria
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema5_chains/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 5: Chains y Flujos de Trabajo
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema6_routers/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 6: Routers
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema7_reducers/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 7: Reducers
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../tema8_tools/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 8: Tools
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 9: Trim y Filtrado de Mensajes
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#⚙️-curso-2:-aplicaciones-avanzadas-collapse" aria-expanded="false">
+                    ⚙️ Curso 2: Aplicaciones Avanzadas
+                </a>
+                <div class="collapse" id="⚙️-curso-2:-aplicaciones-avanzadas-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            ⚙️ Curso 2: Aplicaciones Avanzadas
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema1_chatbot/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 1: Chatbot Summarizing
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema2_human_loop/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 2: Human in the Loop
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema3_streaming/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 3: Streaming y Breakpoints
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema4_parallelism/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 4: Paralelismo
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema5_sub_graphs/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 5: Subgrafías (Sub-graphs)
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema6_maps/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 6: Mapas
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema7_rag/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 7: RAG (Retrieval-Augmented Generation)
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema8_langgraph_studio/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 8: LangGraph Studio
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso2/tema9_langsmith/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 9: LangSmith
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🚀-curso-3:-despliegue-y-proyecto-final-collapse" aria-expanded="false">
+                    🚀 Curso 3: Despliegue y Proyecto Final
+                </a>
+                <div class="collapse" id="🚀-curso-3:-despliegue-y-proyecto-final-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            🚀 Curso 3: Despliegue y Proyecto Final
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema1_long_memory/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 1: Long Memory
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema2_langgraph_store/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 2: LangGraph Store
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema3_memory_schema/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 3: Memory Schema
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema4_deployments/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 4: Despliegue de LangGraph
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema5_langgraph_cli/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 5: LangGraph CLI
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema6_langgraph_server/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 6: LangGraph Server
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso3/tema7_api_rest/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Tema 7: API REST/GraphQL
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🛠️-curso-4:-proyecto-final-y-extensiones-collapse" aria-expanded="false">
+                    🛠️ Curso 4: Proyecto Final y Extensiones
+                </a>
+                <div class="collapse" id="🛠️-curso-4:-proyecto-final-y-extensiones-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../curso4/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Introducción
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../tema8_tools/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../../curso2/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="tema-8-trim-y-filter-messages-optimizacion-del-historial-de-mensajes">✂️ Tema 8: Trim y Filter Messages – Optimización del Historial de Mensajes</h1>
+<h2 id="que-es-el-trimming-y-filtering-de-mensajes">🚀 ¿Qué es el Trimming y Filtering de Mensajes?</h2>
+<p>A medida que un grafo interactúa con los usuarios, el historial de mensajes puede <strong>crecer considerablemente</strong>, lo que puede:<br />
+- <strong>Aumentar el costo de procesamiento</strong> para los modelos LLM.<br />
+- <strong>Reducir la eficiencia</strong> del grafo en conversaciones largas.<br />
+- <strong>Diluir el contexto</strong>, incluyendo mensajes irrelevantes.  </p>
+<p>Para solucionar esto, LangGraph ofrece herramientas que permiten <strong>gestionar y optimizar el historial de mensajes</strong>:  </p>
+<ol>
+<li><strong><code>RemoveMessages</code></strong> – Elimina mensajes específicos.  </li>
+<li><strong><code>trim_messages</code></strong> – Recorta el historial manteniendo solo los mensajes más recientes.  </li>
+<li><strong><code>summarize_conversation</code></strong> – Resume la conversación para reducir la longitud del historial, manteniendo el contexto.  </li>
+</ol>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.2 16.06 3.88 12 2.2 7.94l4.06-1.68L7.94 2.2 12 3.88l4.06-1.68 1.68 4.06 4.06 1.68L20.12 12l1.68 4.06-4.06 1.68-1.68 4.06L12 20.12 7.94 21.8l-1.68-4.06zM4.81 9l1.24 3-1.24 3 2.98 1.21L9 19.19l3-1.24 3 1.24 1.21-2.98L19.19 15l-1.24-3 1.24-3-2.98-1.21L15 4.81l-3 1.24-3-1.24-1.21 2.98zM11 15h2v2h-2zm0-8h2v6h-2z"/></svg></span> <strong>Nota Importante:</strong>  </p>
+<p>Al eliminar mensajes del historial, es crucial asegurarse de que la estructura de los mensajes <strong>siga siendo válida</strong> para el modelo LLM.<br />
+Algunos modelos, como los chatbots basados en LLM, requieren que el primer mensaje sea de un <strong>Humano</strong> (<code>HumanMessage</code>).  </p>
+<p>👉 Antes de procesar el historial, verifica que la estructura cumpla con los requisitos del modelo para evitar errores en su funcionamiento.  </p>
+<hr />
+<h2 id="por-que-es-importante">🧠 ¿Por qué es Importante?</h2>
+<ul>
+<li><strong>Optimización del Rendimiento:</strong> Reduce la cantidad de datos enviados al LLM.  </li>
+<li><strong>Mejora de la Precisión:</strong> Mantiene el contexto relevante, eliminando información redundante.  </li>
+<li><strong>Ahorro de Costos:</strong> Menos tokens procesados significa <strong>menos consumo de recursos.</strong>  </li>
+</ul>
+<hr />
+<h2 id="como-funciona-el-trimming-y-filtering">⚙️ ¿Cómo Funciona el Trimming y Filtering?</h2>
+<p>LangGraph ofrece diferentes enfoques según el escenario:<br />
+- <strong>Eliminar mensajes irrelevantes o antiguos.</strong><br />
+- <strong>Recortar automáticamente después de alcanzar un límite.</strong><br />
+- <strong>Resumir el historial para mantener el contexto clave.</strong>  </p>
+<hr />
+<h2 id="ejemplo-practico-chatbot-con-gestion-del-historial-de-mensajes">📋 Ejemplo Práctico: Chatbot con Gestión del Historial de Mensajes</h2>
+<p>Vamos a crear un chatbot que interactúa con el usuario, pero <strong>gestiona el historial</strong> para mantener solo los mensajes relevantes y no saturar el flujo del grafo.  </p>
+<hr />
+<h3 id="opcion-1-eliminar-mensajes-especificos-con-removemessages">🛠️ Opción 1: Eliminar Mensajes Específicos con <code>RemoveMessages</code></h3>
+<p>Permite eliminar ciertos mensajes del historial, ideal para <strong>eliminar mensajes duplicados o irrelevantes.</strong>  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="hll"><span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">AIMessage</span><span class="p">,</span> <span class="n">RemoveMessage</span>
+</span></span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">langgraph.graph</span> <span class="kn">import</span> <span class="n">MessagesState</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span> <span class="nn">langgraph.graph</span> <span class="kn">import</span> <span class="n">StateGraph</span><span class="p">,</span> <span class="n">START</span><span class="p">,</span> <span class="n">END</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Nodes</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">def</span> <span class="nf">filter_messages</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">MessagesState</span><span class="p">):</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="c1"># Eliminamos todo el historial menos los 2 mas recientes</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="hll">    <span class="n">delete_messages</span> <span class="o">=</span> <span class="p">[</span><span class="n">RemoveMessage</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">][:</span><span class="o">-</span><span class="mi">2</span><span class="p">]]</span>
+</span></span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="hll">    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">delete_messages</span><span class="p">}</span>
+</span></span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">def</span> <span class="nf">chat_model_node</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">MessagesState</span><span class="p">):</span>  
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="c1"># Simulamos una respuesta de un LLM.  </span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="n">AIMessage</span><span class="p">(</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>          <span class="n">content</span><span class="o">=</span><span class="s2">&quot;El producto B cuesta 150€ y está disponible en color rojo y azul. ¿Te interesa alguna de estas opciones?&quot;</span><span class="p">,</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>          <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;accce84f-3e31-4cf2-b16d-5aed5a4b890a&quot;</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>          <span class="p">)</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="p">]}</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1"># Build graph</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">MessagesState</span><span class="p">)</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span> <span class="n">filter_messages</span><span class="p">)</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;chat_model&quot;</span><span class="p">,</span> <span class="n">chat_model_node</span><span class="p">)</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;filter&quot;</span><span class="p">)</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;filter&quot;</span><span class="p">,</span> <span class="s2">&quot;chat_model&quot;</span><span class="p">)</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;chat_model&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1"># View</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">get_graph</span><span class="p">()</span><span class="o">.</span><span class="n">draw_mermaid_png</span><span class="p">()))</span>
+</span></code></pre></div>
+<p><img alt="RemoveMessages" src="../../assets/img/curso1/tema9/image.png" /></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;Hola, necesito información sobre varios productos.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;66a48850-bcf9-4500-9a0b-6a18ecad0d4a&#39;</span><span class="p">),</span> 
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;Claro, puedo ayudarte con eso.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;46bc8fa9-452b-4f16-b5d9-65f527812b8e&#39;</span><span class="p">),</span> 
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;Perfecto. Empecemos con el producto A.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;ef3742dd-87ac-443a-bbff-72282fb4c1ca&#39;</span><span class="p">),</span> 
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;El producto A cuesta 100€ y está disponible.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;038bff18-4498-4ca5-afa8-448c9118b1bc&#39;</span><span class="p">),</span> 
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;¿Y qué pasa con el producto B?&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;1d315b43-906e-48f0-a801-b2807e8abf0a&#39;</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="p">]</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">response</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s1">&#39;messages&#39;</span><span class="p">:</span> <span class="n">messages</span><span class="p">})</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;messages&#39;</span><span class="p">]:</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">m</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Resuldato</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a> <span class="o">==================================</span> <span class="n">Ai</span> <span class="n">Message</span> <span class="o">==================================</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">El</span> <span class="n">producto</span> <span class="n">A</span> <span class="n">cuesta</span> <span class="mi">100</span><span class="err">€</span> <span class="n">y</span> <span class="n">está</span> <span class="n">disponible</span><span class="o">.</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="o">================================</span> <span class="n">Human</span> <span class="n">Message</span> <span class="o">=================================</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="err">¿</span><span class="n">Y</span> <span class="n">qué</span> <span class="n">pasa</span> <span class="n">con</span> <span class="n">el</span> <span class="n">producto</span> <span class="n">B</span><span class="err">?</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="o">==================================</span> <span class="n">Ai</span> <span class="n">Message</span> <span class="o">==================================</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">El</span> <span class="n">producto</span> <span class="n">B</span> <span class="n">cuesta</span> <span class="mi">150</span><span class="err">€</span> <span class="n">y</span> <span class="n">está</span> <span class="n">disponible</span> <span class="n">en</span> <span class="n">color</span> <span class="n">rojo</span> <span class="n">y</span> <span class="n">azul</span><span class="o">.</span> <span class="err">¿</span><span class="n">Te</span> <span class="n">interesa</span> <span class="n">alguna</span> <span class="n">de</span> <span class="n">estas</span> <span class="n">opciones</span><span class="err">?</span>
+</span></code></pre></div>
+<hr />
+<h3 id="opcion-2-recorte-de-mensajes-con-trim_messages">🛠️ Opción 2: Recorte de Mensajes con <code>trim_messages</code></h3>
+<p>Recorta el historial de mensajes <strong>manteniendo solo los últimos N mensajes.</strong><br />
+Esto es útil para <strong>evitar que el historial crezca sin control.</strong>  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">trim_messages</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">langchain_core.messages</span> <span class="kn">import</span> <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">AIMessage</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Estado con muchos mensajes</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>      <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;Hola, necesito información sobre varios productos.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;66a48850-bcf9-4500-9a0b-6a18ecad0d4a&#39;</span><span class="p">),</span> 
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>      <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;Claro, puedo ayudarte con eso.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;46bc8fa9-452b-4f16-b5d9-65f527812b8e&#39;</span><span class="p">),</span> 
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;Perfecto. Empecemos con el producto A.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;ef3742dd-87ac-443a-bbff-72282fb4c1ca&#39;</span><span class="p">),</span> 
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>      <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;El producto A cuesta 100€ y está disponible.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;038bff18-4498-4ca5-afa8-448c9118b1bc&#39;</span><span class="p">),</span> 
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>      <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;¿Y qué pasa con el producto B?&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;1d315b43-906e-48f0-a801-b2807e8abf0a&#39;</span><span class="p">)</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="p">]</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1"># Limitamos a los ultimos 3 mensajes para no sobrecargar la llamada.</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">messages</span> <span class="o">=</span> <span class="n">trim_messages</span><span class="p">(</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>            <span class="n">state</span><span class="p">[</span><span class="s1">&#39;messages&#39;</span><span class="p">],</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>            <span class="n">token_counter</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span>  <span class="c1"># Contamos mensajes (simple, no tokens)</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>            <span class="n">max_tokens</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>       <span class="c1"># Límite de 3 mensajes</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>            <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;last&quot;</span><span class="p">,</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>            <span class="c1">#start_on=&quot;system&quot;,   # Empieza en un mensaje humano o sistema-humano</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>            <span class="n">include_system</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>            <span class="n">allow_partial</span><span class="o">=</span><span class="kc">False</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        <span class="p">)</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">messages</span><span class="p">:</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    <span class="n">m</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Resultado</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">================================</span> <span class="n">Human</span> <span class="n">Message</span> <span class="o">=================================</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">Perfecto</span><span class="o">.</span> <span class="n">Empecemos</span> <span class="n">con</span> <span class="n">el</span> <span class="n">producto</span> <span class="n">A</span><span class="o">.</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="o">==================================</span> <span class="n">Ai</span> <span class="n">Message</span> <span class="o">==================================</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">El</span> <span class="n">producto</span> <span class="n">A</span> <span class="n">cuesta</span> <span class="mi">100</span><span class="err">€</span> <span class="n">y</span> <span class="n">está</span> <span class="n">disponible</span><span class="o">.</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="o">================================</span> <span class="n">Human</span> <span class="n">Message</span> <span class="o">=================================</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="err">¿</span><span class="n">Y</span> <span class="n">qué</span> <span class="n">pasa</span> <span class="n">con</span> <span class="n">el</span> <span class="n">producto</span> <span class="n">B</span><span class="err">?</span>
+</span></code></pre></div>
+<hr />
+<h3 id="opcion-3-resumir-conversacion-con-summarize_conversation">🛠️ Opción 3: Resumir Conversación con <code>summarize_conversation</code></h3>
+<p>En lugar de eliminar mensajes, <strong>genera un resumen de la conversación</strong> manteniendo el contexto en menos palabras.<br />
+Perfecto para <strong>mantener el contexto en conversaciones extensas.</strong>  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">summarize_conversation</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="c1"># First, we get any existing summary</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">summary</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="c1"># Create our summarization prompt </span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">if</span> <span class="n">summary</span><span class="p">:</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="c1"># A summary already exists</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="n">summary_message</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>            <span class="sa">f</span><span class="s2">&quot;This is summary of the conversation to date: </span><span class="si">{</span><span class="n">summary</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>            <span class="s2">&quot;Extend the summary by taking into account the new messages above:&quot;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="p">)</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>        <span class="n">summary_message</span> <span class="o">=</span> <span class="s2">&quot;Create a summary of the conversation above:&quot;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    <span class="c1"># Add prompt to our history</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    <span class="n">messages</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">summary_message</span><span class="p">)]</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>    <span class="c1"># Delete all but the 2 most recent messages</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    <span class="n">delete_messages</span> <span class="o">=</span> <span class="p">[</span><span class="n">RemoveMessage</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">][:</span><span class="o">-</span><span class="mi">2</span><span class="p">]]</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">delete_messages</span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h3 id="opcion-4-filtrar-mensajes-con-filter_messages">🛠️ Opción 4: Filtrar Mensajes con <code>filter_messages</code></h3>
+<p>La función <code>filter_messages</code> permite aplicar filtros personalizados al historial de mensajes en el grafo.<br />
+Esto es útil para <strong>eliminar mensajes irrelevantes</strong>, mantener solo ciertos tipos de mensajes o aplicar lógica más avanzada para estructurar el historial antes de enviarlo al LLM.  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">state</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>      <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;Hola, necesito información sobre varios productos.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;66a48850-bcf9-4500-9a0b-6a18ecad0d4a&#39;</span><span class="p">),</span> 
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>      <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;Claro, puedo ayudarte con eso.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;46bc8fa9-452b-4f16-b5d9-65f527812b8e&#39;</span><span class="p">),</span> 
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>      <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;Perfecto. Empecemos con el producto A.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;ef3742dd-87ac-443a-bbff-72282fb4c1ca&#39;</span><span class="p">),</span> 
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>      <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;El producto A cuesta 100€ y está disponible.&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;038bff18-4498-4ca5-afa8-448c9118b1bc&#39;</span><span class="p">),</span> 
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>      <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s1">&#39;¿Y qué pasa con el producto B?&#39;</span><span class="p">,</span> <span class="n">additional_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">response_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;1d315b43-906e-48f0-a801-b2807e8abf0a&#39;</span><span class="p">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="p">]</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1"># Resumir la conversación</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">messages</span> <span class="o">=</span> <span class="n">filter_messages</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">],</span> <span class="n">include_types</span><span class="o">=</span><span class="s2">&quot;human&quot;</span><span class="p">)</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">messages</span><span class="p">:</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="n">m</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Resultado</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">================================</span> <span class="n">Human</span> <span class="n">Message</span> <span class="o">=================================</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">Hola</span><span class="p">,</span> <span class="n">necesito</span> <span class="n">información</span> <span class="n">sobre</span> <span class="n">varios</span> <span class="n">productos</span><span class="o">.</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="o">================================</span> <span class="n">Human</span> <span class="n">Message</span> <span class="o">=================================</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">Perfecto</span><span class="o">.</span> <span class="n">Empecemos</span> <span class="n">con</span> <span class="n">el</span> <span class="n">producto</span> <span class="n">A</span><span class="o">.</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="o">================================</span> <span class="n">Human</span> <span class="n">Message</span> <span class="o">=================================</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="err">¿</span><span class="n">Y</span> <span class="n">qué</span> <span class="n">pasa</span> <span class="n">con</span> <span class="n">el</span> <span class="n">producto</span> <span class="n">B</span><span class="err">?</span>
+</span></code></pre></div>
+<hr />
+<h2 id="recursos">🔎 Recursos:</h2>
+<ul>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.941 4.976a7.03 7.03 0 0 0-4.93 2.064 7.033 7.033 0 0 0-.124 9.807l2.395-2.395a3.646 3.646 0 0 1 5.15-5.148l2.397-2.399a7.03 7.03 0 0 0-4.888-1.93m-9.871.01a7.03 7.03 0 0 0-4.888 1.931l2.391 2.391a3.643 3.643 0 0 1 5.023.127l1.734-2.973-.1-.08a7.03 7.03 0 0 0-4.16-1.396m15.01 2.172-2.39 2.39a3.646 3.646 0 0 1-5.15 5.15l-2.406 2.407a7.036 7.036 0 0 0 9.945-9.947m-20.148.01a7.033 7.033 0 0 0-.002 9.681l2.397-2.397a3.643 3.643 0 0 1-.004-4.892zm7.664 7.423a3.635 3.635 0 0 1-5.017.113L2.182 17.1a7.03 7.03 0 0 0 9.007.546l.137-.112z"/></svg></span> Ver notebook en <a href="https://colab.research.google.com/drive/11_u7AsTfcvqq6E2lra2HA6Cb_fil08Pl#scrollTo=1K4jrm4DB8Up">Google Colab</a></li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.941 4.976a7.03 7.03 0 0 0-4.93 2.064 7.033 7.033 0 0 0-.124 9.807l2.395-2.395a3.646 3.646 0 0 1 5.15-5.148l2.397-2.399a7.03 7.03 0 0 0-4.888-1.93m-9.871.01a7.03 7.03 0 0 0-4.888 1.931l2.391 2.391a3.643 3.643 0 0 1 5.023.127l1.734-2.973-.1-.08a7.03 7.03 0 0 0-4.16-1.396m15.01 2.172-2.39 2.39a3.646 3.646 0 0 1-5.15 5.15l-2.406 2.407a7.036 7.036 0 0 0 9.945-9.947m-20.148.01a7.033 7.033 0 0 0-.002 9.681l2.397-2.397a3.643 3.643 0 0 1-.004-4.892zm7.664 7.423a3.635 3.635 0 0 1-5.017.113L2.182 17.1a7.03 7.03 0 0 0 9.007.546l.137-.112z"/></svg></span> Mas ejemplos: <a href="https://colab.research.google.com/github/langchain-ai/langchain-academy/blob/main/module-2/trim-filter-messages.ipynb#scrollTo=fc40d930-3c1f-47fe-8d2a-ce174873353c">Google Colab</a></li>
+<li><img alt="📚" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" title=":books:" /> Definición: <a href="https://python.langchain.com/docs/how_to/trim_messages/">trim_messages</a></li>
+<li><img alt="📚" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" title=":books:" /> Definición: <a href="https://python.langchain.com/api_reference/core/messages/langchain_core.messages.modifier.RemoveMessage.html#removemessage">RemoveMessages</a></li>
+<li><img alt="📚" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" title=":books:" /> Definición: <a href="https://python.langchain.com/api_reference/core/messages/langchain_core.messages.utils.filter_messages.html">filter_messages</a></li>
+<li><img alt="📚" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" title=":books:" /> How-to-guide: <a href="https://python.langchain.com/docs/how_to/filter_messages/">filter_messages</a></li>
+</ul>
+<hr />
+<h2 id="que-hemos-aprendido">🧑‍🏫 ¿Qué Hemos Aprendido?</h2>
+<ul>
+<li><strong>RemoveMessages:</strong> Elimina mensajes específicos del historial.  </li>
+<li><strong>trim_messages:</strong> Recorta el historial a los últimos mensajes.  </li>
+<li><strong>summarize_conversation:</strong> Genera resúmenes que conservan el contexto sin saturar el historial.  </li>
+<li><strong>filter_messages:</strong> Aplica filtros personalizados a un historial.</li>
+</ul>
+<hr />
+<h2 id="que-es-lo-siguiente">🌐 ¿Qué es lo Siguiente?</h2>
+<p>🎉 <strong>¡Has completado el Curso 1: Fundamentos de LangGraph!</strong><br />
+En este curso, aprendiste los conceptos esenciales de LangGraph, desde la definición de nodos y edges, hasta el uso de chains, routers, reducers y herramientas avanzadas como trim y filter messages.  </p>
+<p>En el <strong>Curso 2</strong>, llevaremos tus conocimientos al siguiente nivel:<br />
+Aprenderás a integrar LangGraph en aplicaciones reales, explorar el uso de memoria avanzada, flujos paralelos, y cómo emplear LangGraph Studio para monitorizar y optimizar tus grafos.<br />
+¡Prepárate para descubrir todo lo que LangGraph puede ofrecer en escenarios complejos y dinámicos!  </p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../..';</script>
+        <script src="../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/mkdocs.js"></script>
+			<script src="../../search/main.js" defer></script>
+
+</body>
+
+</html>

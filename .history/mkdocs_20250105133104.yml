@@ -1,9 +1,0 @@
-site_name: Curso Completo de LangGraph
-site_url: https://raul-drupal-dev.github.io/curso_langgraph/
-theme:
-  name: material  # Tema de MkDocs (Material para una experiencia moderna)
-  features:
-    - navigation.instant
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand

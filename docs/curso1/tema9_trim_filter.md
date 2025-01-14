@@ -195,6 +195,10 @@ def summarize_conversation(state: State):
     return {"summary": response.content, "messages": delete_messages}
 ```
 
+???+ Tips
+
+    Veremos en más profuncidad este tema en el capítulo: [Tema 1: Chatbot Summarizing](../curso2/tema1_chatbot.md) 
+
 ---
 
 ### 🛠️ Opción 4: Filtrar Mensajes con `filter_messages`  

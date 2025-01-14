@@ -5,7 +5,9 @@
 Los **reducers** en LangGraph permiten consolidar y procesar datos provenientes de diferentes nodos o caminos.  
 Cuando un grafo sigue **flujos paralelos o múltiples bifurcaciones**, los reducers **recogen, combinan o modifican** los resultados, facilitando una salida coherente y organizada.  
 
-👉 **Piensa en un reducer como un colector de datos** que une los resultados de distintas partes del grafo en un solo punto.  
+???+ Tip "Consejo"
+
+    **Piensa en un reducer como un colector de datos** que une los resultados de distintas partes del grafo en un solo punto.  
 
 ---
 
@@ -84,7 +86,9 @@ Esto implica que:
 - Si un nodo devuelve `{"messages": [...]}`, el reducer `add_messages` sumará los mensajes nuevos a la lista actual.
 - Si no hay un reducer definido, el nuevo valor reemplazará al valor anterior.
 
-💡 Los reducers **solo se activan** cuando un nodo devuelve una actualización parcial o el estado completo. Es importante tener esto en cuenta si planeamos realizar otras modificaciones manualmente, ya que los cambios directos en el estado **no pasarán por el reducer**.  
+???+ Info
+
+    Los reducers **solo se activan** cuando un nodo devuelve una actualización parcial o el estado completo. Es importante tener esto en cuenta si planeamos realizar otras modificaciones manualmente, ya que los cambios directos en el estado **no pasarán por el reducer**.  
 
 
 ---
@@ -244,7 +248,7 @@ graph_with_custom_reducer.invoke({"messages": [], "total_messages": 0, "response
 }
 ``` 
 
-El estado reflejará tanto el historial de mensajes como el conteo total.  
+El estado reflejará tanto el historial de `mensages` como el conteo total.  
 
 ---
 

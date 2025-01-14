@@ -75,7 +75,7 @@ Este edge condicional permite que el grafo tenga múltiples rutas de ejecución.
 
 #### 🏗️ Construcción del Grafo  
 
-```python
+```python hl_lines="1 2 3 4"
 builder.add_edge(START, "node_1")
 builder.add_conditional_edges("node_1", decide_hooby)
 builder.add_edge("node_2", END)

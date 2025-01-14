@@ -3,14 +3,22 @@ site_url: https://raul-drupal-dev.github.io/curso_langgraph/
 extra_css:
   - ./assets/stylesheets/extra.css
 theme:
-  name: dracula 
+  name: material 
   logo: ./assets/img/theme/raul.png
   favicon: ./assets/img/theme/raul.png
-  highlight_css: atom-one-dark.min.css
   palette:
-    scheme: dracula
-    primary: deep purple
-    accent: deep purple
+    # Palette toggle for light mode
+    - scheme: default
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   features:
     - navigation.instant
     - navigation.tabs
@@ -37,6 +45,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - admonition
 
 copyright: Copyright &copy; 2025 Creado por Raul Jimenez Morales.
 
@@ -48,6 +57,7 @@ nav:
       - "🚀 Curso 3: Despliegue y Proyecto Final": curso3/index.md
   - "📚 Curso 1: Fundamentos de LangGraph":
       - "Introducción": curso1/index.md
+      - "Tema 0: Qué es Langgraph?": curso1/tema0_que_es_langgraph.md
       - "Tema 1: Nodos": curso1/tema1_nodos.md
       - "Tema 2: Edges (Conexiones)": curso1/tema2_edges.md
       - "Tema 3: State Schema": curso1/tema3_state_schema.md

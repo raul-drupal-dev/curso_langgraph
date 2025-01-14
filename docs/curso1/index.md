@@ -11,7 +11,8 @@ En este curso, nos sumergiremos en los conceptos esenciales para dominar LangGra
 - Crear y conectar **nodos** para formar flujos de trabajo.  
 - Implementar **routers** para enrutar dinámicamente los datos.  
 - Utilizar **reducers** para consolidar y filtrar información.  
-- Manejar la **memoria de estado (state schema)** para flujos persistentes.  
+- Manejar la **memoria de estado (state schema)** para flujos persistentes.
+- Utilizar **Tools** para ejecutar acciones externas al grafo.  
 - Optimizar y filtrar mensajes con técnicas avanzadas de **trim y filter**.  
 
 ---
@@ -22,6 +23,7 @@ Al finalizar este curso, serás capaz de construir flujos de trabajo de LLM desd
 ---
 
 ## 📋 Temario
+0. [Tema 1: Nodos](tema0_que_es_langgraph.md)  
 1. [Tema 1: Nodos](tema1_nodos.md)  
 2. [Tema 2: Edges (Conexiones)](tema2_edges.md)  
 3. [Tema 3: State Schema](tema3_state_schema.md)  

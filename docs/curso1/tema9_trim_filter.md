@@ -13,12 +13,12 @@ Para solucionar esto, LangGraph ofrece herramientas que permiten **gestionar y o
 2. **`trim_messages`** – Recorta el historial manteniendo solo los mensajes más recientes.  
 3. **`summarize_conversation`** – Resume la conversación para reducir la longitud del historial, manteniendo el contexto.  
 
-:material-alert-octagram-outline: **Nota Importante:**  
+???+ Note "Nota Importante"
 
-Al eliminar mensajes del historial, es crucial asegurarse de que la estructura de los mensajes **siga siendo válida** para el modelo LLM.  
-Algunos modelos, como los chatbots basados en LLM, requieren que el primer mensaje sea de un **Humano** (`HumanMessage`).  
+    Al eliminar mensajes del historial, es crucial asegurarse de que la estructura de los mensajes **siga siendo válida** para el modelo LLM.  
+    Algunos modelos, como los chatbots basados en LLM, requieren que el primer mensaje sea de un **Humano** (`HumanMessage`).  
 
-👉 Antes de procesar el historial, verifica que la estructura cumpla con los requisitos del modelo para evitar errores en su funcionamiento.  
+    👉 Antes de procesar el historial, verifica que la estructura cumpla con los requisitos del modelo para evitar errores en su funcionamiento.  
 
 ---
 

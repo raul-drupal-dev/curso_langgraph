@@ -42,6 +42,7 @@ El curso se divide en **tres módulos principales**, con teoría, ejemplos de c�
 - **Creación de nodos (Nodes) y conexiones (Edges).**  
 - **Control del estado y memoria (State Schema y Postgres).**  
 - **Construcción de flujos con chains y routers.**  
+- **Uso de herramientas (Tools)**
 
 ### **Módulo 2: Aplicaciones Avanzadas y Flujos Complejos**  
 - **Construcción de chatbots resumidores (Summarizing).**  
@@ -89,10 +90,6 @@ Al completar el curso, habrás desarrollado un **asistente virtual funcional** q
 - **OpenAI (u otros LLMs)**  
 - **Postgres (para memoria de corto plazo)**  
 
----
-
-## 📜 **Certificación Final**  
-Completar este curso te permitirá obtener un certificado que **acredita tus conocimientos en LangGraph 0.3.xx** y la construcción de flujos avanzados con modelos de lenguaje.  
 
 🌟 **¡Empieza tu viaje ahora y lleva tus habilidades de IA al siguiente nivel!**  
 

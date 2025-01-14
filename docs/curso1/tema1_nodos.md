@@ -120,21 +120,10 @@ Vamos a explicar línea por línea:
 4. **`builder.add_node("node_3", node_3)`**:  
     - Agregamos el **Nodo 3** al grafo.  
 
-5. **`builder.add_edge(START, "node_1")`**:  
-    - Conectamos el punto de inicio (`START`) con el **Nodo 1**.  
-    - Esto significa que cuando el grafo comience, lo hará en el Nodo 1.  
+5. **`builder.add_edge`**:
+    - Agregamos los edges, esto lo veremos más en profundidad en el siguiente tema.
 
-6. **`builder.add_conditional_edges("node_1", decide_hooby)`**:  
-    - Desde el **Nodo 1**, agregamos una bifurcación condicional que ejecutará la función `decide_hooby`.  
-    - Dependiendo del resultado, el flujo se dirigirá hacia el **Nodo 2 o 3**.  
-
-7. **`builder.add_edge("node_2", END)`**:  
-    - Si el flujo llega al Nodo 2, este finalizará (`END`).  
-
-8. **`builder.add_edge("node_3", END)`**:  
-    - De igual forma, si pasa por el Nodo 3, también finalizará.  
-
-9. **`Finalmente, compilamos el grafo`**:  
+6. **`Finalmente, compilamos el grafo`**:  
     - **`graph = builder.compile()`**: Ensambla el grafo con todos los nodos y conexiones. 
 
 ---

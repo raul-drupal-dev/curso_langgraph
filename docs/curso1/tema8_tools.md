@@ -1,40 +1,44 @@
-# 🛠️ Tema 7: Tools – Integración de Herramientas Externas en el Grafo  
+# 🛠️ Tema 7: Tools – Integración de Herramientas Externas en el Grafo
 
-## 🚀 ¿Qué son las Tools en LangGraph?  
+## 🚀 ¿Qué son las Tools en LangGraph?
 
 Las **tools (herramientas)** son funciones externas que el grafo puede invocar para realizar tareas específicas, como consultas a bases de datos, cálculos matemáticos o llamadas a APIs externas.  
-Las tools permiten que el grafo **extienda sus capacidades más allá de los nodos internos**, integrando lógica personalizada o servicios de terceros.  
+Las tools permiten que el grafo **extienda sus capacidades más allá de los nodos internos**, integrando lógica personalizada o servicios de terceros.
 
 ---
 
-### 🧠 ¿Por qué son Importantes las Tools?  
+### 🧠 ¿Por qué son Importantes las Tools?
 
-- **Extensibilidad:** Permiten que el grafo interactúe con APIs externas y sistemas avanzados.  
-- **Modularidad:** Las tools se definen de forma independiente y se integran fácilmente en el flujo del grafo.  
-- **Eficiencia:** Delegan tareas específicas a funciones externas, reduciendo la complejidad dentro de los nodos.  
+- **Extensibilidad:** Permiten que el grafo interactúe con APIs externas y sistemas avanzados.
+- **Modularidad:** Las tools se definen de forma independiente y se integran fácilmente en el flujo del grafo.
+- **Eficiencia:** Delegan tareas específicas a funciones externas, reduciendo la complejidad dentro de los nodos.
 
-👉 **Piensa en las tools como plugins** que añaden nuevas capacidades al grafo sin necesidad de modificar su estructura central.  
+???+ Tip "Consejo"
 
----
-
-## ⚙️ ¿Cómo Funcionan las Tools?  
-
-1. **Definición de Tools:** Creamos funciones externas que pueden recibir parámetros y devolver resultados.  
-2. **Vinculación al Modelo de Lenguaje (LLM):** Asociamos estas tools al LLM para que pueda invocarlas durante el flujo de trabajo.  
-3. **Ejecución Condicional:** Si el LLM detecta que es necesario usar una tool, el grafo redirige el flujo para ejecutarla y procesar el resultado.  
-
-💡 Es fundamental entender que **es el LLM quien decide qué tool invocar** en función del mensaje o prompt proporcionado. El grafo facilita la integración de herramientas, pero la decisión de cuál utilizar se basa en la interpretación que hace el modelo del contexto y las instrucciones.  
-
+    **Piensa en las tools como plugins** que añaden nuevas capacidades al grafo sin necesidad de modificar su estructura central.
 
 ---
 
-## 📋 Ejemplo Práctico: Chatbot con Tools para Soporte y Ventas  
+## ⚙️ ¿Cómo Funcionan las Tools?
+
+1. **Definición de Tools:** Creamos funciones externas que pueden recibir parámetros y devolver resultados.
+2. **Vinculación al Modelo de Lenguaje (LLM):** Asociamos estas tools al LLM para que pueda invocarlas durante el flujo de trabajo.
+3. **Ejecución Condicional:** Si el LLM detecta que es necesario usar una tool, el grafo redirige el flujo para ejecutarla y procesar el resultado.
+
+???+ Note "Nota"
+
+    Es fundamental entender que **es el LLM quien decide qué tool invocar** en función del mensaje o prompt proporcionado. El grafo facilita la integración de herramientas, pero la decisión de cuál utilizar se basa en la interpretación que hace el modelo del contexto y las instrucciones.
+
+---
+
+## 📋 Ejemplo Práctico: Chatbot con Tools para Soporte y Ventas
 
 Vamos a construir un grafo que actúa como un asistente virtual, redirigiendo solicitudes de los usuarios a diferentes herramientas según sus necesidades.  
-El chatbot podrá:  
-1. **Consultar precios de productos.**  
-2. **Verificar el estado de pedidos.**  
-3. **Abrir tickets de soporte.**  
+El chatbot podrá:
+
+1. **Consultar precios de productos.**
+2. **Verificar el estado de pedidos.**
+3. **Abrir tickets de soporte.**
 
 ```python hl_lines="41 45"
 from langchain_openai import ChatOpenAI
@@ -45,7 +49,7 @@ def check_price(product: str) -> str:
 
     Args:
         product: Nombre del producto a consultar.
-    
+
     Returns:
         El precio del producto en formato texto.
     """
@@ -57,7 +61,7 @@ def order_status(order_id: int) -> str:
 
     Args:
         order_id: ID del pedido.
-    
+
     Returns:
         El estado actual del pedido.
     """
@@ -69,7 +73,7 @@ def open_ticket(issue: str) -> str:
 
     Args:
         issue: Descripción del problema o incidencia.
-    
+
     Returns:
         Confirmación de apertura del ticket.
     """
@@ -84,26 +88,27 @@ llm = ChatOpenAI(model="gpt-4o-mini")
 llm_with_tools = llm.bind_tools(tools, parallel_tool_calls=False)
 ```
 
-- **Tools (`check_price`, `order_status`, `open_ticket`):** Simulan herramientas externas que realizan distintas tareas para ventas y soporte.  
+- **Tools (`check_price`, `order_status`, `open_ticket`):** Simulan herramientas externas que realizan distintas tareas para ventas y soporte.
 
-:material-alert-octagram-outline: **Nota Importante:**  
+???+ Note "Nota Importante"
 
-Cuando llamamos a `bind_tools`, **no se modifica el modelo original (`llm`)**, sino que se genera **una nueva instancia** con las herramientas vinculadas.  
-Por esta razón, es necesario **asignarlo a una nueva variable** (`llm_with_tools`).  
+    Cuando llamamos a `bind_tools`, **no se modifica el modelo original (`llm`)**, sino que se genera **una nueva instancia** con las herramientas vinculadas.
+    Por esta razón, es necesario **asignarlo a una nueva variable** (`llm_with_tools`).
 
-Esto garantiza que el modelo original **permanezca sin cambios** y podamos reutilizarlo o aplicar diferentes herramientas en otros contextos.  
+    Esto garantiza que el modelo original **permanezca sin cambios** y podamos reutilizarlo o aplicar diferentes herramientas en otros contextos.
 
-Ejemplo:  
-```python
-llm_with_tools = llm.bind_tools(tools, parallel_tool_calls=False)
-```
-👉 llm sigue siendo el modelo base, mientras que llm_with_tools es la versión extendida con las tools activas.
----
+    Ejemplo:
 
-## 🏗️ Construcción del Grafo  
+    ```python
+    llm_with_tools = llm.bind_tools(tools, parallel_tool_calls=False)
+    ```
 
-Creamos los nodos y edges necesarios para integrar las tools al flujo del grafo.  
- 
+    👉 `llm` sigue siendo el modelo base, mientras que `llm_with_tools` es la versión extendida con las tools activas.
+
+## 🏗️ Construcción del Grafo
+
+Creamos los nodos y edges necesarios para integrar las tools al flujo del grafo.
+
 ```python
 from langgraph.graph import MessagesState
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -135,14 +140,14 @@ display(Image(graph_with_tools.get_graph(xray=True).draw_mermaid_png()))
 
 ![grafo tools](../assets/img/curso1/tema8/image.png)
 
-- **Assistant Node:** El nodo principal procesa el mensaje del usuario y decide si debe invocar alguna tool.  
-- **Router Condicional:** El flujo se redirige al nodo de tools si se detecta una llamada a alguna de ellas.  
+- **Assistant Node:** El nodo principal procesa el mensaje del usuario y decide si debe invocar alguna tool.
+- **Router Condicional:** El flujo se redirige al nodo de tools si se detecta una llamada a alguna de ellas.
 
 ---
 
-## 🚀 Invocando el Grafo  
+## 🚀 Invocando el Grafo
 
-Probamos el grafo enviando un mensaje del usuario para ver cómo se invocan las tools en el flujo.  
+Probamos el grafo enviando un mensaje del usuario para ver cómo se invocan las tools en el flujo.
 
 ```python
 messages = [HumanMessage(content="Quiero saber el precio del producto 'RTX4070' y abrir un ticket de soporte.")]
@@ -168,32 +173,32 @@ Name: check_price
 El precio de RTX4070 es de 100€.
 ================================== Ai Message ==================================
 
-El precio de la RTX4070 es de 100€. 
+El precio de la RTX4070 es de 100€.
 
 Ahora, por favor, indícame la descripción del problema o incidencia para abrir el ticket de soporte.
 ```
 
-El chatbot analiza la solicitud, invoca las tools adecuadas y devuelve una respuesta consolidada al usuario.  
+El chatbot analiza la solicitud, invoca las tools adecuadas y devuelve una respuesta consolidada al usuario.
 
 ---
 
 ## 🔎 Recursos:
 
 - :simple-googlecolab: Ver notebook en [Google Colab](https://colab.research.google.com/drive/1EQEkPwUoKKdaj_mmt2ypRiEsbCswm4bp?usp=sharing)
+- :simple-googlecolab: Ver ejemplo calculadora en [Google Colab](https://colab.research.google.com/drive/1F3ytWJcWBtBYPsmt862wm5IL4iDOcwPh?usp=sharing)
 - :books: Definición: [Tools](https://python.langchain.com/docs/concepts/tools)
 
 ---
 
-## 🧑‍🏫 ¿Qué Hemos Aprendido?  
+## 🧑‍🏫 ¿Qué Hemos Aprendido?
 
-- **Tools:** Permiten extender el grafo con funciones externas que realizan tareas específicas.  
-- **Integración con LLM:** Las tools se vinculan directamente al modelo de lenguaje, permitiendo respuestas más avanzadas.  
-- **Flujo Dinámico:** El grafo puede invocar tools de forma condicional, adaptándose a las necesidades del usuario.  
+- **Tools:** Permiten extender el grafo con funciones externas que realizan tareas específicas.
+- **Integración con LLM:** Las tools se vinculan directamente al modelo de lenguaje, permitiendo respuestas más avanzadas.
+- **Flujo Dinámico:** El grafo puede invocar tools de forma condicional, adaptándose a las necesidades del usuario.
 
 ---
 
-## 🌐 ¿Qué es lo Siguiente?  
+## 🌐 ¿Qué es lo Siguiente?
 
 En el próximo tema, exploraremos **Trim y Filter Messages**, técnicas que permiten **controlar y optimizar el historial de mensajes** en el grafo.  
-Esto es clave para gestionar conversaciones largas y garantizar que el modelo reciba solo la información más relevante.  
-
+Esto es clave para gestionar conversaciones largas y garantizar que el modelo reciba solo la información más relevante.

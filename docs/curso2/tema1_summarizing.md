@@ -33,17 +33,17 @@ Esto garantiza que el modelo trabaje con información relevante y no con mensaje
 ### 🛠️ Componentes Clave del Grafo  
 
 1. **Nodo de Conversación (`call_model`):**  
-   - Procesa los mensajes del usuario y genera respuestas usando el modelo LLM.  
-   - Si existe un resumen previo, se añade al historial para mantener el contexto.  
+    - Procesa los mensajes del usuario y genera respuestas usando el modelo LLM.  
+    - Si existe un resumen previo, se añade al historial para mantener el contexto.  
 
 2. **Nodo de Resumen (`summarize_conversation`):**  
-   - Genera un resumen del historial y elimina los mensajes antiguos, manteniendo los más recientes.  
+    - Genera un resumen del historial y elimina los mensajes antiguos, manteniendo los más recientes.  
 
 3. **Condición de Continuación (`should_continue`):**  
-   - Decide si continuar la conversación o resumir el historial basado en la cantidad de mensajes.  
+    - Decide si continuar la conversación o resumir el historial basado en la cantidad de mensajes.  
 
 4. **Memoria Persistente (`MemorySaver`):**  
-   - Almacena el historial y el resumen para garantizar que el grafo recuerde el contexto a lo largo de la interacción.  
+    - Almacena el historial y el resumen para garantizar que el grafo recuerde el contexto a lo largo de la interacción.  
 
 ---
 
@@ -51,7 +51,7 @@ Esto garantiza que el modelo trabaje con información relevante y no con mensaje
 
 Vamos a construir un grafo que implemente estas técnicas.  
 
-```python
+```python hl_lines="33-50"
 from langgraph.graph import MessagesState
 from langchain_core.messages import SystemMessage, HumanMessage, RemoveMessage, AIMessage
 from langgraph.graph import END
@@ -157,7 +157,7 @@ display(Image(graph.get_graph().draw_mermaid_png()))
 
 ---
 
-## 🚀 Veamos Cómo Funciona el Resumen  
+## 🚀 Veamos Cómo Funciona Con Un Ejemplo  
 
 Iniciamos una conversación ficticia entre un usuario y un asistente virtual para observar cómo el grafo gestiona y resume el historial.  
 
@@ -238,7 +238,7 @@ for m in reponse['messages']:
     m.pretty_print()
 ```
 
-```python title="Respuesta"
+```python title="Respuesta" hl_lines="3"
 ---call_model---
 ---should_continue---
 ---summarize_conversation---
@@ -322,6 +322,24 @@ Muchos proveedores de servicios de soporte técnico sí ofrecen descuentos por c
 Te recomendaría preguntar directamente al proveedor de soporte técnico que estés considerando para obtener detalles específicos sobre posibles descuentos y promociones. Si necesitas ayuda con algún proveedor en particular, házmelo saber.
 ```
 
+---
+
+## 🎓 Conclusión
+
+Como hemos visto, **resumir el historial de mensajes** es una estrategia muy útil para manejar conversaciones largas sin perder el contexto y evitando exceder los límites de tokens del modelo.  
+
+Con este enfoque, el chatbot podría incluso responder preguntas como "¿Cómo me llamo?" sin problemas, ya que conserva la información clave en el resumen.  
+
+Es importante destacar que el prompt utilizado para generar el resumen puede ser refinado y personalizado para adaptarse mejor a nuestras necesidades específicas, lo que demuestra el **potencial y la flexibilidad** de esta técnica.  
+
+---
+
+## 🔎 Recursos:
+
+- :simple-googlecolab: Ver notebook en [Google Colab](https://colab.research.google.com/drive/1kkKeTSaZCQRtVbbxjiYBX6es3GUFqEmW?usp=sharing)
+- :simple-googlecolab: Más ejemplos: [Google Colab](https://colab.research.google.com/github/langchain-ai/langchain-academy/blob/main/module-2/chatbot-summarization.ipynb)
+- :books: Definición del concepto: [Summarizing](https://langchain-ai.github.io/langgraph/concepts/memory/?h=summari#summarizing-past-conversations)
+- :books: How-to-guide: [Summarizing](https://langchain-ai.github.io/langgraph/how-tos/memory/add-summary-conversation-history/)
 
 ---
 

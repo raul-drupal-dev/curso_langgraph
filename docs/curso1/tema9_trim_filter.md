@@ -239,7 +239,6 @@ Perfecto. Empecemos con el producto A.
 
 ---
 
-
 ## 🔎 Recursos:
 
 - :simple-googlecolab: Ver notebook en [Google Colab](https://colab.research.google.com/drive/11_u7AsTfcvqq6E2lra2HA6Cb_fil08Pl#scrollTo=1K4jrm4DB8Up)
@@ -248,8 +247,6 @@ Perfecto. Empecemos con el producto A.
 - :books: Definición: [RemoveMessages](https://python.langchain.com/api_reference/core/messages/langchain_core.messages.modifier.RemoveMessage.html#removemessage)
 - :books: Definición: [filter_messages](https://python.langchain.com/api_reference/core/messages/langchain_core.messages.utils.filter_messages.html)
 - :books: How-to-guide: [filter_messages](https://python.langchain.com/docs/how_to/filter_messages/)
-
-
 
 ---
 ## 🧑‍🏫 ¿Qué Hemos Aprendido?  

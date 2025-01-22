@@ -3,7 +3,7 @@ site_url: https://raul-drupal-dev.github.io/curso_langgraph/
 extra_css:
   - ./assets/stylesheets/extra.css
 theme:
-  name: material 
+  name: material
   logo: ./assets/img/theme/raul.png
   favicon: ./assets/img/theme/raul.png
   palette:
@@ -69,15 +69,16 @@ nav:
       - "Tema 9: Trim y Filtrado de Mensajes": curso1/tema9_trim_filter.md
   - "⚙️ Curso 2: Aplicaciones Avanzadas":
       - "Introducción": curso2/index.md
-      - "Tema 1: Chatbot Summarizing": curso2/tema1_chatbot.md
-      - "Tema 2: Human in the Loop": curso2/tema2_human_loop.md
-      - "Tema 3: Streaming y Breakpoints": curso2/tema3_streaming.md
-      - "Tema 4: Paralelismo": curso2/tema4_parallelism.md
-      - "Tema 5: Subgrafías (Sub-graphs)": curso2/tema5_sub_graphs.md
-      - "Tema 6: Mapas": curso2/tema6_maps.md
-      - "Tema 7: RAG (Retrieval-Augmented Generation)": curso2/tema7_rag.md
-      - "Tema 8: LangGraph Studio": curso2/tema8_langgraph_studio.md
-      - "Tema 9: LangSmith": curso2/tema9_langsmith.md
+      - "Tema 1: Chatbot Summarizing": curso2/tema1_summarizing.md
+      - "Tema 2: Streaming": curso2/tema2_streaming.md
+      - "tema 3: Breakpoint": curso2/tema3_breakpoint.md
+      - "Tema 4: Human in the Loop": curso2/tema4_human_loop.md
+      - "Tema 5: Paralelismo": curso2/tema4_parallelism.md
+      - "Tema 6: Subgrafías (Sub-graphs)": curso2/tema5_sub_graphs.md
+      - "Tema 7: Mapas": curso2/tema6_maps.md
+      - "Tema 8: RAG (Retrieval-Augmented Generation)": curso2/tema7_rag.md
+      - "Tema 9: LangGraph Studio": curso2/tema8_langgraph_studio.md
+      - "Tema 10: LangSmith": curso2/tema9_langsmith.md
   - "🚀 Curso 3: Despliegue y Proyecto Final":
       - "Introducción": curso3/index.md
       - "Tema 1: Long Memory": curso3/tema1_long_memory.md
@@ -90,5 +91,5 @@ nav:
   - "🛠️ Curso 4: Proyecto Final y Extensiones":
       - "Introducción": curso4/index.md
   #- "📄 Recursos Adicionales":
-      #- "Diapositivas": assets/slides.md
-      #- "Referencias": assets/referencias.md
+  #- "Diapositivas": assets/slides.md
+  #- "Referencias": assets/referencias.md

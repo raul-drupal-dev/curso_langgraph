@@ -187,6 +187,9 @@ El chatbot analiza la solicitud, invoca las tools adecuadas y devuelve una respu
 - :simple-googlecolab: Ver notebook en [Google Colab](https://colab.research.google.com/drive/1EQEkPwUoKKdaj_mmt2ypRiEsbCswm4bp?usp=sharing)
 - :simple-googlecolab: Ver ejemplo calculadora en [Google Colab](https://colab.research.google.com/drive/1F3ytWJcWBtBYPsmt862wm5IL4iDOcwPh?usp=sharing)
 - :books: Definición: [Tools](https://python.langchain.com/docs/concepts/tools)
+- :books: Definición: [tools_condition](https://github.com/langchain-ai/langgraph/blob/0bdd27ade4dd3a8dd30bf651423ef3bc723e64dc/libs/langgraph/langgraph/prebuilt/tool_node.py#L576)
+- :books: Definición: [ToolNode](https://github.com/langchain-ai/langgraph/blob/0bdd27ade4dd3a8dd30bf651423ef3bc723e64dc/libs/langgraph/langgraph/prebuilt/tool_node.py#L132)
+- :books: How-to-guide: [Tools](https://langchain-ai.github.io/langgraph/how-tos/#tool-calling)
 
 ---
 

@@ -1,3 +1,7 @@
 .twemoji {
     width: 15px;
 }
+
+.icon-title-main {
+    transform: scale(1.6);
+}

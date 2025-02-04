@@ -35,7 +35,7 @@ Vamos a crear un chatbot que redirige al usuario a diferentes departamentos seg�
 
 El router analizará el mensaje del usuario y lo dirigirá al nodo adecuado.
 
-```python
+```python hl_lines="12-19"
 from typing_extensions import TypedDict
 
 class State(TypedDict):
@@ -86,7 +86,7 @@ def general_node(state: State):
 
 Agregamos el router y conectamos cada nodo de respuesta al flujo.
 
-```python
+```python hl_lines="10"
 from langgraph.graph import StateGraph, START, END
 
 builder = StateGraph(State)

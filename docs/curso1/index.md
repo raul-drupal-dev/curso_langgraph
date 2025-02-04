@@ -23,7 +23,7 @@ Al finalizar este curso, serás capaz de construir flujos de trabajo de LLM desd
 ---
 
 ## 📋 Temario
-0. [Tema 1: Nodos](tema0_que_es_langgraph.md)  
+0. [Tema 0: Que es LangGraph?](tema0_que_es_langgraph.md)  
 1. [Tema 1: Nodos](tema1_nodos.md)  
 2. [Tema 2: Edges (Conexiones)](tema2_edges.md)  
 3. [Tema 3: State Schema](tema3_state_schema.md)  

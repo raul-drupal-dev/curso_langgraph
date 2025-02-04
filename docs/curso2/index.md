@@ -21,13 +21,13 @@ El objetivo es enseñarte cómo crear soluciones complejas con flujos paralelos,
 ---
 
 ## 📋 Temario
-1. [Tema 1: Chatbot Summarizing](tema1_chatbot.md)  
-2. [Tema 2: Human in the Loop](tema2_human_loop.md)  
-3. [Tema 3: Streaming y Breakpoints](tema3_streaming.md)  
-4. [Tema 4: Paralelismo](tema4_parallelism.md)  
-5. [Tema 5: Subgrafías (Sub-graphs)](tema5_sub_graphs.md)  
-6. [Tema 6: Mapas](tema6_maps.md)  
-7. [Tema 7: RAG (Retrieval-Augmented Generation)](tema7_rag.md)  
+1. [Tema 1: Chatbot Summarizing](tema1_summarizing.md)  
+2. [Tema 2: Streaming](tema2_streaming.md)  
+3. [Tema 3: Breakpoint](tema3_breakpoint.md)  
+4. [Tema 4: Human in the Loop](tema4_human_loop.md)  
+5. [Tema 5: Paralelismo](tema5_parallelism.md)  
+6. [Tema 6: Subgrafías](tema6_sub_graphs.md)  
+7. [Tema 7: Mapas](tema7_maps.md)  
 8. [Tema 8: LangGraph Studio](tema8_langgraph_studio.md)  
 9. [Tema 9: LangSmith](tema9_langsmith.md)  
 

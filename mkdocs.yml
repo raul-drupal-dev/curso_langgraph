@@ -76,9 +76,8 @@ nav:
       - "Tema 5: Paralelismo": curso2/tema5_parallelism.md
       - "Tema 6: Subgrafías (Sub-graphs)": curso2/tema6_sub_graphs.md
       - "Tema 7: Mapas": curso2/tema7_maps.md
-      - "Tema 8: RAG (Retrieval-Augmented Generation)": curso2/tema7_rag.md
-      - "Tema 9: LangGraph Studio": curso2/tema8_langgraph_studio.md
-      - "Tema 10: LangSmith": curso2/tema9_langsmith.md
+      - "Tema 8: LangGraph Studio": curso2/tema8_langgraph_studio.md
+      - "Tema 9: LangSmith": curso2/tema9_langsmith.md
   - "🚀 Curso 3: Despliegue y Proyecto Final":
       - "Introducción": curso3/index.md
       - "Tema 1: Long Memory": curso3/tema1_long_memory.md

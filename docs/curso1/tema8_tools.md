@@ -90,7 +90,7 @@ llm_with_tools = llm.bind_tools(tools, parallel_tool_calls=False)
 
 - **Tools (`check_price`, `order_status`, `open_ticket`):** Simulan herramientas externas que realizan distintas tareas para ventas y soporte.
 
-???+ Note "Nota Importante"
+???+ Warning "Nota Importante"
 
     Cuando llamamos a `bind_tools`, **no se modifica el modelo original (`llm`)**, sino que se genera **una nueva instancia** con las herramientas vinculadas.
     Por esta razón, es necesario **asignarlo a una nueva variable** (`llm_with_tools`).

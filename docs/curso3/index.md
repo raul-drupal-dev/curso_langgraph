@@ -21,8 +21,8 @@ El objetivo es que logres desarrollar y desplegar flujos completos listos para p
 
 ## 📋 Temario
 1. [Tema 1: Long Memory](tema1_long_memory.md)  
-2. [Tema 2: LangGraph Store](tema2_langgraph_store.md)  
-3. [Tema 3: Memory Schema](tema3_memory_schema.md)  
+2. [Tema 2: Memory Schema](tema2_memory_schema.md)  
+3. [Tema 3: LangGraph Store](tema3_langgraph_store.md)  
 4. [Tema 4: Despliegue de LangGraph](tema4_deployments.md)  
 5. [Tema 5: LangGraph CLI](tema5_langgraph_cli.md)  
 6. [Tema 6: LangGraph Server](tema6_langgraph_server.md)  

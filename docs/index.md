@@ -48,8 +48,8 @@ El curso se divide en **tres módulos principales**, con teoría, ejemplos de c�
 - **Construcción de chatbots resumidores (Summarizing).**  
 - **Implementación de puntos de interrupción y streaming.**  
 - **Ejecución paralela de tareas y subgrafías.**  
-- **Sistemas de RAG (Retrieval-Augmented Generation).**  
-- **Uso de LangGraph Studio para visualizar flujos.**  
+- **Técnicas de map-reduce**  
+- **Uso de LangGraph Studio y LangSmith para visualizar y debugear flujos.**  
 
 ### **Módulo 3: Despliegue y Proyecto Final**  
 - **Despliegue de LangGraph en producción.**  
@@ -87,6 +87,7 @@ Al completar el curso, habrás desarrollado un **asistente virtual funcional** q
 - **LangGraph 0.3.xx**  
 - **LangChain (opcional)**  
 - **LangSmith (trazado y depuración)**  
+- **LangGraph Studio (Visualización de grafos)**
 - **OpenAI (u otros LLMs)**  
 - **Postgres (para memoria de corto plazo)**  
 

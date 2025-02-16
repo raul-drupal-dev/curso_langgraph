@@ -47,6 +47,7 @@ Usando el ejemplo que vimos anteriormente en artículos pasados, vamos a definir
 ```python  
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langgraph.graph import MessagesState
 
 llm = ChatOpenAI(model="gpt-4o-mini")
 

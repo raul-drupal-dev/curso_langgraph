@@ -242,11 +242,12 @@ Aunque más adelante exploraremos métodos más avanzados y optimizados (como me
 
 ---
 
-
 ## 🔎 Recursos:
 
 - :simple-googlecolab: Ver notebook en [Google Colab](https://colab.research.google.com/drive/1AeQb1okNY3PrQ2PcMm4z4zaKjM2dirt2?usp=sharing)
 - :books: How-to-guide: [MemorySaver](https://langchain-ai.github.io/langgraph/reference/checkpoints/#langgraph.checkpoint.memory.MemorySaver)
+
+---
 
 ## 🧑‍🏫 ¿Qué Hemos Aprendido?  
 

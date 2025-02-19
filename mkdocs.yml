@@ -84,8 +84,8 @@ nav:
       - "Tema 2: Memory Schema": curso3/tema2_memory_schema.md
       - "Tema 3: LangGraph Store": curso3/tema3_langgraph_store.md
       - "Tema 4: LangGraph CLI": curso3/tema4_langgraph_cli.md
-      - "Tema 5: LangGraph Server": curso3/tema5_langgraph_server.md
-      - "Tema 6: Despliegue de LangGraph": curso3/tema6_deployments.md
+      - "Tema 5: LangGraph SDK": curso3/tema5_langgraph_sdk.md
+      - "Tema 6: Doble-texting": curso3/tema6_doble-texting.md
       - "Tema 7: API REST/GraphQL": curso3/tema7_api_rest.md
   - "🛠️ Curso 4: Proyecto Final y Extensiones":
       - "Introducción": curso4/index.md

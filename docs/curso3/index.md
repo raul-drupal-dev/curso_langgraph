@@ -23,9 +23,9 @@ El objetivo es que logres desarrollar y desplegar flujos completos listos para p
 1. [Tema 1: Long Memory](tema1_long_memory.md)  
 2. [Tema 2: Memory Schema](tema2_memory_schema.md)  
 3. [Tema 3: LangGraph Store](tema3_langgraph_store.md)  
-4. [Tema 4: Despliegue de LangGraph](tema4_deployments.md)  
-5. [Tema 5: LangGraph CLI](tema5_langgraph_cli.md)  
-6. [Tema 6: LangGraph Server](tema6_langgraph_server.md)  
+4. [Tema 4: LangGraph CLI](tema4_langgraph_cli.md)  
+5. [Tema 5: La SDK de LangGraph](tema5_langgraph_sdk.md)  
+6. [Tema 6: Doble-texting](tema5_langgraph_sdk.md)  
 7. [Tema 7: API REST/GraphQL](tema7_api_rest.md)  
 
 ---

@@ -55,7 +55,7 @@ Cada tema incluye:
 Antes de comenzar, asegúrate de tener:  
 🔹 **Python 3.8 o superior** instalado.  
 🔹 Una cuenta de **OpenAI** (opcional, para ejecutar ejemplos que usan LLMs).  
-🔹 Claves de API para **OpenAI** *(si quieres probar modelos de IA en los ejemplos).*  
+🔹 Claves de API para **[OpenAI](https://platform.openai.com/api-keys)** *(si quieres probar modelos de IA en los ejemplos).*  
 🔹 (Opcional) Cuenta en **[LangSmith](https://www.langchain.com/langsmith)** *(para analizar los datos, se explica en el Curso 2).*  
 🔹 (Opcional) **Docker** y **LangGraph CLI** *(para despliegues avanzados en el Curso 3).*  
 

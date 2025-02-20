@@ -52,10 +52,12 @@ El curso se divide en **tres módulos principales**, con teoría, ejemplos de c�
 - **Uso de LangGraph Studio y LangSmith para visualizar y debugear flujos.**  
 
 ### **Módulo 3: Despliegue y Proyecto Final**  
-- **Despliegue de LangGraph en producción.**  
 - **Memoria a largo plazo con LangGraph Store.**  
-- **Creación de APIs REST para LangGraph.**  
-- **Proyecto final: Asistente virtual completo.**  
+- **Memory schema y LangGrpah Store**  
+- **Uso de LangGraph CLI**  
+- **Introducción a LangGraph SDK (Python)**  
+- **Repaso a las técnicas de doble-texting**  
+- **Proyecto final con API REST/GraphQL (Comming Soon)**
 
 ---  
 

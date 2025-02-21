@@ -58,6 +58,7 @@ El curso se divide en **tres módulos principales**, con teoría, ejemplos de c�
 - **Introducción a LangGraph SDK (Python)**  
 - **Repaso a las técnicas de doble-texting**  
 - **Proyecto final con API REST/GraphQL (Comming Soon)**
+- **Explorar LangFlow**
 
 ---  
 

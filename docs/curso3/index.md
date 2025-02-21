@@ -6,11 +6,13 @@ En este curso, nos enfocaremos en llevar tus flujos de trabajo a producción. Ap
 
 ---
 
-## 🎯 ¿Qué Aprenderemos?
+## 🎯 ¿Qué Aprenderemos?  
 - Implementar flujos de **memoria a largo plazo**.  
 - Desplegar LangGraph en **servidores locales y en la nube**.  
 - Crear APIs REST para conectar tus flujos con otras aplicaciones.  
 - Usar la **CLI de LangGraph** para facilitar despliegues y pruebas.  
+- Utilizar la **SDK de LangGraph** para interactuar con grafos de manera programática.  
+- Explorar **Langflow**, una herramienta visual para diseñar y gestionar flujos de IA sin código.  
 
 ---
 
@@ -27,6 +29,7 @@ El objetivo es que logres desarrollar y desplegar flujos completos listos para p
 5. [Tema 5: La SDK de LangGraph](tema5_langgraph_sdk.md)  
 6. [Tema 6: Doble-texting](tema5_langgraph_sdk.md)  
 7. [Tema 7: API REST/GraphQL](tema7_api_rest.md)  
+7. [Tema 8: LangFlo8](tema7_langflow.md)  
 
 ---
 

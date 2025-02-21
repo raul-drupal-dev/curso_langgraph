@@ -151,13 +151,6 @@ Crear una API personalizada para LangGraph nos permite **flexibilizar la integra
 
 ---
 
-## 🌐 **¿Qué es lo Siguiente?**  
-
-¡Con esto finalizamos el curso 3! 🚀  
-
-En el **Curso 4**, exploraremos **estrategias avanzadas** para optimizar y escalar nuestros grafos en producción, incluyendo:  
-✅ **Optimización de performance** en grafos grandes.  
-✅ **Despliegue en entornos cloud** como AWS o GCP.  
-✅ **Monitorización y logging** para depuración eficiente.  
-
-📢 **¡Prepárate para llevar LangGraph al siguiente nivel!**  
+🌐 ¿Qué es lo Siguiente?
+En el próximo tema, exploraremos Langflow, una herramienta de desarrollo visual que permite diseñar flujos de trabajo de IA sin necesidad de escribir código.
+Aprenderemos cómo utilizar su interfaz gráfica para construir agentes conversacionales y cómo integrarlo con LangGraph para aprovechar su potencia en entornos de producción.

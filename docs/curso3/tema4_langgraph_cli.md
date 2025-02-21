@@ -218,4 +218,5 @@ Si trabajamos con **grafos complejos**, esta herramienta se vuelve **esencial** 
 
 ## 🌐 **¿Qué es lo Siguiente?**  
 
-En el siguiente tema, aprenderemos cómo **desplegar nuestro propio servidor de LangGraph**, conectándolo con API REST y GraphQL para integraciones avanzadas.  
+En el próximo tema, exploraremos **LangGraph SDK**, la herramienta que nos permitirá conectar, ejecutar y administrar grafos de manera programática.  
+Aprenderemos a interactuar con nuestros grafos desde código, gestionar ejecuciones (*runs*) y aprovechar funcionalidades avanzadas como *streaming* e *intervención humana*.  

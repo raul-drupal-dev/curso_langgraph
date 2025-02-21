@@ -87,7 +87,8 @@ nav:
       - "Tema 5: LangGraph SDK": curso3/tema5_langgraph_sdk.md
       - "Tema 6: Doble-texting": curso3/tema6_doble-texting.md
       - "Tema 7: API REST/GraphQL": curso3/tema7_api_rest.md
-  - "🛠️ Curso 4: Proyecto Final y Extensiones":
+      - "Tema 8: LangFlow": curso3/tema8_langflow.md
+  - "🛠️ Curso 4: Cápsulas Extras":
       - "Introducción": curso4/index.md
   #- "📄 Recursos Adicionales":
   #- "Diapositivas": assets/slides.md

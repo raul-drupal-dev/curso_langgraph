@@ -106,30 +106,44 @@ Langflow se integra perfectamente con **LangGraph**, una herramienta que permite
 
 ## 🎓 ¡Has Completado el Curso 3!  
 
-🎉 **¡Felicidades! Has finalizado el tercer curso de LangGraph**, donde exploramos la memoria a largo plazo, el almacenamiento de datos con Store, el uso de LangGraph CLI, la conexión con nuestro grafo mediante el SDK de Python y el poderoso LangFlow.  
+🎉 **¡Felicidades! Has finalizado el tercer curso de LangGraph**, donde exploramos la memoria a largo plazo, el almacenamiento de datos con Store, el uso de LangGraph CLI, la conexión con nuestro grafo mediante la SDK de Python y el poderoso LangFlow.  
+
+🚀 **Ahora dominas herramientas clave para construir y desplegar grafos inteligentes de alto nivel.**  
 
 ---
 
 ## 🏆 ¿Has Completado Todo el Curso de LangGraph?  
 
-🥳 ¡Enhorabuena! Con esto, concluyes el curso completo de LangGraph, donde pasaste de principiante a experto en la creación de grafos inteligentes.  
+🥳 ¡Enhorabuena! Con esto, concluyes el curso completo de LangGraph, donde pasaste de **principiante a experto** en la creación de grafos inteligentes.  
 
-Ahora tienes el conocimiento necesario para desarrollar un **asistente virtual** funcional que:  
+Ahora tienes las habilidades necesarias para desarrollar un **asistente virtual avanzado** que:  
 
 ✅ ⁠Gestiona múltiples consultas con LLMs.  
 ✅ ⁠Mantiene memoria y contexto de conversaciones previas.  
 ✅ ⁠Ejecuta tareas en paralelo y maneja flujos complejos.  
-✅ ⁠Es capaz de desplegarse y escalar en entornos de producción.  
-✅ ⁠Aprovecha herramientas clave del ecosistema LangChain, como LangStudio, LangSmith y LangGraph CLI.  
+✅ ⁠Se despliega y escala en entornos de producción.  
+✅ ⁠Aprovecha herramientas clave del ecosistema LangChain, como **LangStudio, LangSmith y LangGraph CLI**.  
+
+???+ success "💡 ¡Misión Cumplida!"  
+    Has recorrido un camino increíble, aprendiendo desde los fundamentos hasta técnicas avanzadas.  
+    **Ahora es el momento de poner en práctica todo lo aprendido y construir proyectos reales.**  
 
 ---
 
 ## 🤔 ¿Y Ahora Qué?  
 
-Ahora es el momento de aplicar lo aprendido y construir tus propios grafos profesionales.  
+Aunque este curso ha llegado a su fin, **esto no es el final del camino**.  
 
-Aunque este curso ha llegado a su fin, **seguiré agregando nuevos temas en el Curso 4**. Exploraremos técnicas avanzadas y profundizaremos en aspectos que no pudimos abordar completamente en este curso. ¡No olvides volver para descubrir las novedades!  
+📌 **Próximamente, en el Curso 4**, exploraremos técnicas aún más avanzadas y profundizaremos en aspectos que no pudimos cubrir completamente en este curso.  
+🔜 **¡Vuelve pronto para descubrir las novedades!**  
 
-**Te deseo mucho éxito en esta nueva aventura.** 🚀  
+???+ note "📣 ¡Comparte tu experiencia!"  
+    Si este curso te ha sido útil, no dudes en compartirlo con otros y ayudar a que más personas descubran LangGraph.  
 
-Si este curso te ha sido útil y **`quieres apoyar su desarrollo, considera hacer una donación`**. ¡Tu apoyo me ayuda a seguir creando más contenido! (Pronto añadiré opciones para contribuir)
+???+ tip "💖 ¿Quieres apoyar el curso?"  
+    Si quieres contribuir al desarrollo de más contenido gratuito, pronto habilitaré opciones para donaciones.  
+    **¡Tu apoyo me ayuda a seguir creando más cursos y recursos!** 🚀  
+
+---
+
+💡 **¡Gracias por formar parte de este curso y mucho éxito en tus proyectos con LangGraph!** 🎯✨  

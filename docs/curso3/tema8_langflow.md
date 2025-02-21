@@ -116,11 +116,11 @@ Langflow se integra perfectamente con **LangGraph**, una herramienta que permite
 
 Ahora tienes el conocimiento necesario para desarrollar un **asistente virtual** funcional que:  
 
-•⁠  ⁠Gestiona múltiples consultas con LLMs.  
-•⁠  ⁠Mantiene memoria y contexto de conversaciones previas.  
-•⁠  ⁠Ejecuta tareas en paralelo y maneja flujos complejos.  
-•⁠  ⁠Es capaz de desplegarse y escalar en entornos de producción.  
-•⁠  ⁠Aprovecha herramientas clave del ecosistema LangChain, como LangStudio, LangSmith y LangGraph CLI.  
+✅ ⁠Gestiona múltiples consultas con LLMs.  
+✅ ⁠Mantiene memoria y contexto de conversaciones previas.  
+✅ ⁠Ejecuta tareas en paralelo y maneja flujos complejos.  
+✅ ⁠Es capaz de desplegarse y escalar en entornos de producción.  
+✅ ⁠Aprovecha herramientas clave del ecosistema LangChain, como LangStudio, LangSmith y LangGraph CLI.  
 
 ---
 

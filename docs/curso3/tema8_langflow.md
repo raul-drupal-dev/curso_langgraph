@@ -104,17 +104,17 @@ Langflow se integra perfectamente con **LangGraph**, una herramienta que permite
 
 ---
 
-🎓 ¡Has Completado el Curso 3!  
+## 🎓 ¡Has Completado el Curso 3!  
 
-🎉 ¡Felicidades! Has finalizado el tercer curso de LangGraph, donde exploramos la memoria a largo plazo, el almacenamiento de datos con Store, el uso de LangGraph CLI, la conexión con nuestro grafo mediante el SDK de Python y el poderoso LangFlow.  
+🎉 **¡Felicidades! Has finalizado el tercer curso de LangGraph**, donde exploramos la memoria a largo plazo, el almacenamiento de datos con Store, el uso de LangGraph CLI, la conexión con nuestro grafo mediante el SDK de Python y el poderoso LangFlow.  
 
 ---
 
-🏆 ¿Has Completado Todo el Curso de LangGraph?  
+## 🏆 ¿Has Completado Todo el Curso de LangGraph?  
 
 🥳 ¡Enhorabuena! Con esto, concluyes el curso completo de LangGraph, donde pasaste de principiante a experto en la creación de grafos inteligentes.  
 
-Ahora tienes el conocimiento necesario para desarrollar un asistente virtual funcional que:  
+Ahora tienes el conocimiento necesario para desarrollar un **asistente virtual** funcional que:  
 
 •⁠  ⁠Gestiona múltiples consultas con LLMs.  
 •⁠  ⁠Mantiene memoria y contexto de conversaciones previas.  
@@ -124,12 +124,12 @@ Ahora tienes el conocimiento necesario para desarrollar un asistente virtual fun
 
 ---
 
-🤔 ¿Y Ahora Qué?  
+## 🤔 ¿Y Ahora Qué?  
 
 Ahora es el momento de aplicar lo aprendido y construir tus propios grafos profesionales.  
 
-Aunque este curso ha llegado a su fin, seguiré agregando nuevos temas en el Curso 4. Exploraremos técnicas avanzadas y profundizaremos en aspectos que no pudimos abordar completamente en este curso. ¡No olvides volver para descubrir las novedades!  
+Aunque este curso ha llegado a su fin, **seguiré agregando nuevos temas en el Curso 4**. Exploraremos técnicas avanzadas y profundizaremos en aspectos que no pudimos abordar completamente en este curso. ¡No olvides volver para descubrir las novedades!  
 
-Te deseo mucho éxito en esta nueva aventura. 🚀  
+**Te deseo mucho éxito en esta nueva aventura.** 🚀  
 
-Si este curso te ha sido útil y quieres apoyar su desarrollo, considera hacer una donación. ¡Tu apoyo me ayuda a seguir creando más contenido! (Pronto añadiré opciones para contribuir)
+Si este curso te ha sido útil y **`quieres apoyar su desarrollo, considera hacer una donación`**. ¡Tu apoyo me ayuda a seguir creando más contenido! (Pronto añadiré opciones para contribuir)

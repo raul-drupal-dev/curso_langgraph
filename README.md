@@ -79,7 +79,7 @@ Antes de comenzar, asegúrate de tener:
 
 ---
 
-### ✅ **Última actualización:** *(20/02/2025)*  
+### ✅ **Última actualización:** *(21/02/2025)*  
 
 ---
 

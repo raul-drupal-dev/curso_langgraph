@@ -55,6 +55,7 @@ nav:
       - "📚 Curso 1: Fundamentos de LangGraph": curso1/index.md
       - "⚙️ Curso 2: Aplicaciones Avanzadas": curso2/index.md
       - "🚀 Curso 3: Despliegue y Proyecto Final": curso3/index.md
+      - "🛠️ Curso 4: Cápsulas Extras": curso4/index.md
   - "📚 Curso 1: Fundamentos de LangGraph":
       - "Introducción": curso1/index.md
       - "Tema 0: Qué es Langgraph?": curso1/tema0_que_es_langgraph.md
@@ -90,6 +91,8 @@ nav:
       - "Tema 8: LangFlow": curso3/tema8_langflow.md
   - "🛠️ Curso 4: Cápsulas Extras":
       - "Introducción": curso4/index.md
+      - "Cápsula 1: Messages": curso4/capsula1_messages.md
+      - "Cápsula 2: State In & State Out": curso4/capsula2_statein_stateout.md
   #- "📄 Recursos Adicionales":
   #- "Diapositivas": assets/slides.md
   #- "Referencias": assets/referencias.md

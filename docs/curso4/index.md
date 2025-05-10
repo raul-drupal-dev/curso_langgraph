@@ -28,6 +28,7 @@ Este curso no sigue una línea cronológica como los anteriores, sino que está 
 A continuación, te dejo la lista de temas abordados en esta sección. ¡Se irá ampliando conforme avance el ecosistema!
 
 - 💬 [Cápsula 1: Messages](capsula1_messages.md)
+- 💬 [Cápsula 2: State In - State Out](capsula2_statein_stateout.md)
 
 *Más temas próximamente...*
 

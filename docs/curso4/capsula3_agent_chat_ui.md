@@ -44,7 +44,7 @@ pnpm dev
 La app quedará disponible en [http://localhost:3000](http://localhost:3000)
 
 !!! tip "Sin instalación local"
-  Puedes usar la demo desplegada: [https://agentchat.vercel.app/](https://agentchat.vercel.app/)
+    Puedes usar la demo desplegada: [https://agentchat.vercel.app/](https://agentchat.vercel.app/)
 
 
 ## 🕹️ ¿Cómo se usa?

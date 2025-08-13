@@ -7,7 +7,7 @@ Hasta ahora, ya hemos recorrido los fundamentos esenciales y comprendido cómo c
 Este nuevo curso tiene un enfoque distinto: **aquí vamos a detenernos para mirar más de cerca** aspectos que ya conocemos, pero que merecen una explicación más detallada. También será el lugar donde iremos incorporando **nuevas funcionalidades, conceptos y mejoras** que vayan surgiendo con el tiempo.
 
 !!! info "Una sección viva"
-Este módulo está pensado para crecer con el tiempo. Cada vez que aparezca un tema nuevo o haya algo importante que profundizar, lo añadiremos aquí. ¡No olvides volver de vez en cuando!
+    Este módulo está pensado para crecer con el tiempo. Cada vez que aparezca un tema nuevo o haya algo importante que profundizar, lo añadiremos aquí. ¡No olvides volver de vez en cuando!
 
 ---
 

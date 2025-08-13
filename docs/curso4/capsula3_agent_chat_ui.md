@@ -6,6 +6,7 @@
 
 En pocas palabras, es el “frontend” de chat para tus agentes: conectas tu servidor de LangGraph y empiezas a interactuar con tu grafo/assistant sin tener que construir una UI desde cero. Soporta streaming, renderizado de artefactos en un panel lateral y opciones de producción con autenticación.
 
+--
 
 ## 🧠 ¿Para qué podemos usarlo? (Casos de uso)
 
@@ -15,6 +16,7 @@ En pocas palabras, es el “frontend” de chat para tus agentes: conectas tu se
 - 🔬 Experimentos y evaluación: valida prompts, flujos y memoria sobre una UI estable.
 - 🚀 Producción con autenticación: publica una UI de chat conectada a tu despliegue de LangGraph.
 
+--
 
 ## 📦 ¿Cómo se instala?
 
@@ -46,6 +48,7 @@ La app quedará disponible en [http://localhost:3000](http://localhost:3000)
 !!! tip "Sin instalación local"
     Puedes usar la demo desplegada: [https://agentchat.vercel.app/](https://agentchat.vercel.app/)
 
+---
 
 ## 🕹️ ¿Cómo se usa?
 
@@ -68,6 +71,7 @@ NEXT_PUBLIC_ASSISTANT_ID=agent
 
 Al iniciar, la UI usará estos valores y no mostrará el formulario.
 
+---
 
 ## 🧩 Funciones clave útiles
 
@@ -107,6 +111,7 @@ return { messages: [result] };
 
 La UI permite mostrar “artefactos” (contenido adicional) en un panel lateral. Desde tu grafo puedes establecer contexto en `thread.meta.artifact` y, en la UI, recuperar ese contexto con el hook `useArtifact` para renderizar componentes propios.
 
+---
 
 ## 🏭 ¿Cómo llevarlo a producción?
 
@@ -145,7 +150,7 @@ const streamValue = useTypedStream({
   },
 });
 ```
-
+---
 
 ## ✅ Ventajas
 
@@ -157,6 +162,7 @@ const streamValue = useTypedStream({
 - 🧪 Ideal para demos, pruebas, evaluación y uso interno.
 - 🆓 Open Source (MIT), fácil de extender y personalizar.
 
+---
 
 ## 🔎 Recursos
 
@@ -167,6 +173,7 @@ const streamValue = useTypedStream({
     - [Python](https://langchain-ai.github.io/langgraph/tutorials/auth/getting_started/)
     - [TypeScript](https://langchain-ai.github.io/langgraphjs/how-tos/auth/custom_auth/)
 
+---
 
 ## 🧩 ¿Qué hemos aprendido?
 

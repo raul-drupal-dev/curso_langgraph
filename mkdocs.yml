@@ -94,6 +94,7 @@ nav:
       - "Cápsula 1: Messages": curso4/capsula1_messages.md
       - "Cápsula 2: State In & State Out": curso4/capsula2_statein_stateout.md
       - "Cápsula 3: Agent Chat UI": curso4/capsula3_agent_chat_ui.md
+      - "Cápsula 4: LangMem SDK": curso4/capsula4_langmem_sdk.md
   #- "📄 Recursos Adicionales":
   #- "Diapositivas": assets/slides.md
   #- "Referencias": assets/referencias.md

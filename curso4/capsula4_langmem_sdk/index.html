@@ -1,0 +1,2122 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://raul-drupal-dev.github.io/curso_langgraph/curso4/capsula4_langmem_sdk/">
+      
+      
+        <link rel="prev" href="../capsula3_agent_chat_ui/">
+      
+      
+        <link rel="next" href="../capsula5_computer_use_agents/">
+      
+      
+      <link rel="icon" href="../../assets/img/theme/raul.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Cápsula 4: LangMem SDK - Curso Completo de LangGraph</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#capsula-4-langmem-sdk-memoria-a-largo-plazo-para-agentes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Curso Completo de LangGraph" class="md-header__button md-logo" aria-label="Curso Completo de LangGraph" data-md-component="logo">
+      
+  <img src="../../assets/img/theme/raul.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso Completo de LangGraph
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cápsula 4: LangMem SDK
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Introducción
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../curso1/" class="md-tabs__link">
+          
+  
+  
+  📚 Curso 1: Fundamentos de LangGraph
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../curso2/" class="md-tabs__link">
+          
+  
+  
+  ⚙️ Curso 2: Aplicaciones Avanzadas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../curso3/" class="md-tabs__link">
+          
+  
+  
+  🚀 Curso 3: Despliegue y Proyecto Final
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  🛠️ Curso 4: Cápsulas Extras
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Curso Completo de LangGraph" class="md-nav__button md-logo" aria-label="Curso Completo de LangGraph" data-md-component="logo">
+      
+  <img src="../../assets/img/theme/raul.png" alt="logo">
+
+    </a>
+    Curso Completo de LangGraph
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🙋‍♂️ Bienvenida
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Curso 1: Fundamentos de LangGraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Curso 2: Aplicaciones Avanzadas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 Curso 3: Despliegue y Proyecto Final
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Curso 4: Cápsulas Extras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📚 Curso 1: Fundamentos de LangGraph
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            📚 Curso 1: Fundamentos de LangGraph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Curso 1: Fundamentos de LangGraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema0_que_es_langgraph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 0: Qué es Langgraph?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema1_nodos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Nodos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema2_edges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 2: Edges (Conexiones)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema3_state_schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 3: State Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema4_memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 4: Memoria
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema5_chains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 5: Chains y Flujos de Trabajo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema6_routers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 6: Routers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema7_reducers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 7: Reducers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema8_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 8: Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema9_trim_filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 9: Trim y Filtrado de Mensajes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Curso 2: Aplicaciones Avanzadas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ⚙️ Curso 2: Aplicaciones Avanzadas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Curso 2: Aplicaciones Avanzadas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema1_summarizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Chatbot Summarizing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema2_streaming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 2: Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema3_breakpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tema 3: Breakpoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema4_human_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 4: Human in the Loop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema5_parallelism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 5: Paralelismo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema6_sub_graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 6: Subgrafías (Sub-graphs)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema7_maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 7: Mapas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema8_langgraph_studio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 8: LangGraph Studio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema9_langsmith/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 9: LangSmith
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    🚀 Curso 3: Despliegue y Proyecto Final
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            🚀 Curso 3: Despliegue y Proyecto Final
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 Curso 3: Despliegue y Proyecto Final
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema1_long_term_memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Long-Term Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema2_memory_schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 2: Memory Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema3_langgraph_store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 3: LangGraph Store
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema4_langgraph_cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 4: LangGraph CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema5_langgraph_sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 5: LangGraph SDK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema6_doble-texting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 6: Doble-texting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema7_api_rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 7: API REST/GraphQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema8_langflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 8: LangFlow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Curso 4: Cápsulas Extras
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🛠️ Curso 4: Cápsulas Extras
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Curso 4: Cápsulas Extras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capsula1_messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 1: Messages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capsula2_statein_stateout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 2: State In & State Out
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capsula3_agent_chat_ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 3: Agent Chat UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 4: LangMem SDK
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 4: LangMem SDK
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-langmem" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 ¿Qué es LangMem?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 ¿Qué es LangMem?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacion-con-los-tipos-de-memoria-del-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Relación con los tipos de memoria del curso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#para-que-podemos-usarlo-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 ¿Para qué podemos usarlo? (Casos de uso)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Instalación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-se-usa-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      🕹️ ¿Cómo se usa? (Paso a paso)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🕹️ ¿Cómo se usa? (Paso a paso)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-preparar-el-store-y-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Preparar el Store y Namespaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-herramientas-de-memoria-langmem" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) Herramientas de memoria (LangMem)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-crear-un-agente-con-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      3) Crear un agente con memoria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-guardar-y-recuperar-recuerdos-en-el-hot-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      4) Guardar y recuperar recuerdos en el “hot path”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-background-memory-manager-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      5) Background memory manager (opcional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ventajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Ventajas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lo-aprendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 Lo aprendido
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 Recursos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capsula5_computer_use_agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 5: Computer Use Agents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-langmem" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 ¿Qué es LangMem?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 ¿Qué es LangMem?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacion-con-los-tipos-de-memoria-del-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Relación con los tipos de memoria del curso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#para-que-podemos-usarlo-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 ¿Para qué podemos usarlo? (Casos de uso)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Instalación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-se-usa-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      🕹️ ¿Cómo se usa? (Paso a paso)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🕹️ ¿Cómo se usa? (Paso a paso)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-preparar-el-store-y-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Preparar el Store y Namespaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-herramientas-de-memoria-langmem" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) Herramientas de memoria (LangMem)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-crear-un-agente-con-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      3) Crear un agente con memoria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-guardar-y-recuperar-recuerdos-en-el-hot-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      4) Guardar y recuperar recuerdos en el “hot path”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-background-memory-manager-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      5) Background memory manager (opcional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ventajas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Ventajas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lo-aprendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 Lo aprendido
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 Recursos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="capsula-4-langmem-sdk-memoria-a-largo-plazo-para-agentes">🧠 Cápsula 4: LangMem SDK — Memoria a Largo Plazo para Agentes</h1>
+<h2 id="que-es-langmem">🎯 ¿Qué es LangMem?</h2>
+<p><strong>LangMem</strong> es un SDK que ayuda a tus agentes a aprender y adaptarse con el tiempo mediante <strong>memoria a largo plazo</strong>. Proporciona herramientas para:</p>
+<ul>
+<li>🧩 Extraer información importante de las conversaciones.</li>
+<li>✍️ Actualizar el comportamiento del agente mediante mejoras del prompt (memoria procedimental).</li>
+<li>🗂️ Mantener recuerdos persistentes (hechos, preferencias, eventos) entre sesiones.</li>
+</ul>
+<p>Funciona con cualquier sistema de almacenamiento y se integra de forma nativa con la <strong>capa de memoria de LangGraph (BaseStore)</strong>. Esto permite que tus agentes sean más personales, consistentes y “aprendan” de sus interacciones.</p>
+<div class="admonition info">
+<p class="admonition-title">Lecturas clave</p>
+<ul>
+<li>Blog de lanzamiento del SDK: <a href="https://blog.langchain.dev/langmem-sdk-launch/" target="_blank">https://blog.langchain.dev/langmem-sdk-launch/</a> </li>
+<li>Documentación (Key features + Quickstarts): <a href="https://langchain-ai.github.io/langmem/" target="_blank">https://langchain-ai.github.io/langmem/</a></li>
+<li>API de herramientas de memoria: <a href="https://langchain-ai.github.io/langmem/reference/tools/" target="_blank">https://langchain-ai.github.io/langmem/reference/tools/</a></li>
+</ul>
+</div>
+<h3 id="relacion-con-los-tipos-de-memoria-del-curso">🧭 Relación con los tipos de memoria del curso</h3>
+<p>En el curso ya vimos la diferencia entre:</p>
+<ul>
+<li>🟡 <strong>Memoria a corto plazo</strong> (checkpointing dentro del hilo)</li>
+<li>🔵 <strong>Memoria a largo plazo</strong> (persistente entre sesiones)</li>
+</ul>
+<p>Además, distinguimos 3 “sabores” de memoria a largo plazo:</p>
+<ul>
+<li>🧠 <strong>Semántica (facts)</strong>: datos y preferencias del usuario, conocimiento atemporal.</li>
+<li>🧪 <strong>Episódica (experiencias)</strong>: ejemplos o resúmenes de interacciones pasadas.</li>
+<li>⚙️ <strong>Procedimental (comportamiento)</strong>: reglas y pautas del agente que evolucionan.</li>
+</ul>
+<p>LangMem ofrece herramientas listas para implementar estas memorias sobre la capa de almacenamiento de LangGraph, y se complementa con la memoria de corto plazo del grafo.</p>
+<p><img alt="Memoria a largo plazo en LangGraph" src="../../assets/img/curso3/tema1/image.png" /></p>
+<blockquote>
+<p>Como vimos en “Long-Term Memory”, LangMem encaja como la capa que persiste recuerdos entre sesiones, mientras que <code>MemorySaver</code> mantiene el historial dentro de un hilo activo.</p>
+</blockquote>
+<hr />
+<h2 id="para-que-podemos-usarlo-casos-de-uso">🧠 ¿Para qué podemos usarlo? (Casos de uso)</h2>
+<ul>
+<li>👤 Personalización: recordar preferencias del usuario (p. ej., “prefiero modo oscuro”).</li>
+<li>🗃️ Perfiles y contexto: construir y mantener fichas de usuario o equipo.</li>
+<li>🧭 Recuperación contextual: buscar recuerdos relevantes para responder mejor.</li>
+<li>🔁 Mejora continua: ajustar instrucciones del agente según su rendimiento.</li>
+<li>🤝 Colaboración: compartir memorias entre agentes o por equipos (namespaces).</li>
+</ul>
+<hr />
+<h2 id="instalacion">📦 Instalación</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>langmem
+</span></code></pre></div>
+<p>Configura la clave del proveedor de LLM (ejemplo con Anthropic):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ANTHROPIC_API_KEY</span><span class="o">=</span><span class="s2">&quot;sk-...&quot;</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Almacenamiento</p>
+<ul>
+<li>Desarrollo: <code>InMemoryStore</code> (en memoria, se pierde al reiniciar). </li>
+<li>Producción: almacenes persistentes como <code>AsyncPostgresStore</code> u otros compatibles con <code>BaseStore</code>.</li>
+</ul>
+</div>
+<hr />
+<h2 id="como-se-usa-paso-a-paso">🕹️ ¿Cómo se usa? (Paso a paso)</h2>
+<p>A continuación verás cómo añadir memoria persistente a un agente de LangGraph usando las herramientas de LangMem. La idea clave es que el agente pueda:</p>
+<ol>
+<li>crear/actualizar/borrar recuerdos cuando haga falta, y</li>
+<li>buscar recuerdos relevantes durante el chat.</li>
+</ol>
+<h3 id="1-preparar-el-store-y-namespaces">1) Preparar el Store y Namespaces</h3>
+<p>Los recuerdos se guardan en un <code>BaseStore</code> y se organizan por <code>namespace</code>. Es habitual incluir un identificador de usuario para evitar mezcla de memorias.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langgraph.store.memory</span><span class="w"> </span><span class="kn">import</span> <span class="n">InMemoryStore</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">store</span> <span class="o">=</span> <span class="n">InMemoryStore</span><span class="p">(</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">index</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="s2">&quot;dims&quot;</span><span class="p">:</span> <span class="mi">1536</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="s2">&quot;embed&quot;</span><span class="p">:</span> <span class="s2">&quot;openai:text-embedding-3-small&quot;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># El namespace final puede formarse con valores configurables a runtime.</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Ej.: (&quot;memories&quot;, &quot;&lt;user-id&gt;&quot;)</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Namespaces dinámicos</p>
+<p>Puedes usar placeholders como <code>{langgraph_user_id}</code> y rellenarlos con <code>config={"configurable": {"langgraph_user_id": "user-123"}}</code>.</p>
+</div>
+<h3 id="2-herramientas-de-memoria-langmem">2) Herramientas de memoria (LangMem)</h3>
+<p>LangMem provee dos herramientas principales:</p>
+<ul>
+<li>🛠️ <code>create_manage_memory_tool(...)</code>: crea/actualiza/borra recuerdos.</li>
+<li>🔎 <code>create_search_memory_tool(...)</code>: busca recuerdos por similitud o filtros.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langmem</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_manage_memory_tool</span><span class="p">,</span> <span class="n">create_search_memory_tool</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">manage_memory</span> <span class="o">=</span> <span class="n">create_manage_memory_tool</span><span class="p">(</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">namespace</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;memories&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{langgraph_user_id}</span><span class="s2">&quot;</span><span class="p">),</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">search_memory</span> <span class="o">=</span> <span class="n">create_search_memory_tool</span><span class="p">(</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">namespace</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;memories&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{langgraph_user_id}</span><span class="s2">&quot;</span><span class="p">),</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Contrato de <code>manage_memory</code></p>
+<ul>
+<li><code>content: str | None</code> — contenido del recuerdo (crear/actualizar) </li>
+<li><code>id: str | None</code> — id de un recuerdo existente (actualizar/borrar) </li>
+<li><code>action: Literal["create","update","delete"]</code> — acción a realizar</li>
+</ul>
+</div>
+<h3 id="3-crear-un-agente-con-memoria">3) Crear un agente con memoria</h3>
+<p>Puedes incorporar estas herramientas en un agente preconstruido de LangGraph (p. ej. ReAct) y pasarle el <code>store</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langgraph.prebuilt</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_react_agent</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">create_react_agent</span><span class="p">(</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;anthropic:claude-3-5-sonnet-latest&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">manage_memory</span><span class="p">,</span> <span class="n">search_memory</span><span class="p">],</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">store</span><span class="o">=</span><span class="n">store</span><span class="p">,</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="4-guardar-y-recuperar-recuerdos-en-el-hot-path">4) Guardar y recuperar recuerdos en el “hot path”</h3>
+<p>El propio LLM decide cuándo llamar a las herramientas (no necesitas comandos especiales). Si el usuario dice algo relevante, el agente puede invocar <code>manage_memory</code> para guardarlo; y si necesita contexto pasado, <code>search_memory</code> para encontrarlo.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># El agente decide guardar una preferencia</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">agent</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Recuérdame en el futuro que prefiero el modo oscuro.&quot;</span><span class="p">}]</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">},</span> <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;configurable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;langgraph_user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user-123&quot;</span><span class="p">}})</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># Más tarde, el agente puede recuperar ese dato</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">resp</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;¿Cuáles son mis preferencias de iluminación?&quot;</span><span class="p">}]</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">},</span> <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;configurable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;langgraph_user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user-123&quot;</span><span class="p">}})</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1"># → &quot;Me comentaste que prefieres el modo oscuro.&quot;</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Memoria procedimental</p>
+<p>LangMem también incluye utilidades para <strong>optimizar prompts</strong> (p. ej., <code>metaprompt</code>, <code>gradient</code>). Sirven para ajustar reglas del agente a partir de conversaciones exitosas o fallidas.</p>
+</div>
+<h3 id="5-background-memory-manager-opcional">5) Background memory manager (opcional)</h3>
+<p>Además del uso “en caliente”, puedes correr un <strong>gestor en background</strong> que procese conversaciones, consolide recuerdos y mantenga consistencia sin bloquear la interacción.</p>
+<ul>
+<li>Guía “Background Quickstart”: <a href="https://langchain-ai.github.io/langmem/background_quickstart/" target="_blank">https://langchain-ai.github.io/langmem/background_quickstart/</a></li>
+</ul>
+<hr />
+<h2 id="ventajas">✅ Ventajas</h2>
+<ul>
+<li>🧩 API simple y portable; funciona con cualquier <code>BaseStore</code>.</li>
+<li>🔌 Integración nativa con la memoria persistente de LangGraph.</li>
+<li>🤖 Agentes más <strong>personalizados</strong> y <strong>consistentes</strong> entre sesiones.</li>
+<li>🔍 Búsqueda semántica de recuerdos para mejores respuestas.</li>
+<li>♻️ Mejora continua del comportamiento mediante optimización del prompt.</li>
+</ul>
+<hr />
+<h2 id="lo-aprendido">🧪 Lo aprendido</h2>
+<ul>
+<li>Qué es LangMem y cómo se relaciona con los tipos de memoria del curso.</li>
+<li>Cómo instalarlo y configurarlo con un <code>BaseStore</code> y namespaces.</li>
+<li>Cómo usar sus herramientas (<code>manage_memory</code> y <code>search_memory</code>) en el “hot path”.</li>
+<li>Qué opciones hay para mantenimiento en background y optimización del prompt.</li>
+</ul>
+<hr />
+<h2 id="recursos">🔎 Recursos</h2>
+<ul>
+<li>📰 Blog (lanzamiento): <a href="https://blog.langchain.dev/langmem-sdk-launch/" target="_blank">https://blog.langchain.dev/langmem-sdk-launch/</a></li>
+<li>📘 Docs (inicio): <a href="https://langchain-ai.github.io/langmem/" target="_blank">https://langchain-ai.github.io/langmem/</a></li>
+<li>🧰 Memory Tools API: <a href="https://langchain-ai.github.io/langmem/reference/tools/" target="_blank">https://langchain-ai.github.io/langmem/reference/tools/</a></li>
+<li>⚡ Hot Path Quickstart: <a href="https://langchain-ai.github.io/langmem/hot_path_quickstart/" target="_blank">https://langchain-ai.github.io/langmem/hot_path_quickstart/</a></li>
+<li>🧠 Background Quickstart: <a href="https://langchain-ai.github.io/langmem/background_quickstart/" target="_blank">https://langchain-ai.github.io/langmem/background_quickstart/</a></li>
+<li>🏗️ BaseStore (LangGraph): <a href="https://langchain-ai.github.io/langgraph/reference/store/" target="_blank">https://langchain-ai.github.io/langgraph/reference/store/</a></li>
+<li>📚 Conceptos de Memoria (LangGraph): <a href="https://langchain-ai.github.io/langgraph/concepts/memory/" target="_blank">https://langchain-ai.github.io/langgraph/concepts/memory/</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Creado por Raul Jimenez Morales.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.expand", "toc.follow", "content.tabs.link", "search.share", "search.highlight", "search.suggest", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

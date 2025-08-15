@@ -1,0 +1,2223 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://raul-drupal-dev.github.io/curso_langgraph/curso3/tema1_long_term_memory/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../tema2_memory_schema/">
+      
+      
+      <link rel="icon" href="../../assets/img/theme/raul.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Tema 1: Long-Term Memory - Curso Completo de LangGraph</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-1-long-term-memory-memoria-a-largo-plazo-en-langgraph" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Curso Completo de LangGraph" class="md-header__button md-logo" aria-label="Curso Completo de LangGraph" data-md-component="logo">
+      
+  <img src="../../assets/img/theme/raul.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso Completo de LangGraph
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tema 1: Long-Term Memory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Introducción
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../curso1/" class="md-tabs__link">
+          
+  
+  
+  📚 Curso 1: Fundamentos de LangGraph
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../curso2/" class="md-tabs__link">
+          
+  
+  
+  ⚙️ Curso 2: Aplicaciones Avanzadas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  🚀 Curso 3: Despliegue y Proyecto Final
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../curso4/" class="md-tabs__link">
+          
+  
+  
+  🛠️ Curso 4: Cápsulas Extras
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Curso Completo de LangGraph" class="md-nav__button md-logo" aria-label="Curso Completo de LangGraph" data-md-component="logo">
+      
+  <img src="../../assets/img/theme/raul.png" alt="logo">
+
+    </a>
+    Curso Completo de LangGraph
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🙋‍♂️ Bienvenida
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Curso 1: Fundamentos de LangGraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Curso 2: Aplicaciones Avanzadas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 Curso 3: Despliegue y Proyecto Final
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Curso 4: Cápsulas Extras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📚 Curso 1: Fundamentos de LangGraph
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            📚 Curso 1: Fundamentos de LangGraph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Curso 1: Fundamentos de LangGraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema0_que_es_langgraph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 0: Qué es Langgraph?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema1_nodos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Nodos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema2_edges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 2: Edges (Conexiones)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema3_state_schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 3: State Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema4_memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 4: Memoria
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema5_chains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 5: Chains y Flujos de Trabajo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema6_routers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 6: Routers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema7_reducers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 7: Reducers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema8_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 8: Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema9_trim_filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 9: Trim y Filtrado de Mensajes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Curso 2: Aplicaciones Avanzadas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ⚙️ Curso 2: Aplicaciones Avanzadas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Curso 2: Aplicaciones Avanzadas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema1_summarizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Chatbot Summarizing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema2_streaming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 2: Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema3_breakpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tema 3: Breakpoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema4_human_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 4: Human in the Loop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema5_parallelism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 5: Paralelismo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema6_sub_graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 6: Subgrafías (Sub-graphs)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema7_maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 7: Mapas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema8_langgraph_studio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 8: LangGraph Studio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema9_langsmith/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 9: LangSmith
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    🚀 Curso 3: Despliegue y Proyecto Final
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            🚀 Curso 3: Despliegue y Proyecto Final
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 Curso 3: Despliegue y Proyecto Final
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Long-Term Memory
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Long-Term Memory
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-la-memoria-a-largo-plazo-en-langgraph" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 ¿Qué es la Memoria a Largo Plazo en LangGraph?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparacion-memoria-basica-vs-memoria-a-corto-y-largo-plazo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Comparación: Memoria Básica vs. Memoria a Corto y Largo Plazo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-funciona-la-memoria-a-largo-plazo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ ¿Cómo Funciona la Memoria a Largo Plazo?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probando-la-memoria-a-largo-plazo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Probando la Memoria a Largo Plazo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Probando la Memoria a Largo Plazo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iniciamos-un-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Iniciamos un chat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iniciamos-un-nuevo-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Iniciamos un nuevo chat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuando-usar-memoria-a-largo-plazo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 ¿Cuándo Usar Memoria a Largo Plazo?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✨ Conclusión
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 Recursos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-hemos-aprendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧑‍🏫 ¿Qué Hemos Aprendido?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-lo-siguiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 ¿Qué es lo Siguiente?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tema2_memory_schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 2: Memory Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tema3_langgraph_store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 3: LangGraph Store
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tema4_langgraph_cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 4: LangGraph CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tema5_langgraph_sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 5: LangGraph SDK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tema6_doble-texting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 6: Doble-texting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tema7_api_rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 7: API REST/GraphQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tema8_langflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 8: LangFlow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Curso 4: Cápsulas Extras
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🛠️ Curso 4: Cápsulas Extras
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Curso 4: Cápsulas Extras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso4/capsula1_messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 1: Messages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso4/capsula2_statein_stateout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 2: State In & State Out
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso4/capsula3_agent_chat_ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 3: Agent Chat UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso4/capsula4_langmem_sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 4: LangMem SDK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso4/capsula5_computer_use_agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 5: Computer Use Agents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-la-memoria-a-largo-plazo-en-langgraph" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 ¿Qué es la Memoria a Largo Plazo en LangGraph?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparacion-memoria-basica-vs-memoria-a-corto-y-largo-plazo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Comparación: Memoria Básica vs. Memoria a Corto y Largo Plazo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-funciona-la-memoria-a-largo-plazo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ ¿Cómo Funciona la Memoria a Largo Plazo?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#probando-la-memoria-a-largo-plazo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Probando la Memoria a Largo Plazo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Probando la Memoria a Largo Plazo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iniciamos-un-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Iniciamos un chat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iniciamos-un-nuevo-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Iniciamos un nuevo chat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuando-usar-memoria-a-largo-plazo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 ¿Cuándo Usar Memoria a Largo Plazo?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✨ Conclusión
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 Recursos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-hemos-aprendido" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧑‍🏫 ¿Qué Hemos Aprendido?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-lo-siguiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 ¿Qué es lo Siguiente?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-1-long-term-memory-memoria-a-largo-plazo-en-langgraph">🧠 Tema 1: Long-Term Memory – Memoria a Largo Plazo en LangGraph</h1>
+<h2 id="que-es-la-memoria-a-largo-plazo-en-langgraph">🌟 ¿Qué es la Memoria a Largo Plazo en LangGraph?</h2>
+<p>En el <strong>Curso 1</strong>, exploramos cómo LangGraph maneja la <strong>memoria de estado</strong>, que nos permite almacenar información dentro del estado del grafo mientras se ejecuta una sesión. Sin embargo, esta memoria es <strong>temporal</strong> y se pierde una vez que el flujo del grafo finaliza.  </p>
+<p>También aprendimos sobre la <strong>memoria de corto alcance (Short-Term Memory)</strong>, que nos permitía <strong>guardar el historial de un chat dentro de una misma sesión</strong>, proporcionando mayor contexto y fluidez a la conversación sin necesidad de almacenamiento externo.  </p>
+<p>Ahora, en el <strong>Curso 3</strong>, introducimos un concepto aún más avanzado: <strong>Long-Term Memory</strong>, una memoria <strong>persistente</strong> que permite <strong>mantener datos entre múltiples ejecuciones</strong>, haciendo posible que el sistema recuerde información pasada y la reutilice en futuras interacciones.  </p>
+<p>🔹 <strong>¿Qué nos permite hacer la memoria a largo plazo?</strong><br />
+✅ <strong>Almacenar contexto de conversaciones previas</strong> para mantener continuidad en interacciones futuras.<br />
+✅ <strong>Persistir información relevante en bases de datos</strong> o sistemas externos.<br />
+✅ <strong>Optimizar respuestas en chatbots</strong> al recordar detalles importantes a lo largo del tiempo.  </p>
+<p>Con esta memoria, nuestros grafos pueden aprender de interacciones pasadas y mejorar su desempeño con el tiempo. 🚀  </p>
+<hr />
+<h2 id="comparacion-memoria-basica-vs-memoria-a-corto-y-largo-plazo">🔄 Comparación: Memoria Básica vs. Memoria a Corto y Largo Plazo</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Característica</strong></th>
+<th><strong>Memoria Básica</strong> 🟢</th>
+<th><strong>Memoria a Corto Plazo</strong> 🟡</th>
+<th><strong>Memoria a Largo Plazo</strong> 🔵</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alcance</strong></td>
+<td>Solo durante la ejecución del grafo</td>
+<td>Se mantiene dentro de una sesión activa</td>
+<td>Se mantiene entre sesiones</td>
+</tr>
+<tr>
+<td><strong>Persistencia</strong></td>
+<td>Se borra al finalizar el flujo</td>
+<td>Se almacena temporalmente en la memoria del grafo</td>
+<td>Se guarda en almacenamiento externo</td>
+</tr>
+<tr>
+<td><strong>Ejemplo de Uso</strong></td>
+<td>Referencias dentro de una conversación en curso</td>
+<td>Mantener el historial de mensajes en una sesión de chat</td>
+<td>Recordar interacciones a lo largo del tiempo</td>
+</tr>
+<tr>
+<td><strong>Implementación</strong></td>
+<td>Se gestiona dentro del estado (<code>State</code>)</td>
+<td>Se almacena en memoria (<code>MemorySaver</code>) dentro de la sesión</td>
+<td>Usa almacenamiento externo como bases de datos (<code>InMemoryStore</code>)</td>
+</tr>
+<tr>
+<td><strong>Casos de Uso</strong></td>
+<td>Flujos de conversación dentro de un solo request</td>
+<td>Chats que necesitan contexto en una misma sesión</td>
+<td>Sistemas con memoria continua (chatbots avanzados, asistentes virtuales, etc.)</td>
+</tr>
+</tbody>
+</table>
+<details class="note" open="open">
+<summary>Nota</summary>
+<ul>
+<li>La <strong>memoria básica</strong> es útil para tareas donde no necesitamos persistencia entre sesiones.  </li>
+<li>La <strong>memoria a corto plazo</strong> nos permite recordar datos dentro de una misma sesión, pero se pierde al cerrarla.  </li>
+<li>la <strong>memoria a largo plazo</strong> es ideal cuando queremos que el sistema recuerde información incluso después de varias sesiones, permitiendo experiencias más personalizadas y contextuales.  </li>
+</ul>
+</details>
+<hr />
+<h2 id="como-funciona-la-memoria-a-largo-plazo">🛠️ ¿Cómo Funciona la Memoria a Largo Plazo?</h2>
+<p>LangGraph nos permite almacenar memoria de manera persistente utilizando diferentes opciones:  </p>
+<p>✅ <strong>Bases de datos externas</strong> como PostgreSQL o MongoDB.<br />
+✅ <strong>Sistemas de almacenamiento en la nube</strong> como Redis o vectores semánticos.<br />
+✅ <strong>Archivos locales</strong> donde guardamos registros de conversación.  </p>
+<p>En esta implementación, LangGraph guarda los datos en un sistema de almacenamiento que podemos recuperar en futuras ejecuciones del grafo.  </p>
+<p>📌 <strong>Ejemplo Práctico:</strong> Implementación de Memoria a Largo Plazo en LangGraph  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langgraph.checkpoint.memory</span><span class="w"> </span><span class="kn">import</span> <span class="n">MemorySaver</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langgraph.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">StateGraph</span><span class="p">,</span> <span class="n">MessagesState</span><span class="p">,</span> <span class="n">START</span><span class="p">,</span> <span class="n">END</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langgraph.store.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseStore</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">HumanMessage</span><span class="p">,</span> <span class="n">SystemMessage</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.runnables.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">RunnableConfig</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Instrucción del chatbot</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">MODEL_SYSTEM_MESSAGE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Eres un asistente útil con memoria que proporciona información personalizada sobre el usuario. </span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="s2">Si tienes memoria para este usuario, utilízala para personalizar tus respuestas.</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="s2">Aquí está la memoria (puede estar vacía): </span><span class="si">{memory}</span><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Crear nueva memoria a partir del historial de chat y cualquier memoria existente</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">CREATE_MEMORY_INSTRUCTION</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Estás recopilando información sobre el usuario para personalizar tus respuestas.</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="s2">INFORMACIÓN ACTUAL DEL USUARIO:</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="si">{memory}</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="s2">INSTRUCCIONES:</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="s2">1. Revisa cuidadosamente el historial de chat a continuación.</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="s2">2. Identifica nueva información sobre el usuario, como:</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="s2">   - Datos personales (nombre, ubicación).</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="s2">   - Preferencias (gustos, aversiones).</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="s2">   - Intereses y aficiones.</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="s2">   - Experiencias pasadas.</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="s2">   - Objetivos o planes futuros.</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="s2">3. Fusiona cualquier nueva información con la memoria existente.</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="s2">4. Formatea la memoria como una lista clara con viñetas.</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="s2">5. Si la nueva información contradice la memoria existente, conserva la versión más reciente.</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="s2">Recuerda: Solo incluye información real directamente mencionada por el usuario. No hagas suposiciones ni inferencias.</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="s2">Basado en el historial de chat a continuación, actualiza la información del usuario:&quot;&quot;&quot;</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="k">def</span><span class="w"> </span><span class="nf">call_model</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">MessagesState</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">RunnableConfig</span><span class="p">,</span> <span class="n">store</span><span class="p">:</span> <span class="n">BaseStore</span><span class="p">):</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Carga la memoria desde el almacenamiento y la usa para personalizar la respuesta del chatbot.&quot;&quot;&quot;</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    <span class="c1"># Obtiene el ID del usuario desde la configuración</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    <span class="n">user_id</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;configurable&quot;</span><span class="p">][</span><span class="s2">&quot;user_id&quot;</span><span class="p">]</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    <span class="c1"># Recupera la memoria desde el almacenamiento</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    <span class="n">namespace</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;user_memory&quot;</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>    <span class="n">existing_memory</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>    <span class="c1"># Extrae el contenido de la memoria si existe y agrega un prefijo</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    <span class="k">if</span> <span class="n">existing_memory</span><span class="p">:</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>        <span class="c1"># El valor es un diccionario con la clave &quot;memory&quot;</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>        <span class="n">existing_memory_content</span> <span class="o">=</span> <span class="n">existing_memory</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;memory&#39;</span><span class="p">)</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>        <span class="n">existing_memory_content</span> <span class="o">=</span> <span class="s2">&quot;No se encontró memoria previa.&quot;</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>    <span class="c1"># Formatea la memoria en el mensaje del sistema</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>    <span class="n">system_msg</span> <span class="o">=</span> <span class="n">MODEL_SYSTEM_MESSAGE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">memory</span><span class="o">=</span><span class="n">existing_memory_content</span><span class="p">)</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>    <span class="c1"># Responde utilizando la memoria junto con el historial de chat</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">invoke</span><span class="p">([</span><span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">system_msg</span><span class="p">)]</span> <span class="o">+</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">])</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">response</span><span class="p">}</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="k">def</span><span class="w"> </span><span class="nf">write_memory</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">MessagesState</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">RunnableConfig</span><span class="p">,</span> <span class="n">store</span><span class="p">:</span> <span class="n">BaseStore</span><span class="p">):</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Reflexiona sobre el historial de chat y guarda la memoria en el almacenamiento.&quot;&quot;&quot;</span>
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>    <span class="c1"># Obtiene el ID del usuario desde la configuración</span>
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>    <span class="n">user_id</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;configurable&quot;</span><span class="p">][</span><span class="s2">&quot;user_id&quot;</span><span class="p">]</span>
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>
+</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a>    <span class="c1"># Recupera la memoria existente desde el almacenamiento</span>
+</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a>    <span class="n">namespace</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a>    <span class="n">existing_memory</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="s2">&quot;user_memory&quot;</span><span class="p">)</span>
+</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a>
+</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a>    <span class="c1"># Extrae el contenido de la memoria</span>
+</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a>    <span class="k">if</span> <span class="n">existing_memory</span><span class="p">:</span>
+</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a>        <span class="n">existing_memory_content</span> <span class="o">=</span> <span class="n">existing_memory</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;memory&#39;</span><span class="p">)</span>
+</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a>        <span class="n">existing_memory_content</span> <span class="o">=</span> <span class="s2">&quot;No se encontró memoria previa.&quot;</span>
+</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a>
+</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a>    <span class="c1"># Formatea la memoria en el mensaje del sistema</span>
+</span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a>    <span class="n">system_msg</span> <span class="o">=</span> <span class="n">CREATE_MEMORY_INSTRUCTION</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">memory</span><span class="o">=</span><span class="n">existing_memory_content</span><span class="p">)</span>
+</span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a>    <span class="n">new_memory</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">invoke</span><span class="p">([</span><span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">system_msg</span><span class="p">)]</span> <span class="o">+</span> <span class="n">state</span><span class="p">[</span><span class="s1">&#39;messages&#39;</span><span class="p">])</span>
+</span><span id="__span-0-84"><a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a>
+</span><span id="__span-0-85"><a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a>    <span class="c1"># Sobrescribe la memoria existente en el almacenamiento </span>
+</span><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a>    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;user_memory&quot;</span>
+</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a>
+</span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a>    <span class="c1"># Guarda el valor como un diccionario con la clave &quot;memory&quot;</span>
+</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a>    <span class="n">store</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="n">new_memory</span><span class="o">.</span><span class="n">content</span><span class="p">})</span>
+</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a>
+</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a><span class="c1"># Definir el grafo</span>
+</span><span id="__span-0-92"><a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">StateGraph</span><span class="p">(</span><span class="n">MessagesState</span><span class="p">)</span>
+</span><span id="__span-0-93"><a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;call_model&quot;</span><span class="p">,</span> <span class="n">call_model</span><span class="p">)</span>
+</span><span id="__span-0-94"><a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="s2">&quot;write_memory&quot;</span><span class="p">,</span> <span class="n">write_memory</span><span class="p">)</span>
+</span><span id="__span-0-95"><a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">START</span><span class="p">,</span> <span class="s2">&quot;call_model&quot;</span><span class="p">)</span>
+</span><span id="__span-0-96"><a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;call_model&quot;</span><span class="p">,</span> <span class="s2">&quot;write_memory&quot;</span><span class="p">)</span>
+</span><span id="__span-0-97"><a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a><span class="n">builder</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;write_memory&quot;</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a>
+</span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a><span class="c1"># Almacenamiento para la memoria a largo plazo (entre sesiones)</span>
+</span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100" href="#__codelineno-0-100"></a><span class="n">across_thread_memory</span> <span class="o">=</span> <span class="n">InMemoryStore</span><span class="p">()</span>
+</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101" href="#__codelineno-0-101"></a>
+</span><span id="__span-0-102"><a id="__codelineno-0-102" name="__codelineno-0-102" href="#__codelineno-0-102"></a><span class="c1"># Checkpointer para la memoria a corto plazo (dentro de una sesión)</span>
+</span><span id="__span-0-103"><a id="__codelineno-0-103" name="__codelineno-0-103" href="#__codelineno-0-103"></a><span class="n">within_thread_memory</span> <span class="o">=</span> <span class="n">MemorySaver</span><span class="p">()</span>
+</span><span id="__span-0-104"><a id="__codelineno-0-104" name="__codelineno-0-104" href="#__codelineno-0-104"></a>
+</span><span id="__span-0-105"><a id="__codelineno-0-105" name="__codelineno-0-105" href="#__codelineno-0-105"></a><span class="c1"># Compilar el grafo con memoria a corto y largo plazo</span>
+</span><span id="__span-0-106"><a id="__codelineno-0-106" name="__codelineno-0-106" href="#__codelineno-0-106"></a><span class="n">graph</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">checkpointer</span><span class="o">=</span><span class="n">within_thread_memory</span><span class="p">,</span> <span class="n">store</span><span class="o">=</span><span class="n">across_thread_memory</span><span class="p">)</span>
+</span><span id="__span-0-107"><a id="__codelineno-0-107" name="__codelineno-0-107" href="#__codelineno-0-107"></a>
+</span><span id="__span-0-108"><a id="__codelineno-0-108" name="__codelineno-0-108" href="#__codelineno-0-108"></a><span class="c1"># Visualizar el grafo</span>
+</span><span id="__span-0-109"><a id="__codelineno-0-109" name="__codelineno-0-109" href="#__codelineno-0-109"></a><span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">get_graph</span><span class="p">(</span><span class="n">xray</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">draw_mermaid_png</span><span class="p">()))</span>
+</span></code></pre></div>
+<p><img alt="long-term-memory" src="../../assets/img/curso3/tema1/image.png" /></p>
+<p>Este código implementa un sistema de <strong>memoria a largo plazo y memoria a corto plazo</strong> en un grafo de LangGraph.  </p>
+<ul>
+<li>
+<p><strong>🟡 Memoria a corto plazo (<code>MemorySaver</code>)</strong>:<br />
+  Permite recordar información dentro de una única sesión o hilo de conversación.  </p>
+</li>
+<li>
+<p><strong>🔵 Memoria a largo plazo (<code>InMemoryStore</code>)</strong>:<br />
+  Guarda información del usuario entre múltiples sesiones para personalizar respuestas futuras.  </p>
+</li>
+<li>
+<p><strong>📌 Estructura del Grafo:</strong>  </p>
+<ul>
+<li><strong><code>call_model</code></strong>: Recupera la memoria almacenada y la usa para personalizar las respuestas del chatbot.  </li>
+<li><strong><code>write_memory</code></strong>: Extrae información del historial de mensajes y la almacena para su uso posterior.  </li>
+</ul>
+</li>
+<li>
+<p><strong>💡 Personalización del Chatbot:</strong><br />
+  El chatbot puede recordar <strong>detalles personales del usuario</strong>, como su <strong>nombre o intereses</strong>, y utilizarlos en futuras conversaciones.    </p>
+</li>
+</ul>
+<hr />
+<h2 id="probando-la-memoria-a-largo-plazo">🚀 Probando la Memoria a Largo Plazo</h2>
+<h3 id="iniciamos-un-chat">📝 Iniciamos un chat</h3>
+<p>Ejecutamos un chat donde el usuario proporciona su nombre y un gusto personal:  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Proporcionamos un ID de hilo para la memoria a corto plazo (dentro de la sesión)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Proporcionamos un ID de usuario para la memoria a largo plazo (entre sesiones)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;configurable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;thread_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">}}</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Entrada del usuario </span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">input_messages</span> <span class="o">=</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;Hola, me llamo Raúl y me gusta salir en bici.&quot;</span><span class="p">)]</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Ejecutamos el grafo y mostramos la respuesta del chatbot</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">stream</span><span class="p">({</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">input_messages</span><span class="p">},</span> <span class="n">config</span><span class="p">,</span> <span class="n">stream_mode</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">):</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">chunk</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Resultado</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">================================</span> <span class="n">Human</span> <span class="n">Message</span> <span class="o">=================================</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">Hola</span><span class="p">,</span> <span class="n">me</span> <span class="n">llamo</span> <span class="n">Raúl</span> <span class="n">y</span> <span class="n">me</span> <span class="n">gusta</span> <span class="n">salir</span> <span class="n">en</span> <span class="n">bici</span><span class="o">.</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="o">==================================</span> <span class="n">Ai</span> <span class="n">Message</span> <span class="o">==================================</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="err">¡</span><span class="n">Hola</span><span class="p">,</span> <span class="n">Raúl</span><span class="err">!</span> <span class="n">Es</span> <span class="n">genial</span> <span class="n">que</span> <span class="n">te</span> <span class="n">guste</span> <span class="n">salir</span> <span class="n">en</span> <span class="n">bici</span><span class="o">.</span> <span class="err">¿</span><span class="n">Sueles</span> <span class="n">hacer</span> <span class="n">rutas</span> <span class="n">largas</span> <span class="n">o</span> <span class="n">prefieres</span> <span class="n">paseos</span> <span class="n">más</span> <span class="n">cortos</span><span class="err">?</span>
+</span></code></pre></div>
+<p>Podemos ver cómo esta información se almacena en la memoria a corto plazo, permitiendo que el chatbot siga recordándola en la conversación actual.  </p>
+<p>Para verificarlo, podemos inspeccionar el estado del grafo: </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">thread</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;configurable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;thread_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">}}</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">state</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">state</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">]:</span> 
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">m</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Resultado</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">================================</span> <span class="n">Human</span> <span class="n">Message</span> <span class="o">=================================</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">Hola</span><span class="p">,</span> <span class="n">me</span> <span class="n">llamo</span> <span class="n">Raúl</span> <span class="n">y</span> <span class="n">me</span> <span class="n">gusta</span> <span class="n">salir</span> <span class="n">en</span> <span class="n">bici</span><span class="o">.</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="o">==================================</span> <span class="n">Ai</span> <span class="n">Message</span> <span class="o">==================================</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="err">¡</span><span class="n">Hola</span><span class="p">,</span> <span class="n">Raúl</span><span class="err">!</span> <span class="n">Es</span> <span class="n">genial</span> <span class="n">que</span> <span class="n">te</span> <span class="n">guste</span> <span class="n">salir</span> <span class="n">en</span> <span class="n">bici</span><span class="o">.</span> <span class="err">¿</span><span class="n">Sueles</span> <span class="n">hacer</span> <span class="n">rutas</span> <span class="n">largas</span> <span class="n">o</span> <span class="n">prefieres</span> <span class="n">paseos</span> <span class="n">más</span> <span class="n">cortos</span><span class="err">?</span>
+</span></code></pre></div>
+<p>Además, también podemos revisar la memoria a largo plazo para comprobar qué información se ha almacenado:  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">user_id</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">namespace</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">existing_memory</span> <span class="o">=</span> <span class="n">across_thread_memory</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="s2">&quot;user_memory&quot;</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">existing_memory</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-json highlight"><span class="filename">Resultado</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span><span class="err">&#39;</span><span class="kc">na</span><span class="err">mespace&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">&#39;memory&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">1</span><span class="err">&#39;</span><span class="p">],</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w"> </span><span class="err">&#39;key&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;user_memory&#39;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="hll"><span class="w"> </span><span class="err">&#39;value&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;memory&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;Ac</span><span class="kc">tual</span><span class="err">izació</span><span class="kc">n</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">la</span><span class="w"> </span><span class="err">memoria</span><span class="w"> </span><span class="err">del</span><span class="w"> </span><span class="err">usuario</span><span class="p">:</span><span class="err">\</span><span class="kc">n</span><span class="err">\</span><span class="kc">n</span><span class="mi">-</span><span class="w"> </span><span class="err">Nombre</span><span class="p">:</span><span class="w"> </span><span class="err">Raúl\</span><span class="kc">n</span><span class="mi">-</span><span class="w"> </span><span class="err">Gus</span><span class="kc">t</span><span class="err">os</span><span class="p">:</span><span class="w"> </span><span class="err">Salir</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="w"> </span><span class="err">bici.&#39;</span><span class="p">},</span>
+</span></span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w"> </span><span class="err">&#39;crea</span><span class="kc">te</span><span class="err">d_a</span><span class="kc">t</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">2025-02-05</span><span class="err">T</span><span class="mi">11</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mf">01.252749+00</span><span class="p">:</span><span class="mi">00</span><span class="err">&#39;</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w"> </span><span class="err">&#39;upda</span><span class="kc">te</span><span class="err">d_a</span><span class="kc">t</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">2025-02-05</span><span class="err">T</span><span class="mi">11</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mf">01.252753+00</span><span class="p">:</span><span class="mi">00</span><span class="err">&#39;</span><span class="p">}</span>
+</span></code></pre></div>
+<details class="note" open="open">
+<summary>Nota</summary>
+<p>Como podemos vemos ver, nuestro grafo ha creado ya un pequeño perfil de nuestro usuario, almazenando tanto su nombre, como sus gustos.</p>
+</details>
+<hr />
+<h3 id="iniciamos-un-nuevo-chat">🔄 Iniciamos un nuevo chat</h3>
+<p>Ahora, simularemos una <strong>nueva conversación</strong>, donde el usuario no proporciona contexto previo, pero el chatbot debería recordar información de la memoria a largo plazo:  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Proporcionamos un ID de un nuvo hilo para la memoria a corto plazo (dentro de la sesión), esto simulara un nuevo chat.</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># Proporcionamos un ID de usuario para la memoria a largo plazo (entre sesiones)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;configurable&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;thread_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">}}</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Entrada del usuario </span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="hll"><span class="n">input_messages</span> <span class="o">=</span> <span class="p">[</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;¿Me puedes recomendar algo que hacer hoy?&quot;</span><span class="p">)]</span>
+</span></span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># Ejecutamos el grafo y mostramos la respuesta del chatbot</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">stream</span><span class="p">({</span><span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="n">input_messages</span><span class="p">},</span> <span class="n">config</span><span class="p">,</span> <span class="n">stream_mode</span><span class="o">=</span><span class="s2">&quot;values&quot;</span><span class="p">):</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">chunk</span><span class="p">[</span><span class="s2">&quot;messages&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pretty_print</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-python highlight"><span class="filename">Resultado</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">================================</span> <span class="n">Human</span> <span class="n">Message</span> <span class="o">=================================</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="err">¿</span><span class="n">Me</span> <span class="n">puedes</span> <span class="n">recomendar</span> <span class="n">algo</span> <span class="n">que</span> <span class="n">hacer</span> <span class="n">hoy</span><span class="err">?</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="o">==================================</span> <span class="n">Ai</span> <span class="n">Message</span> <span class="o">==================================</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="err">¡</span><span class="n">Claro</span><span class="p">,</span> <span class="n">Raúl</span><span class="err">!</span> <span class="n">Dado</span> <span class="n">que</span> <span class="n">te</span> <span class="n">gusta</span> <span class="n">salir</span> <span class="n">en</span> <span class="n">bici</span><span class="p">,</span> <span class="n">podrías</span> <span class="n">aprovechar</span> <span class="n">el</span> <span class="n">día</span> <span class="n">para</span> <span class="n">hacer</span> <span class="n">una</span> <span class="n">ruta</span> <span class="n">en</span> <span class="n">bicicleta</span><span class="o">.</span> <span class="n">Busca</span> <span class="n">algún</span> <span class="n">sendero</span> <span class="n">o</span> <span class="n">parque</span> <span class="n">cercano</span> <span class="n">donde</span> <span class="n">puedas</span> <span class="n">disfrutar</span> <span class="k">del</span> <span class="n">paisaje</span><span class="o">.</span> <span class="n">Si</span> <span class="n">el</span> <span class="n">clima</span> <span class="n">es</span> <span class="n">agradable</span><span class="p">,</span> <span class="n">también</span> <span class="n">podrías</span> <span class="n">considerar</span> <span class="n">llevar</span> <span class="n">algo</span> <span class="n">de</span> <span class="n">comida</span> <span class="n">y</span> <span class="n">hacer</span> <span class="n">un</span> <span class="n">picnic</span> <span class="n">en</span> <span class="n">el</span> <span class="n">camino</span><span class="o">.</span> <span class="err">¿</span><span class="n">Te</span> <span class="n">gustaría</span> <span class="n">que</span> <span class="n">te</span> <span class="n">ayudara</span> <span class="n">a</span> <span class="n">encontrar</span> <span class="n">lugares</span> <span class="n">específicos</span> <span class="n">para</span> <span class="n">montar</span> <span class="n">en</span> <span class="n">bici</span><span class="err">?</span>
+</span></code></pre></div>
+<details class="note" open="open">
+<summary>Nota</summary>
+<p>A pesar de que el usuario no ha mencionado su nombre ni sus intereses en este nuevo chat, el chatbot <strong>recuerda que se llama Raúl y que le gusta salir en bici</strong>, gracias a la memoria almacenada en sesiones anteriores.  </p>
+</details>
+<hr />
+<h2 id="cuando-usar-memoria-a-largo-plazo">🔎 ¿Cuándo Usar Memoria a Largo Plazo?</h2>
+<p>La memoria persistente es clave en aplicaciones como:  </p>
+<ul>
+<li><strong>Chatbots que deben recordar a los usuarios</strong> y personalizar respuestas según interacciones previas.  </li>
+<li><strong>Asistentes virtuales</strong> que requieren seguimiento de tareas o preferencias del usuario.  </li>
+<li><strong>Sistemas de soporte técnico</strong> que deben recordar consultas anteriores para brindar un mejor servicio.  </li>
+</ul>
+<p>Si nuestro sistema necesita <strong>contexto entre múltiples sesiones</strong>, entonces la memoria a largo plazo es la mejor opción.  </p>
+<hr />
+<h2 id="conclusion">✨ Conclusión</h2>
+<p>La memoria a largo plazo en LangGraph nos permite alamacenar informacion relevante de nuestro usuario, podriamos incluso generar un pequeño perfil personalizado para usarlo en posteriores sesiones.</p>
+<p>Uno de los puntos que hace esta tecnica tan interesante, es que podemos jugar con el tipo de informacion que almacenamos de nuestro usuario, haciendo que el resultado de las respuesta sea mas espectacular.</p>
+<p>✅ Nos ayuda a <strong>recordar información más allá de una sesión</strong>, mejorando la experiencia del usuario.<br />
+✅ Permite <strong>almacenar datos en bases de datos externas</strong>, brindando mayor flexibilidad.<br />
+✅ Es ideal para <strong>chatbots, asistentes y sistemas de soporte técnico</strong> que requieren memoria a largo plazo.  </p>
+<p>🚀 Con esta funcionalidad, nuestros grafos pueden evolucionar y mejorar con el tiempo.  </p>
+<hr />
+<h2 id="recursos">🔎 Recursos:</h2>
+<ul>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.941 4.976a7.03 7.03 0 0 0-4.93 2.064 7.033 7.033 0 0 0-.124 9.807l2.395-2.395a3.646 3.646 0 0 1 5.15-5.148l2.397-2.399a7.03 7.03 0 0 0-4.888-1.93m-9.871.01a7.03 7.03 0 0 0-4.888 1.931l2.391 2.391a3.643 3.643 0 0 1 5.023.127l1.734-2.973-.1-.08a7.03 7.03 0 0 0-4.16-1.396m15.01 2.172-2.39 2.39a3.646 3.646 0 0 1-5.15 5.15l-2.406 2.407a7.036 7.036 0 0 0 9.945-9.947m-20.148.01a7.033 7.033 0 0 0-.002 9.681l2.397-2.397a3.643 3.643 0 0 1-.004-4.892zm7.664 7.423a3.635 3.635 0 0 1-5.017.113L2.182 17.1a7.03 7.03 0 0 0 9.007.546l.137-.112z"/></svg></span> Ver notebook en <a href="https://colab.research.google.com/drive/16ReKOrfytiTZi9-FAV55vugWrseZuthm?usp=sharing">Google Colab</a></li>
+<li><img alt="📚" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" title=":books:" /> Definición: <a href="https://langchain-ai.github.io/langgraph/concepts/memory/#long-term-memory">Memory</a></li>
+<li><img alt="📚" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" title=":books:" /> Definición: <a href="https://langchain-ai.github.io/langgraph/concepts/persistence/#memory-store">Memory-store</a></li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.6 16.6 4.6-4.6-4.6-4.6L16 6l6 6-6 6zm-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6z"/></svg></span> Class: <a href="https://langchain-ai.github.io/langgraph/reference/store/#langgraph.store.base.BaseStore">BaseStore</a></li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.97 18.95-2.56-6.03c-1.02 1.99-2.14 4.08-3.1 6.03-.01.01-.47 0-.47 0C7.37 15.5 5.85 12.1 4.37 8.68 4.03 7.84 2.83 6.5 2 6.5v-.45h5.06v.45c-.6 0-1.62.4-1.36 1.05.72 1.54 3.24 7.51 3.93 9.03.47-.94 1.8-3.42 2.37-4.47-.45-.88-1.87-4.18-2.29-5-.32-.54-1.13-.61-1.75-.61 0-.15.01-.25 0-.44l4.46.01v.4c-.61.03-1.18.24-.92.82.6 1.24.95 2.13 1.5 3.28.17-.34 1.07-2.19 1.5-3.16.26-.65-.13-.91-1.21-.91.01-.12.01-.33.01-.43 1.39-.01 3.48-.01 3.85-.02v.42c-.71.03-1.44.41-1.82.99L13.5 11.3c.18.51 1.96 4.46 2.15 4.9l3.85-8.83c-.3-.72-1.16-.87-1.5-.87v-.45l4 .03v.42c-.88 0-1.43.5-1.75 1.25-.8 1.79-3.25 7.49-4.85 11.2z"/></svg></span> Wikipedia: <a href="https://es.wikipedia.org/wiki/Memoria_sem%C3%A1ntica">Semantic-memory</a></li>
+</ul>
+<hr />
+<h2 id="que-hemos-aprendido">🧑‍🏫 ¿Qué Hemos Aprendido?</h2>
+<ul>
+<li><strong>Diferencias entre la memoria básica y la memoria a largo plazo.</strong>  </li>
+<li><strong>Cómo funciona la persistencia de datos en LangGraph.</strong>  </li>
+<li><strong>Cuándo es útil utilizar memoria persistente en nuestros grafos.</strong>  </li>
+</ul>
+<hr />
+<h2 id="que-es-lo-siguiente">🌐 ¿Qué es lo Siguiente?</h2>
+<p>En el próximo tema, exploraremos <strong>memory schema</strong>, almacenando memoria con una estructura personalizada.  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Creado por Raul Jimenez Morales.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.expand", "toc.follow", "content.tabs.link", "search.share", "search.highlight", "search.suggest", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

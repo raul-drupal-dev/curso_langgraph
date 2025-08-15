@@ -1,0 +1,2017 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://raul-drupal-dev.github.io/curso_langgraph/curso4/capsula1_messages/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../capsula2_statein_stateout/">
+      
+      
+      <link rel="icon" href="../../assets/img/theme/raul.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Cápsula 1: Messages - Curso Completo de LangGraph</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#capsula-1-messages" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Curso Completo de LangGraph" class="md-header__button md-logo" aria-label="Curso Completo de LangGraph" data-md-component="logo">
+      
+  <img src="../../assets/img/theme/raul.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso Completo de LangGraph
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cápsula 1: Messages
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Introducción
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../curso1/" class="md-tabs__link">
+          
+  
+  
+  📚 Curso 1: Fundamentos de LangGraph
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../curso2/" class="md-tabs__link">
+          
+  
+  
+  ⚙️ Curso 2: Aplicaciones Avanzadas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../curso3/" class="md-tabs__link">
+          
+  
+  
+  🚀 Curso 3: Despliegue y Proyecto Final
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  🛠️ Curso 4: Cápsulas Extras
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Curso Completo de LangGraph" class="md-nav__button md-logo" aria-label="Curso Completo de LangGraph" data-md-component="logo">
+      
+  <img src="../../assets/img/theme/raul.png" alt="logo">
+
+    </a>
+    Curso Completo de LangGraph
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🙋‍♂️ Bienvenida
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Curso 1: Fundamentos de LangGraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Curso 2: Aplicaciones Avanzadas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 Curso 3: Despliegue y Proyecto Final
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Curso 4: Cápsulas Extras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📚 Curso 1: Fundamentos de LangGraph
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            📚 Curso 1: Fundamentos de LangGraph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📚 Curso 1: Fundamentos de LangGraph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema0_que_es_langgraph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 0: Qué es Langgraph?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema1_nodos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Nodos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema2_edges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 2: Edges (Conexiones)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema3_state_schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 3: State Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema4_memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 4: Memoria
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema5_chains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 5: Chains y Flujos de Trabajo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema6_routers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 6: Routers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema7_reducers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 7: Reducers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema8_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 8: Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso1/tema9_trim_filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 9: Trim y Filtrado de Mensajes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Curso 2: Aplicaciones Avanzadas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ⚙️ Curso 2: Aplicaciones Avanzadas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Curso 2: Aplicaciones Avanzadas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema1_summarizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Chatbot Summarizing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema2_streaming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 2: Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema3_breakpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tema 3: Breakpoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema4_human_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 4: Human in the Loop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema5_parallelism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 5: Paralelismo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema6_sub_graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 6: Subgrafías (Sub-graphs)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema7_maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 7: Mapas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema8_langgraph_studio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 8: LangGraph Studio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso2/tema9_langsmith/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 9: LangSmith
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    🚀 Curso 3: Despliegue y Proyecto Final
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            🚀 Curso 3: Despliegue y Proyecto Final
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 Curso 3: Despliegue y Proyecto Final
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema1_long_term_memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 1: Long-Term Memory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema2_memory_schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 2: Memory Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema3_langgraph_store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 3: LangGraph Store
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema4_langgraph_cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 4: LangGraph CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema5_langgraph_sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 5: LangGraph SDK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema6_doble-texting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 6: Doble-texting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema7_api_rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 7: API REST/GraphQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../curso3/tema8_langflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tema 8: LangFlow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Curso 4: Cápsulas Extras
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            🛠️ Curso 4: Cápsulas Extras
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🛠️ Curso 4: Cápsulas Extras
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 1: Messages
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 1: Messages
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-son-los-messages-y-para-que-sirven" class="md-nav__link">
+    <span class="md-ellipsis">
+      💬 Qué son los Messages y para qué sirven
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuando-se-recomienda-su-uso-y-por-que" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 ¿Cuándo se recomienda su uso y por qué?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Tipos de Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧱 Tipos de Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#humanmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧑‍💻 HumanMessage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤖 AIMessage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 ToolMessage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functionmessage-deprecated-en-algunos-casos-revisar-compatibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ FunctionMessage (deprecated en algunos casos, revisar compatibilidad)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ SystemMessage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 Recursos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Resumen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideraciones-finales-y-ayudas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Consideraciones finales y ayudas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capsula2_statein_stateout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 2: State In & State Out
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capsula3_agent_chat_ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 3: Agent Chat UI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capsula4_langmem_sdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 4: LangMem SDK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capsula5_computer_use_agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cápsula 5: Computer Use Agents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-son-los-messages-y-para-que-sirven" class="md-nav__link">
+    <span class="md-ellipsis">
+      💬 Qué son los Messages y para qué sirven
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cuando-se-recomienda-su-uso-y-por-que" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 ¿Cuándo se recomienda su uso y por qué?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Tipos de Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧱 Tipos de Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#humanmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧑‍💻 HumanMessage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤖 AIMessage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 ToolMessage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functionmessage-deprecated-en-algunos-casos-revisar-compatibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ FunctionMessage (deprecated en algunos casos, revisar compatibilidad)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemmessage" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ SystemMessage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔎 Recursos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Resumen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideraciones-finales-y-ayudas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Consideraciones finales y ayudas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="capsula-1-messages">💬 Cápsula 1: Messages</h1>
+<h2 id="que-son-los-messages-y-para-que-sirven">💬 Qué son los Messages y para qué sirven</h2>
+<p>En LangGraph (y en LangChain en general), los <code>Messages</code> son objetos que representan piezas de conversación o interacción entre el humano, el modelo de lenguaje (IA), el sistema o herramientas externas.</p>
+<p>Estos mensajes encapsulan el contenido del diálogo y ayudan a estructurar correctamente las interacciones para que los modelos entiendan el contexto de forma clara y ordenada.</p>
+<div class="admonition tip">
+<p class="admonition-title">Piensa en los <code>Messages</code> como los actores de una conversación</p>
+<p>Cada uno tiene su rol definido: algunos hablan, otros dan contexto, y otros entregan resultados de herramientas.</p>
+</div>
+<hr />
+<h2 id="cuando-se-recomienda-su-uso-y-por-que">🧭 ¿Cuándo se recomienda su uso y por qué?</h2>
+<p>Usar <code>Messages</code> te permite construir flujos conversacionales <strong>más claros, escalables y reutilizables</strong>. Son especialmente útiles cuando trabajamos con:</p>
+<ul>
+<li>🔁 Conversaciones multi-turno (más de una interacción)</li>
+<li>🧠 Modelos que necesitan mantener el contexto</li>
+<li>🔧 Herramientas (como <code>ToolMessage</code>) en agentes o workflows</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Ventajas de los Messages</p>
+<ul>
+<li>Claridad: cada parte del mensaje tiene un tipo específico.</li>
+<li>Compatibilidad: son totalmente compatibles con los modelos de LangChain.</li>
+<li>Escalabilidad: fáciles de componer, almacenar y modificar.</li>
+</ul>
+</div>
+<hr />
+<h2 id="tipos-de-messages">🧱 Tipos de Messages</h2>
+<p>En LangChain, disponemos de varios tipos de mensajes. Cada uno tiene una función distinta, y todos heredan de la clase base <code>BaseMessage</code>.</p>
+<h3 id="humanmessage">🧑‍💻 <code>HumanMessage</code></h3>
+<p>Representa lo que dice el usuario humano.</p>
+<p><strong>Atributos</strong>:<br />
+- <code>content</code>: el texto que envía el humano<br />
+- <code>name</code>: (opcional) útil si hay múltiples usuarios</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">HumanMessage</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">msg</span> <span class="o">=</span> <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;Hola, ¿me puedes ayudar con un resumen?&quot;</span><span class="p">)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="aimessage">🤖 <code>AIMessage</code></h3>
+<p>Representa la respuesta generada por el modelo de IA.</p>
+<p><strong>Atributos</strong>:<br />
+- <code>content</code>: la respuesta de la IA<br />
+- <code>name</code>: (opcional) nombre de la IA si se desea especificar<br />
+- <code>tool_calls</code>: (opcional) lista de herramientas llamadas por la IA<br />
+- <code>function_call</code>: (opcional) si se usó una función  </p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">AIMessage</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">msg</span> <span class="o">=</span> <span class="n">AIMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;Claro, ¿sobre qué tema necesitas el resumen?&quot;</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="toolmessage">🧰 <code>ToolMessage</code></h3>
+<p>Representa la respuesta de una herramienta que ha sido llamada por el modelo.</p>
+<p><strong>Atributos</strong>:<br />
+- <code>tool_call_id</code>: el ID que relaciona esta respuesta con su llamada<br />
+- <code>content</code>: lo que responde la herramienta</p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToolMessage</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">msg</span> <span class="o">=</span> <span class="n">ToolMessage</span><span class="p">(</span><span class="n">tool_call_id</span><span class="o">=</span><span class="s2">&quot;tool-1&quot;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;La temperatura actual es 21°C.&quot;</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="functionmessage-deprecated-en-algunos-casos-revisar-compatibilidad">🛠️ <code>FunctionMessage</code> <em>(deprecated en algunos casos, revisar compatibilidad)</em></h3>
+<p>Usado para representar mensajes derivados de funciones específicas.</p>
+<p><strong>Atributos</strong>:<br />
+- <code>name</code>: nombre de la función<br />
+- <code>content</code>: resultado textual  </p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">FunctionMessage</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">msg</span> <span class="o">=</span> <span class="n">FunctionMessage</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;get_weather&quot;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;Hoy hace sol con 21°C.&quot;</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="systemmessage">⚙️ <code>SystemMessage</code></h3>
+<p>Proporciona instrucciones al modelo. No lo ve el usuario, solo el modelo.</p>
+<p><strong>Atributos</strong>:<br />
+- <code>content</code>: las instrucciones del sistema<br />
+- <code>name</code>: (opcional)  </p>
+<p><strong>Ejemplo</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_core.messages</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemMessage</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">msg</span> <span class="o">=</span> <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;Eres un asistente útil y conciso.&quot;</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="recursos">🔎 Recursos:</h2>
+<ul>
+<li>📚 Definición: <a href="https://python.langchain.com/docs/concepts/messages/">Messages</a></li>
+</ul>
+<hr />
+<h2 id="resumen">🧠 Resumen</h2>
+<p>Hemos aprendido que:</p>
+<ul>
+<li>Los <code>Messages</code> son piezas clave para estructurar interacciones.</li>
+<li>Usarlos mejora la claridad y mantenimiento de nuestro flujo conversacional.</li>
+<li>Hay distintos tipos con roles bien definidos: usuario, IA, sistema y herramientas.</li>
+<li>Cada mensaje tiene atributos específicos y se puede crear fácilmente con clases de LangChain.</li>
+</ul>
+<hr />
+<h2 id="consideraciones-finales-y-ayudas">🔍 Consideraciones finales y ayudas</h2>
+<div class="admonition warning">
+<p class="admonition-title">¡Cuidado con el orden!</p>
+<p>El orden en que se agregan los <code>Messages</code> importa mucho. El modelo interpreta la conversación como un historial cronológico, ¡no lo confundas!</p>
+</div>
+<p>Si estás trabajando con agentes o LangGraph, esta forma de modelar la conversación se vuelve esencial. ¡Dominar los <code>Messages</code> te dará control total sobre cómo interactúan los nodos de tu grafo!</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Creado por Raul Jimenez Morales.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.expand", "toc.follow", "content.tabs.link", "search.share", "search.highlight", "search.suggest", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

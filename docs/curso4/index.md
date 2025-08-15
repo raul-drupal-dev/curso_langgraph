@@ -7,7 +7,7 @@ Hasta ahora, ya hemos recorrido los fundamentos esenciales y comprendido cómo c
 Este nuevo curso tiene un enfoque distinto: **aquí vamos a detenernos para mirar más de cerca** aspectos que ya conocemos, pero que merecen una explicación más detallada. También será el lugar donde iremos incorporando **nuevas funcionalidades, conceptos y mejoras** que vayan surgiendo con el tiempo.
 
 !!! info "Una sección viva"
-Este módulo está pensado para crecer con el tiempo. Cada vez que aparezca un tema nuevo o haya algo importante que profundizar, lo añadiremos aquí. ¡No olvides volver de vez en cuando!
+    Este módulo está pensado para crecer con el tiempo. Cada vez que aparezca un tema nuevo o haya algo importante que profundizar, lo añadiremos aquí. ¡No olvides volver de vez en cuando!
 
 ---
 
@@ -31,6 +31,7 @@ A continuación, te dejo la lista de temas abordados en esta sección. ¡Se irá
 - 💬 [Cápsula 2: State In - State Out](capsula2_statein_stateout.md)
 - 💬 [Cápsula 3: Agent Chat UI](capsula3_agent_chat_ui.md)
 - 💬 [Cápsula 4: LangMem SDK](capsula4_langmem_sdk.md)
+- 💬 [Cápsula 5: Computer Use Agents](capsula5_computer_use_agents.md)
 
 _Más temas próximamente..._
 

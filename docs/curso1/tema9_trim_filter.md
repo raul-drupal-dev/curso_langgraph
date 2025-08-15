@@ -1,54 +1,56 @@
-# ✂️ Tema 8: Trim y Filter Messages – Optimización del Historial de Mensajes  
+# ✂️ Tema 8: Trim y Filter Messages – Optimización del Historial de Mensajes
 
-## 🚀 ¿Qué es el Trimming y Filtering de Mensajes?  
+## 🚀 ¿Qué es el Trimming y Filtering de Mensajes?
 
-A medida que un grafo interactúa con los usuarios, el historial de mensajes puede **crecer considerablemente**, lo que puede:  
-- **Aumentar el costo de procesamiento** para los modelos LLM.  
-- **Reducir la eficiencia** del grafo en conversaciones largas.  
-- **Diluir el contexto**, incluyendo mensajes irrelevantes.  
+A medida que un grafo interactúa con los usuarios, el historial de mensajes puede **crecer considerablemente**, lo que puede:
 
-Para solucionar esto, LangGraph ofrece herramientas que permiten **gestionar y optimizar el historial de mensajes**:  
+- **Aumentar el costo de procesamiento** para los modelos LLM.
+- **Reducir la eficiencia** del grafo en conversaciones largas.
+- **Diluir el contexto**, incluyendo mensajes irrelevantes.
 
-1. **`RemoveMessages`** – Elimina mensajes específicos.  
-2. **`trim_messages`** – Recorta el historial manteniendo solo los mensajes más recientes.  
-3. **`summarize_conversation`** – Resume la conversación para reducir la longitud del historial, manteniendo el contexto.  
+Para solucionar esto, LangGraph ofrece herramientas que permiten **gestionar y optimizar el historial de mensajes**:
+
+1. **`RemoveMessages`** – Elimina mensajes específicos.
+2. **`trim_messages`** – Recorta el historial manteniendo solo los mensajes más recientes.
+3. **`summarize_conversation`** – Resume la conversación para reducir la longitud del historial, manteniendo el contexto.
 
 ???+ Note "Nota Importante"
 
-    Al eliminar mensajes del historial, es crucial asegurarse de que la estructura de los mensajes **siga siendo válida** para el modelo LLM.  
-    Algunos modelos, como los chatbots basados en LLM, requieren que el primer mensaje sea de un **Humano** (`HumanMessage`).  
+    Al eliminar mensajes del historial, es crucial asegurarse de que la estructura de los mensajes **siga siendo válida** para el modelo LLM.
+    Algunos modelos, como los chatbots basados en LLM, requieren que el primer mensaje sea de un **Humano** (`HumanMessage`).
 
-    👉 Antes de procesar el historial, verifica que la estructura cumpla con los requisitos del modelo para evitar errores en su funcionamiento.  
-
----
-
-## 🧠 ¿Por qué es Importante?  
-
-- **Optimización del Rendimiento:** Reduce la cantidad de datos enviados al LLM.  
-- **Mejora de la Precisión:** Mantiene el contexto relevante, eliminando información redundante.  
-- **Ahorro de Costos:** Menos tokens procesados significa **menos consumo de recursos.**  
+    👉 Antes de procesar el historial, verifica que la estructura cumpla con los requisitos del modelo para evitar errores en su funcionamiento.
 
 ---
 
-## ⚙️ ¿Cómo Funciona el Trimming y Filtering?  
+## 🧠 ¿Por qué es Importante?
 
-LangGraph ofrece diferentes enfoques según el escenario:  
-- **Eliminar mensajes irrelevantes o antiguos.**  
-- **Recortar automáticamente después de alcanzar un límite.**  
-- **Resumir el historial para mantener el contexto clave.**  
-
----
-
-## 📋 Ejemplo Práctico: Chatbot con Gestión del Historial de Mensajes  
-
-Vamos a crear un chatbot que interactúa con el usuario, pero **gestiona el historial** para mantener solo los mensajes relevantes y no saturar el flujo del grafo.  
+- **Optimización del Rendimiento:** Reduce la cantidad de datos enviados al LLM.
+- **Mejora de la Precisión:** Mantiene el contexto relevante, eliminando información redundante.
+- **Ahorro de Costos:** Menos tokens procesados significa **menos consumo de recursos.**
 
 ---
 
-### 🛠️ Opción 1: Eliminar Mensajes Específicos con `RemoveMessages`  
+## ⚙️ ¿Cómo Funciona el Trimming y Filtering?
 
-Permite eliminar ciertos mensajes del historial, ideal para **eliminar mensajes duplicados o irrelevantes.**  
-  
+LangGraph ofrece diferentes enfoques según el escenario:
+
+- **Eliminar mensajes irrelevantes o antiguos.**
+- **Recortar automáticamente después de alcanzar un límite.**
+- **Resumir el historial para mantener el contexto clave.**
+
+---
+
+## 📋 Ejemplo Práctico: Chatbot con Gestión del Historial de Mensajes
+
+Vamos a crear un chatbot que interactúa con el usuario, pero **gestiona el historial** para mantener solo los mensajes relevantes y no saturar el flujo del grafo.
+
+---
+
+### 🛠️ Opción 1: Eliminar Mensajes Específicos con `RemoveMessages`
+
+Permite eliminar ciertos mensajes del historial, ideal para **eliminar mensajes duplicados o irrelevantes.**
+
 ```python hl_lines="1 9 10"
 from langchain_core.messages import HumanMessage, AIMessage, RemoveMessage
 from IPython.display import Image, display
@@ -61,8 +63,8 @@ def filter_messages(state: MessagesState):
     delete_messages = [RemoveMessage(id=m.id) for m in state["messages"][:-2]]
     return {"messages": delete_messages}
 
-def chat_model_node(state: MessagesState):  
-    # Simulamos una respuesta de un LLM.  
+def chat_model_node(state: MessagesState):
+    # Simulamos una respuesta de un LLM.
     return {"messages": [
         AIMessage(
           content="El producto B cuesta 150€ y está disponible en color rojo y azul. ¿Te interesa alguna de estas opciones?",
@@ -87,10 +89,10 @@ display(Image(graph.get_graph().draw_mermaid_png()))
 
 ```python
 messages = [
-    HumanMessage(content='Hola, necesito información sobre varios productos.', additional_kwargs={}, response_metadata={}, id='66a48850-bcf9-4500-9a0b-6a18ecad0d4a'), 
-    AIMessage(content='Claro, puedo ayudarte con eso.', additional_kwargs={}, response_metadata={}, id='46bc8fa9-452b-4f16-b5d9-65f527812b8e'), 
-    HumanMessage(content='Perfecto. Empecemos con el producto A.', additional_kwargs={}, response_metadata={}, id='ef3742dd-87ac-443a-bbff-72282fb4c1ca'), 
-    AIMessage(content='El producto A cuesta 100€ y está disponible.', additional_kwargs={}, response_metadata={}, id='038bff18-4498-4ca5-afa8-448c9118b1bc'), 
+    HumanMessage(content='Hola, necesito información sobre varios productos.', additional_kwargs={}, response_metadata={}, id='66a48850-bcf9-4500-9a0b-6a18ecad0d4a'),
+    AIMessage(content='Claro, puedo ayudarte con eso.', additional_kwargs={}, response_metadata={}, id='46bc8fa9-452b-4f16-b5d9-65f527812b8e'),
+    HumanMessage(content='Perfecto. Empecemos con el producto A.', additional_kwargs={}, response_metadata={}, id='ef3742dd-87ac-443a-bbff-72282fb4c1ca'),
+    AIMessage(content='El producto A cuesta 100€ y está disponible.', additional_kwargs={}, response_metadata={}, id='038bff18-4498-4ca5-afa8-448c9118b1bc'),
     HumanMessage(content='¿Y qué pasa con el producto B?', additional_kwargs={}, response_metadata={}, id='1d315b43-906e-48f0-a801-b2807e8abf0a')
     ]
 
@@ -114,11 +116,11 @@ El producto B cuesta 150€ y está disponible en color rojo y azul. ¿Te intere
 
 ---
 
-### 🛠️ Opción 2: Recorte de Mensajes con `trim_messages`  
+### 🛠️ Opción 2: Recorte de Mensajes con `trim_messages`
 
 Recorta el historial de mensajes **manteniendo solo los últimos N mensajes.**  
-Esto es útil para **evitar que el historial crezca sin control.**  
- 
+Esto es útil para **evitar que el historial crezca sin control.**
+
 ```python
 from langchain_core.messages import trim_messages
 from langchain_core.messages import HumanMessage, AIMessage
@@ -126,10 +128,10 @@ from langchain_core.messages import HumanMessage, AIMessage
 # Estado con muchos mensajes
 state = {
     "messages": [
-      HumanMessage(content='Hola, necesito información sobre varios productos.', additional_kwargs={}, response_metadata={}, id='66a48850-bcf9-4500-9a0b-6a18ecad0d4a'), 
-      AIMessage(content='Claro, puedo ayudarte con eso.', additional_kwargs={}, response_metadata={}, id='46bc8fa9-452b-4f16-b5d9-65f527812b8e'), 
-      HumanMessage(content='Perfecto. Empecemos con el producto A.', additional_kwargs={}, response_metadata={}, id='ef3742dd-87ac-443a-bbff-72282fb4c1ca'), 
-      AIMessage(content='El producto A cuesta 100€ y está disponible.', additional_kwargs={}, response_metadata={}, id='038bff18-4498-4ca5-afa8-448c9118b1bc'), 
+      HumanMessage(content='Hola, necesito información sobre varios productos.', additional_kwargs={}, response_metadata={}, id='66a48850-bcf9-4500-9a0b-6a18ecad0d4a'),
+      AIMessage(content='Claro, puedo ayudarte con eso.', additional_kwargs={}, response_metadata={}, id='46bc8fa9-452b-4f16-b5d9-65f527812b8e'),
+      HumanMessage(content='Perfecto. Empecemos con el producto A.', additional_kwargs={}, response_metadata={}, id='ef3742dd-87ac-443a-bbff-72282fb4c1ca'),
+      AIMessage(content='El producto A cuesta 100€ y está disponible.', additional_kwargs={}, response_metadata={}, id='038bff18-4498-4ca5-afa8-448c9118b1bc'),
       HumanMessage(content='¿Y qué pasa con el producto B?', additional_kwargs={}, response_metadata={}, id='1d315b43-906e-48f0-a801-b2807e8abf0a')
     ]
 }
@@ -163,33 +165,33 @@ El producto A cuesta 100€ y está disponible.
 
 ---
 
-### 🛠️ Opción 3: Resumir Conversación con `summarize_conversation`  
+### 🛠️ Opción 3: Resumir Conversación con `summarize_conversation`
 
 En lugar de eliminar mensajes, **genera un resumen de la conversación** manteniendo el contexto en menos palabras.  
-Perfecto para **mantener el contexto en conversaciones extensas.**  
- 
+Perfecto para **mantener el contexto en conversaciones extensas.**
+
 ```python
 def summarize_conversation(state: State):
-    
+
     # First, we get any existing summary
     summary = state.get("summary", "")
 
-    # Create our summarization prompt 
+    # Create our summarization prompt
     if summary:
-        
+
         # A summary already exists
         summary_message = (
             f"This is summary of the conversation to date: {summary}\n\n"
             "Extend the summary by taking into account the new messages above:"
         )
-        
+
     else:
         summary_message = "Create a summary of the conversation above:"
 
     # Add prompt to our history
     messages = state["messages"] + [HumanMessage(content=summary_message)]
     response = model.invoke(messages)
-    
+
     # Delete all but the 2 most recent messages
     delete_messages = [RemoveMessage(id=m.id) for m in state["messages"][:-2]]
     return {"summary": response.content, "messages": delete_messages}
@@ -197,23 +199,22 @@ def summarize_conversation(state: State):
 
 ???+ Tips
 
-    Veremos en más profuncidad este tema en el capítulo: [Tema 1: Chatbot Summarizing](../curso2/tema1_chatbot.md) 
+    Veremos en más profuncidad este tema en el capítulo: [Tema 1: Chatbot Summarizing](../curso2/tema1_summarizing.md)
 
 ---
 
-### 🛠️ Opción 4: Filtrar Mensajes con `filter_messages`  
+### 🛠️ Opción 4: Filtrar Mensajes con `filter_messages`
 
 La función `filter_messages` permite aplicar filtros personalizados al historial de mensajes en el grafo.  
-Esto es útil para **eliminar mensajes irrelevantes**, mantener solo ciertos tipos de mensajes o aplicar lógica más avanzada para estructurar el historial antes de enviarlo al LLM.  
-
+Esto es útil para **eliminar mensajes irrelevantes**, mantener solo ciertos tipos de mensajes o aplicar lógica más avanzada para estructurar el historial antes de enviarlo al LLM.
 
 ```python
 state = {
     "messages": [
-      HumanMessage(content='Hola, necesito información sobre varios productos.', additional_kwargs={}, response_metadata={}, id='66a48850-bcf9-4500-9a0b-6a18ecad0d4a'), 
-      AIMessage(content='Claro, puedo ayudarte con eso.', additional_kwargs={}, response_metadata={}, id='46bc8fa9-452b-4f16-b5d9-65f527812b8e'), 
-      HumanMessage(content='Perfecto. Empecemos con el producto A.', additional_kwargs={}, response_metadata={}, id='ef3742dd-87ac-443a-bbff-72282fb4c1ca'), 
-      AIMessage(content='El producto A cuesta 100€ y está disponible.', additional_kwargs={}, response_metadata={}, id='038bff18-4498-4ca5-afa8-448c9118b1bc'), 
+      HumanMessage(content='Hola, necesito información sobre varios productos.', additional_kwargs={}, response_metadata={}, id='66a48850-bcf9-4500-9a0b-6a18ecad0d4a'),
+      AIMessage(content='Claro, puedo ayudarte con eso.', additional_kwargs={}, response_metadata={}, id='46bc8fa9-452b-4f16-b5d9-65f527812b8e'),
+      HumanMessage(content='Perfecto. Empecemos con el producto A.', additional_kwargs={}, response_metadata={}, id='ef3742dd-87ac-443a-bbff-72282fb4c1ca'),
+      AIMessage(content='El producto A cuesta 100€ y está disponible.', additional_kwargs={}, response_metadata={}, id='038bff18-4498-4ca5-afa8-448c9118b1bc'),
       HumanMessage(content='¿Y qué pasa con el producto B?', additional_kwargs={}, response_metadata={}, id='1d315b43-906e-48f0-a801-b2807e8abf0a')
     ]
 }
@@ -249,26 +250,21 @@ Perfecto. Empecemos con el producto A.
 - :books: How-to-guide: [filter_messages](https://python.langchain.com/docs/how_to/filter_messages/)
 
 ---
-## 🧑‍🏫 ¿Qué Hemos Aprendido?  
 
-- **RemoveMessages:** Elimina mensajes específicos del historial.  
-- **trim_messages:** Recorta el historial a los últimos mensajes.  
-- **summarize_conversation:** Genera resúmenes que conservan el contexto sin saturar el historial.  
+## 🧑‍🏫 ¿Qué Hemos Aprendido?
+
+- **RemoveMessages:** Elimina mensajes específicos del historial.
+- **trim_messages:** Recorta el historial a los últimos mensajes.
+- **summarize_conversation:** Genera resúmenes que conservan el contexto sin saturar el historial.
 - **filter_messages:** Aplica filtros personalizados a un historial.
 
 ---
 
-## 🌐 ¿Qué es lo Siguiente?  
+## 🌐 ¿Qué es lo Siguiente?
 
 🎉 **¡Has completado el Curso 1: Fundamentos de LangGraph!**  
-En este curso, aprendiste los conceptos esenciales de LangGraph, desde la definición de nodos y edges, hasta el uso de chains, routers, reducers y herramientas avanzadas como trim y filter messages.  
+En este curso, aprendiste los conceptos esenciales de LangGraph, desde la definición de nodos y edges, hasta el uso de chains, routers, reducers y herramientas avanzadas como trim y filter messages.
 
 En el **Curso 2**, llevaremos tus conocimientos al siguiente nivel:  
 Aprenderás a integrar LangGraph en aplicaciones reales, explorar el uso de memoria avanzada, flujos paralelos, y cómo emplear LangGraph Studio para monitorizar y optimizar tus grafos.  
-¡Prepárate para descubrir todo lo que LangGraph puede ofrecer en escenarios complejos y dinámicos!  
-
-
-
-
-
- 
+¡Prepárate para descubrir todo lo que LangGraph puede ofrecer en escenarios complejos y dinámicos!
